@@ -14,7 +14,6 @@ if (format=="pdf")  opts_chunk$set(dev = 'pdf')
 
 ```{r, warning=FALSE, echo=FALSE, message=FALSE}
 library(readr)
-library(DT)
 
 # read package list
 pack_list <- read_tsv("https://raw.githubusercontent.com/sneumann/metaRbolomics/master/connectivity/AllMetaRbolomicsTables.csv",
@@ -28,9 +27,16 @@ pack_list <- read_tsv("https://raw.githubusercontent.com/sneumann/metaRbolomics/
                                      )
                      )
 
-metaRbolomics_show_table <- function(table_no = 1, caption = "Table 1"){
+metaRbolomics_show_table <- function(table_text = "Table 1:"){
+    require(DT)
+    require(dplyr)
+    
+    caption <- pack_list$Table %>% 
+                    unique() %>% 
+                    grep(table_text, ., value = TRUE)
+    
     pack_list %>% 
-        filter(grepl(paste0("Table ",table_no), Table)) %>% 
+        filter(grepl(table_text, Table)) %>% 
         mutate(Package = paste0('<a target=_blank href=', Code_link, '>', Package,'</a>' )) %>% 
         select(-Table, -Code_link) %>% 
         
@@ -85,11 +91,22 @@ max-width: 1200px !important;
 </style>
 
 ```{r, warning=FALSE, echo=FALSE, message=FALSE}
-metaRbolomics_show_table(1, "Table 1: R packages for mass spectrometry data handling and (pre-)processing.")
+metaRbolomics_show_table("Table 1:")
+```
+
+
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 2:")
 ```
 
 
     
+## Metabolite identification with MS/MS data
+
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 3:")
+```
+
 
 <!--chapter:end:02-mass_spectrometry_data_handling_pre_processing.Rmd-->
 

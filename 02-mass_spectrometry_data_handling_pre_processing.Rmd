@@ -19,8 +19,19 @@ max-width: 1200px !important;
 </style>
 
 ```{r, warning=FALSE, echo=FALSE, message=FALSE}
-metaRbolomics_show_table(1, "Table 1: R packages for mass spectrometry data handling and (pre-)processing.")
+metaRbolomics_show_table("Table 1:")
+```
+
+
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 2:")
 ```
 
 
     
+## Metabolite identification with MS/MS data
+
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 3:")
+```
+
