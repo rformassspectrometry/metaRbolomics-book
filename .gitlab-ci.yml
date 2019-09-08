@@ -1,0 +1,15 @@
+image: rocker/verse:3.4.1
+
+
+before_script:
+  - Rscript .gitlab-ci.R
+
+pages:
+  stage: deploy
+  script:
+  - Rscript -e "bookdown::render_book('index.Rmd', 'all', output_dir = 'public')"
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

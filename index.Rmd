@@ -1,0 +1,22 @@
+---
+title: "The MetaRbolomics book"
+author: "Jan Stanstrup"
+---
+
+
+```{r setup, include=FALSE}
+library("knitr")
+format <- opts_knit$get('rmarkdown.pandoc.to')
+
+if (format=="html") opts_chunk$set(dev = 'svg')
+if (format=="pdf")  opts_chunk$set(dev = 'pdf')
+```
+
+# Introduction
+
+<style>
+.book .book-body .page-wrapper .page-inner {
+max-width: 1200px !important;
+}
+</style>
+
