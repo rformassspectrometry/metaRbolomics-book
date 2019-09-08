@@ -14,8 +14,6 @@ if (format=="pdf")  opts_chunk$set(dev = 'pdf')
 
 ```{r, warning=FALSE, echo=FALSE, message=FALSE}
 library(readr)
-library(DT)
-library(dplyr)
 
 # read package list
 pack_list <- read_tsv("https://raw.githubusercontent.com/sneumann/metaRbolomics/master/connectivity/AllMetaRbolomicsTables.csv",
@@ -30,6 +28,9 @@ pack_list <- read_tsv("https://raw.githubusercontent.com/sneumann/metaRbolomics/
                      )
 
 metaRbolomics_show_table <- function(table_no = 1, caption = "Table 1"){
+    require(DT)
+    require(dplyr)
+    
     pack_list %>% 
         filter(grepl(paste0("Table ",table_no), Table)) %>% 
         mutate(Package = paste0('<a target=_blank href=', Code_link, '>', Package,'</a>' )) %>% 
