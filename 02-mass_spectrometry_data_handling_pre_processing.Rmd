@@ -10,7 +10,7 @@ author: "Jan Stanstrup"
 \pagebreak
 
 
-# Mass spectrometry data handling and (pre-)processing
+## Mass spectrometry data handling and (pre-)processing
 
 <style>
 .book .book-body .page-wrapper .page-inner {
@@ -18,40 +18,8 @@ max-width: 1200px !important;
 }
 </style>
 
-```{r, warning=FALSE}
-library(readr)
-library(DT)
-
-pack_list <- read_tsv("https://raw.githubusercontent.com/sneumann/metaRbolomics/master/connectivity/AllMetaRbolomicsTables.csv",
-                      col_types=cols(
-                                       Table = col_character(),
-                                       Section = col_character(),
-                                       Functionalities = col_character(),
-                                       Package = col_character(),
-                                       Code_link = col_character(),
-                                       Repo = col_character()
-                                     )
-                     )
-
-
-pack_list %>% 
-    filter(grepl("Table 1", Table)) %>% 
-    mutate(Package = paste0('<a target=_blank href=', Code_link, '>', Package,'</a>' )) %>% 
-    select(-Table, -Code_link) %>% 
-    
-    datatable(pack_list, 
-                  extensions = "RowGroup", 
-                  options = list(rowGroup=list(dataSrc=0),
-                                 ordering=FALSE,
-                                 columnDefs = list(list(visible=FALSE, targets=c(0))), # hide rownames
-                                 pageLength = -1, # show all entries
-                                 dom = 'ft' # remove nagivation
-                                 ),
-                  rownames= FALSE, 
-                  escape = FALSE,
-                  fillContainer=FALSE,
-                  caption = "Table 1: R packages for mass spectrometry data handling and (pre-)processing."
-                  )
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table(1, "Table 1: R packages for mass spectrometry data handling and (pre-)processing.")
 ```
 
 
