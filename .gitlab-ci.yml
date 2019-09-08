@@ -2,7 +2,7 @@ image: rocker/verse:3.5.3
 
 
 before_script:
-  - sudo apt-get install bzip2
+  - apt-get  -y install bzip2
   - Rscript .gitlab-ci.R
 
 pages:
