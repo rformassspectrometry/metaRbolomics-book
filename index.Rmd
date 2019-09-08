@@ -1,7 +1,10 @@
 ---
 title: "The MetaRbolomics book"
-author: "Jan Stanstrup"
+author: "Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler18, Ralf J. M. Weber, Egon Willighagen, Michael Witting,, Steffen Neumann"
+always_allow_html: yes
 ---
+
+
 
 
 ```{r setup, include=FALSE}
@@ -66,4 +69,3 @@ max-width: 1200px !important;
 }
 </style>
 
-# R-packages for metabolomics

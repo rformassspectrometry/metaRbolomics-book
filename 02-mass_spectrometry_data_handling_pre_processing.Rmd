@@ -1,6 +1,7 @@
 ---
 title: "Second chap"
-author: "Jan Stanstrup"
+author: "Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler18, Ralf J. M. Weber, Egon Willighagen, Michael Witting,, Steffen Neumann"
+always_allow_html: yes
 ---
 
 
@@ -9,6 +10,7 @@ author: "Jan Stanstrup"
 
 \pagebreak
 
+# R-packages for metabolomics
 
 ## Mass spectrometry data handling and (pre-)processing
 
