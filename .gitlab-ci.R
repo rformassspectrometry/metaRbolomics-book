@@ -8,3 +8,6 @@ r <- getOption("repos")
 install.packages("dplyr")
 install.packages("readr")
 install.packages("DT")
+
+install.packages("webshot")
+webshot::install_phantomjs()
