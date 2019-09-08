@@ -5,9 +5,9 @@ r <- getOption("repos")
   r["CRAN"] <- "http://cran.rstudio.com"
   options(repos = r)
 
-# install.packages("dplyr") # r-cran-dplyr
-# install.packages("readr") # r-cran-readr
-# install.packages("DT") # r-cran-dt
+# install.packages("dplyr") # part of docker image
+# install.packages("readr") # part of docker image
+install.packages("DT")
 
-# install.packages("webshot") # r-cran-webshot
+install.packages("webshot")
 webshot::install_phantomjs()
