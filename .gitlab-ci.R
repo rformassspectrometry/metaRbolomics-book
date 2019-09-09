@@ -10,9 +10,12 @@ r <- getOption("repos")
 # install.packages("knitr") # part of docker image
 # install.packages("purrr") # part of docker image
 
-install.packages("bookdown")
 install.packages("DT")
-install.packages("kableExtra")
+
+install.packages("remotes")
+# install.packages("kableExtra")
+haozhu233/kableExtra
+
 install.packages("tikzDevice")
 
 
