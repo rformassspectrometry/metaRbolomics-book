@@ -13,7 +13,10 @@ urlcolor: blue
 
 ```{r setup, include=FALSE}
 library(knitr)
+
 format <- opts_knit$get('rmarkdown.pandoc.to')
+options(kableExtra.latex.load_packages = FALSE)
+
 if (format=="html") opts_chunk$set(dev = 'svg')
 if (format %in% c("pdf", "latex", "epub3"))  opts_chunk$set(dev = 'pdf')
 ```
