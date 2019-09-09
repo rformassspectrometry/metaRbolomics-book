@@ -14,7 +14,7 @@ install.packages("DT")
 
 install.packages("remotes")
 # install.packages("kableExtra")
-haozhu233/kableExtra
+remotes::install_github("haozhu233/kableExtra")
 
 install.packages("tikzDevice")
 
