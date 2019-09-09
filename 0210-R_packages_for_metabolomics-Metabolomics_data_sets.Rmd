@@ -1,0 +1,8 @@
+`r pagebreak()`
+
+## Metabolomics data sets
+
+```{r tab12, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 12:")
+```
+

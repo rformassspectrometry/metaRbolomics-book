@@ -1,0 +1,18 @@
+`r pagebreak()`
+
+## Network analysis and biochemical pathways
+
+### Network infrastructure and analysis
+
+### Metabolite annotation
+
+### Generation of metabolic networks
+
+### Pathway analysis
+
+### Pathway resources and interfaces
+
+```{r tab8, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 8:")
+```
+

@@ -1,0 +1,28 @@
+`r pagebreak()`
+
+## Mass spectrometry data handling and (pre-)processing
+
+### Profile mode and centroided data
+
+### Direct infusion mass spectrometry data
+
+### Hyphenated MS and non-targeted data
+
+### Targeted data and alternative representations of data
+
+### Additional dimensionality
+
+### Structuring data and metadata
+
+
+```{r tab1, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 1:")
+```
+
+
+
+### Ion species grouping and annotation
+
+```{r tab2, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 2:")
+```

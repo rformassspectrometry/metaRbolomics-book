@@ -1,0 +1,7 @@
+`r pagebreak()`
+
+## NMR data handling and (pre-)processing 
+
+```{r tab4, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 4:")
+```

@@ -1,0 +1,7 @@
+`r pagebreak()`
+
+## Handling of molecule structures and chemical structure databases
+
+```{r tab7, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 7:")
+```

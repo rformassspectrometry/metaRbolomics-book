@@ -1,0 +1,7 @@
+`r pagebreak()`
+
+## UV data handling and (pre-)processing
+
+```{r tab5, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 5:")
+```

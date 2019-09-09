@@ -1,0 +1,13 @@
+`r pagebreak()`
+
+## Metabolite identification with MS/MS data
+
+### MS/MS data handling, spectral matching and clustering
+
+
+```{r tab3, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 3:")
+```
+
+
+### Reading of spectral databases

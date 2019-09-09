@@ -1,0 +1,7 @@
+`r pagebreak()`
+
+## Statistical analysis of metabolomics data
+
+```{r tab6, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 6:")
+```
