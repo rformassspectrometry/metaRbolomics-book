@@ -141,6 +141,6 @@ metaRbolomics_show_table <- function(table_text = "Table 1:"){
 
 
 
-# Preface
+# Preface {-}
 
 
