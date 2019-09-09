@@ -1,0 +1,111 @@
+`r pagebreak()`
+
+## Appendix 1: The MSP File Format and package support {-}
+
+
+```
+Name: unknown
+Num Peaks: 2
+85.345 100; 76.321 50;
+```
+**Listing S1:** Example for the basic NIST format.
+
+<br/><br/><br/><br/>
+
+
+<div style="overflow: auto;">
+<div class="column-left">
+
+```
+Name: 1-Methylhistidine
+Synon: (2S)-2-amino-3-(1-methyl-1H-imidazol-4-yl)propanoic acid
+SYNON: $:00in-source
+DB#: HMDB0000001_c_ms_1469
+InChIKey: BRMWTNUJHUMWMS-LURJTMIESA-N
+Instrument_type: GC-MS
+Retention_index: 1807.71
+Formula: C7H11N3O2
+MW: 169
+ExactMass: 169.0851
+Comments: "column=5%-phenyl-95%-dimethylpolysiloxane capillary column" "derivatization type=2 TMS" "derivatization formula=C13H27N3O2Si2" "derivative mw=313.544" "retention index=1807.71" "retention index type=based on 9 n-alkanes (C10–C36)" "instrument type=GC-MS" "chromatography type=GC" "cas number=332-80-9" "molecular formula=C7H11N3O2" "total exact mass=169.085126592" "InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N"
+Num Peaks: 10
+ 70  0.014;  71  0.007;  72  0.02;  76  0.008;  77  0.008;
+ 78  0.002;  79  0.003;  80  0.005;  81  0.108;  82  0.017;
+```
+
+</div>
+
+<div class="column-right">
+
+```
+NAME: Aspartame; LC-ESI-ITFT; MS2; CE
+PRECURSORMZ: 295.128848
+PRECURSORTYPE: [M+H]+
+INSTRUMENTTYPE: LC-ESI-ITFT
+SMILES: COC(=O)C(CC1=CC=CC=C1)N=C(O)C(N)CC(O)=O
+INCHIKEY: IAOZJIPTCAWIRG-UHFFFAOYNA-N
+Ontology: Peptides
+COLLISIONENERGY: 35
+FORMULA: C14H18N2O5
+RETENTIONTIME:  
+IONMODE: Positive
+Comment: registered in MassBank
+Num Peaks: 9
+120.0804    13
+180.10201    138
+217.0968    14
+235.10789    390
+245.0921    274
+260.09171    132
+263.1026    286
+277.11859    1000
+278.1022    28
+```
+
+</div>
+</div>
+
+
+<div>
+<div class="column-left">
+**Listing S2:** Example for the canonical NIST format.
+</div>
+<div class="column-right">
+**Listing S3:** RIKEN PRIME msp format example.
+</div>
+</div>
+
+<div style="float: left; width: 100%;">
+</div>
+
+
+
+
+
+<br/><br/><br/><br/>
+
+**Table S1:** Overview of MS/MS handling in different R packages. ‘-’ means not available, for the remaining entries see the text above.
+
+<div style="text-align: left;">
+
+| package      | read msp                 | write msp                | spectral matching and additional information                           |
+|--------------|--------------------------|--------------------------|------------------------------------------------------------------------|
+| baitmet      |                          |                          | N vs DB; cosine, Stein & Scott composite similarity product            |
+| compMS2Miner | NIST, RIKEN PRIME msp    | RIKEN PRIME msp          | N vs DB; dot product                                                   |
+| enviGCMS     |                          | basic NIST               |                                                                        |
+| erah         | NIST                     | only result export       | N vs DB; cosine                                                        |
+| flagme       |                          | only result export       |                                                                        |
+| metaMS       | NIST                     | NIST; slow               | 1 vs DB, N vs DB; proprietary                                          |
+| MatchWeiz    |                          |                          | N vs DB; X-Rank                                                        |
+| MetCirc      |                          |                          | N vs N; normalized dot product;                                        |
+|              |                          |                          | will switch to MSnbase functions soon                                  |
+| MSeasy       |                          | only result export       | N vs DB; Queries the NIST mass spectral search tool                    |
+| MSnbase      | **                       | **                       | 1 vs 1, N vs N; dot product and more, user def.                        |
+| msPurity     |                          |                          | N vs DB; dot product                                                   |
+| OrgMassSpecR | basic NIST               | basic NIST               | 1 vs 1; normalized dot product                                         |
+| RAMClustR    |                          |                          | RAMClustR can import and utilize spectrum similarities from MS-FINDER; |
+| rTANDEM      |                          |                          | N vs DB; dot product; R wrapper for X!Tandem software                  |
+| SwathXtend   | - (PeakView / OpenSWATH) | - (PeakView / OpenSWATH) |                                                                        |
+| TargetSearch | NIST (with error)        | NIST                     | N vs DB; RI-based                                                      |
+
+</div>
