@@ -7,7 +7,14 @@ r <- getOption("repos")
 
 # install.packages("dplyr") # part of docker image
 # install.packages("readr") # part of docker image
+# install.packages("knitr") # part of docker image
+# install.packages("purrr") # part of docker image
 install.packages("DT")
+install.packages("kableExtra")
+install.packages("tikzDevice")
+
+
+
 
 install.packages("webshot")
 webshot::install_phantomjs()

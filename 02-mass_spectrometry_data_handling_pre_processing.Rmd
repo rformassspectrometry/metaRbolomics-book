@@ -1,6 +1,6 @@
 ---
-title: "Second chap"
-author: "Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler18, Ralf J. M. Weber, Egon Willighagen, Michael Witting,, Steffen Neumann"
+title: "R-packages for metabolomics"
+author: "Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann"
 always_allow_html: yes
 ---
 
@@ -14,11 +14,6 @@ always_allow_html: yes
 
 ## Mass spectrometry data handling and (pre-)processing
 
-<style>
-.book .book-body .page-wrapper .page-inner {
-max-width: 1200px !important;
-}
-</style>
 
 ```{r, warning=FALSE, echo=FALSE, message=FALSE}
 metaRbolomics_show_table("Table 1:")
