@@ -113,7 +113,7 @@ vn <- visNetwork(nodes = data$nodes,
 vn
 ```
 
-Figure 2: Dependency network of R packages. Shown in blue are packages mentioned in the review. Edges connect to packages that depend on another package, as long as that is in CRAN or BioC. Green nodes correspond to packages in CRAN or BioC not covered in the review. Not shown are 1) infrastructure packages e.g. rJava, Rcpp 2) packages from the review without reverse dependencies and 3) data packages. Some packages from the review are not in current versions of CRAN or BioC. An interactive version of this figure is available from https://sneumann.github.io/metaRbolomics/revDepNet.html.
+Figure S2: Dependency network of R packages. Shown in blue are packages mentioned in the review. Edges connect to packages that depend on another package, as long as that is in CRAN or BioC. Green nodes correspond to packages in CRAN or BioC not covered in the review. Not shown are 1) infrastructure packages e.g. rJava, Rcpp 2) packages from the review without reverse dependencies and 3) data packages. Some packages from the review are not in current versions of CRAN or BioC. An interactive version of this figure is available from [https://stanstrup.gitlab.io/metaRbolomics-book/appendix-2-metarbolomics-dependencies-network.html](appendix-2-metarbolomics-dependencies-network.html).
 
 
 
@@ -158,12 +158,12 @@ You ca access the files at:
 
 ### Notes {-}
 
-The source code for this page is on GitHub at [github.com/sneumann/metaRbolomics](https://github.com/sneumann/metaRbolomics)
+The source code for this page is on GitHub at [gitlab.com/stanstrup/metaRbolomics-book](https://gitlab.com/stanstrup/metaRbolomics-book)
 
 The HTML output is shown at 
-[sneumann.github.io/metaRbolomics/revDepNet.html](https://sneumann.github.io/metaRbolomics/revDepNet.html)
+[https://stanstrup.gitlab.io/metaRbolomics-book/appendix-2-metarbolomics-dependencies-network.html](appendix-2-metarbolomics-dependencies-network.html)
 
-and [sneumann.github.io/metaRbolomics/vn.html](https://sneumann.github.io/metaRbolomics/vn.html) (Caveat: long rendering time, blank page without any visible progress)
+and [https://stanstrup.gitlab.io/metaRbolomics-book/vn.html](vn.html) (Caveat: long rendering time, blank page without any visible progress)
 
 This page was created with the following packages:
 
