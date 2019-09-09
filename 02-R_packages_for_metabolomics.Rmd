@@ -1,0 +1,129 @@
+---
+title: "The MetaRbolomics book"
+author: "Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann"
+always_allow_html: yes
+---
+
+
+
+
+
+\pagebreak
+
+# R-packages for metabolomics
+
+<br/><br/><br/><br/><br/><br/>
+
+## Mass spectrometry data handling and (pre-)processing
+
+### Profile mode and centroided data
+
+### Direct infusion mass spectrometry data
+
+### Hyphenated MS and non-targeted data
+
+### Targeted data and alternative representations of data
+
+### Additional dimensionality
+
+### Structuring data and metadata
+
+
+```{r tab1, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 1:")
+```
+
+
+
+### Ion species grouping and annotation
+
+```{r tab2, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 2:")
+```
+
+
+
+\pagebreak
+
+<br/><br/><br/><br/><br/><br/>
+
+## Metabolite identification with MS/MS data
+
+### MS/MS data handling, spectral matching and clustering
+
+
+```{r tab3, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 3:")
+```
+
+
+### Reading of spectral databases
+
+
+## NMR data handling and (pre-)processing 
+
+```{r tab4, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 4:")
+```
+
+
+## UV data handling and (pre-)processing
+
+```{r tab5, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 5:")
+```
+
+
+## Statistical analysis of metabolomics data
+
+```{r tab6, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 6:")
+```
+
+
+## Handling of molecule structures and chemical structure databases
+
+```{r tab7, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 7:")
+```
+
+
+## Network analysis and biochemical pathways
+
+### Network infrastructure and analysis
+
+### Metabolite annotation
+
+### Generation of metabolic networks
+
+### Pathway analysis
+
+### Pathway resources and interfaces
+
+```{r tab8, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 8:")
+```
+
+
+## Multifunctional workflows
+
+```{r tab9, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 9:")
+```
+
+## User interfaces and workflow management systems
+
+
+```{r tab11, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 11:")
+```
+
+
+## Metabolomics data sets
+
+```{r tab12, warning=FALSE, echo=FALSE, message=FALSE}
+metaRbolomics_show_table("Table 12:")
+```
+
+
+# Conclusions
