@@ -12,6 +12,10 @@ urlcolor: blue
 
 
 ```{r setup, include=FALSE}
+r <- getOption("repos")
+r["CRAN"] <- "http://cran.rstudio.com"
+options(repos = r)
+
 library(knitr)
 
 format <- opts_knit$get('rmarkdown.pandoc.to')
@@ -25,7 +29,7 @@ if (format %in% c("pdf", "latex", "epub3"))  opts_chunk$set(dev = 'pdf')
 library(readr)
 
 # read package list
-pack_list <- read_tsv("https://raw.githubusercontent.com/sneumann/metaRbolomics/master/connectivity/AllMetaRbolomicsTables.csv",
+pack_list <- read_tsv("data/AllMetaRbolomicsTables.csv",
                       col_types=cols(
                                        Table = col_character(),
                                        Section = col_character(),

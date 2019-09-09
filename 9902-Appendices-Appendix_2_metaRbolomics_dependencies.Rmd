@@ -1,0 +1,174 @@
+---
+author: "Steffen Neumann"
+---
+
+`r pagebreak()`
+
+## Appendix 2: metaRbolomics dependencies network {-}
+
+### Libraries and settings {-}
+
+
+```{r net_setup, cacheT=TRUE}
+options("repos" = list(CRAN="http://cran.rstudio.com/"))
+
+library(devtools)   # for revdp()
+library(igraph)     # for graph_from_edgelist/( and simplify() )
+library(visNetwork) # for visNetwork() and friends
+library(networkD3)  # for saveNetwork()
+library(chromote)   # for default_chromote_object()
+library(webshot2)   # for webshot()
+library(png)        # For displaying an image
+library(dplyr)
+library(purrr)
+
+source("revDepNetHelper.R")
+
+set_default_chromote_object(Chromote$new(browser = Chrome$new(args = "--no-sandbox")))
+```
+
+
+
+### Read package names from our table {-}
+
+```{r net_packages, cache=TRUE}
+reviewTables <- read.delim("data/AllMetaRbolomicsTables.csv", stringsAsFactors = FALSE)
+reviewPkgs <- reviewTables[,"Package"]
+
+pkgs <- reviewPkgs
+```
+
+
+### Get reverse dependencies {-}
+#### For CRAN and BioC packages {-}
+
+```{r revdev, cache=TRUE}
+el <- sapply(pkgs, function(pkg) {
+  rd <- revdep(pkg, dependencies = c("Depends", "Imports", "LinkingTo"), 
+               recursive = FALSE, ignore = NULL, bioconductor = TRUE)
+  as.matrix(cbind(Package=rep(pkg, length.out=length(rd)), ReverseDep=rd))
+})
+el <- do.call(rbind, el)
+```
+
+
+
+#### For GitHub and GitLab {-}
+
+The above `devtools::revdep`  cannot read from GitHub/GitLab repositories.
+We have a helper function that downloads and parses the DESCRIPTION file from GitHub/GitLab.
+Since we cannot get reverse dependencies directly for GitHub/GitLab packages, those packages they are only used as additional reverse depedencies for the CRAN/BioC packages.
+
+```{r revdev_git, cache=TRUE}
+gitdeps_reverse <- reviewTables %>% 
+                      mutate(dep_tree = map(Code_link, get_git_deps)) %>% 
+                      pull(dep_tree) %>% 
+                      bind_rows() %>% 
+                      filter(Dep %in% el[,"Package"]) %>% 
+                      rename(Package = Dep, ReverseDep = Package) %>% 
+                      as.matrix()
+
+el <- rbind(el, gitdeps_reverse)
+```
+
+
+
+### Building dependency network {-}
+
+In total, we were analysing `r length(pkgs)` packages.
+For each package, this returns the set of packages in CRAN or BioC that depend on, import from or link to the package (i.e., its direct reverse dependencies) using the `devtools::revdep()` function. A few packages with the highest number of reverse dependencies have been excluded, as they would dominate the visualisation. 
+It was not possible to detect reverse dependencies from other hosting places such as GitHub or GitLab. 
+
+From the total, `r length(unique(el[,"Package"]))` packages had at least one 
+such reverse dependency.
+
+```{r revVisNetwork, cache=TRUE}
+
+## Remove packages with most reverse dependencies 
+## which would dominate the network
+
+el <- el[! el[,"Package"] %in% c("Rcpp", "igraph", "vegan", "caret", "rJava", "reticulate"), ]
+
+## Create graph, and simplify redundancy
+g <- graph_from_edgelist(el, directed = TRUE)
+g <- igraph::simplify(g, remove.multiple = TRUE, remove.loops = TRUE)
+
+# get data and plot :
+data <- toVisNetworkData(g)
+
+data$nodes <- cbind(data$nodes, 
+                    font.size=30, 
+                    color.background = ifelse(data$nodes[,"id"] %in% pkgs , 
+                           rgb(0, 0, 200, 128, max = 255), 
+                           rgb(0, 200, 0, 128, max = 255)))
+
+vn <- visNetwork(nodes = data$nodes, 
+                 edges = data$edges,
+                 width=1000, height=1000) %>% 
+  visPhysics(timestep = 0.3,
+             barnesHut = list(centralGravity=0.35,
+                              springLength = 95)) %>% 
+  visOptions(highlightNearest = TRUE)
+
+vn
+```
+
+Figure 2: Dependency network of R packages. Shown in blue are packages mentioned in the review. Edges connect to packages that depend on another package, as long as that is in CRAN or BioC. Green nodes correspond to packages in CRAN or BioC not covered in the review. Not shown are 1) infrastructure packages e.g. rJava, Rcpp 2) packages from the review without reverse dependencies and 3) data packages. Some packages from the review are not in current versions of CRAN or BioC. An interactive version of this figure is available from https://sneumann.github.io/metaRbolomics/revDepNet.html.
+
+
+
+### Save network plot {-}
+
+```{r fileVis}
+saveNetwork(vn, "vn.html")
+webshot("vn.html", "revDepNet-60.png", delay = 60)
+```
+
+```{r fileVisZoom}
+
+vnZoom <- visNetwork(nodes = data$nodes, 
+                 edges = data$edges,
+                 width=1000, height=1000) %>% 
+    visIgraphLayout()%>%
+    visEvents(type="once", startStabilizing = 'function() {
+              this.fit({nodes:["ptw", "Rnmr1D", "RpeakChrom", "alsace", 
+                               "PepsNMR", "ASICS", "MODIS", "RGCxGC"]})
+            }')
+saveNetwork(vnZoom, "vnZoom.html")
+webshot("vnZoom.html", "revDepNet-zoom.png", delay = 5)
+```
+
+
+```{r file_move, echo=FALSE, message=FALSE, results = FALSE}
+# Move files into place for publication
+file.rename("vn.html", "public/vn.html")
+file.rename("revDepNet-60.png", "public/revDepNet-60.png")
+file.rename("vnZoom.html", "public/vnZoom.html")
+file.rename("revDepNet-zoom.png", "public/revDepNet-zoom.png")
+```
+
+
+You ca access the files at:
+
+* [vn.html](vn.html)
+* [revDepNet-60.png](revDepNet-60.png)
+* [vnZoom.html](vnZoom.html)
+* [revDepNet-zoom.png](revDepNet-zoom.png)
+
+
+### Notes {-}
+
+The source code for this page is on GitHub at [github.com/sneumann/metaRbolomics](https://github.com/sneumann/metaRbolomics)
+
+The HTML output is shown at 
+[sneumann.github.io/metaRbolomics/revDepNet.html](https://sneumann.github.io/metaRbolomics/revDepNet.html)
+
+and [sneumann.github.io/metaRbolomics/vn.html](https://sneumann.github.io/metaRbolomics/vn.html) (Caveat: long rendering time, blank page without any visible progress)
+
+This page was created with the following packages:
+
+```{r net_sessionInfo}
+sessionInfo()
+```
+
+

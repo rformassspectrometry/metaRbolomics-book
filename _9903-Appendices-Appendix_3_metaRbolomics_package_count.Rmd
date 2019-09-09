@@ -1,0 +1,57 @@
+---
+author: "Steffen Neumann"
+---
+
+`r pagebreak()`
+
+## Appendix 3: metaRbolomics package count {-}
+    
+```{r setup_pack_count, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(miniCRAN)
+source("miniMetabolomicsHelper.R")
+
+```
+
+
+```{r packages_pack_count}
+
+url="http://www.bioconductor.org/packages/3.9/bioc/"
+
+all_pkgs <- biocAndCranPackages(bioc_url=url)
+views <- c("Metabolomics", "Cheminformatics", "Lipidomics", "SystemsBiology")
+
+packagesAndViews <- allPackagesInViews(url)
+
+vpkgs <- lapply(views, function(view) packagesInView(view, packagesAndViews=packagesAndViews))
+names(vpkgs) <- views
+```
+
+The Comprehensive R Archive Network (better known as CRAN) repository contains more than `r table(all_pkgs)["http://cran.rstudio.com/src/contrib"]` packages for many application areas.
+
+
+| Repository                 | No. of packages                       |
+| -------------------------- | -------------------------------------:|
+| CRAN                       | `r table(all_pkgs)["http://cran.rstudio.com/src/contrib"]`   |
+| BioC                       | `r table(all_pkgs[,"Repository"])[paste(url, "src/contrib", sep="")]`   |
+
+
+On BioC, packages are sorted (by their respective authors) into “BioC Views”, where the most relevant ones for metabolomics are Cheminformatics (`r length(vpkgs[["Cheminformatics"]])`), Lipidomics (`r length(vpkgs[["Lipidomics"]])`), SystemsBiology (`r length(vpkgs[["SystemsBiology"]])`) and, of course, Metabolomics (`r length(vpkgs[["Metabolomics"]])`).
+
+
+
+| View                 | No. of packages                       |
+| -------------------- | -------------------------------------:|
+| Metabolomics         | `r length(vpkgs[["Metabolomics"]])`   |
+| Cheminformatics      | `r length(vpkgs[["Cheminformatics"]])`|
+| Lipidomics           | `r length(vpkgs[["Lipidomics"]])`     |
+| SystemsBiology       | `r length(vpkgs[["SystemsBiology"]])` |
+
+### SessionInfo {-}
+
+This page was created with the following packages:
+
+```{r sessionInfo_pack_count}
+sessionInfo()
+```

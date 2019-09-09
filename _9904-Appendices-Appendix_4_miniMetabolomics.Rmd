@@ -1,0 +1,151 @@
+---
+author: "Steffen Neumann"
+---
+
+`r pagebreak()`
+
+## Appendix 4: miniMetabolomics {-}
+
+
+```{r setup_mini, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options("repos" = list(CRAN="http://cran.rstudio.com/"))
+
+library(miniCRAN)
+library(igraph)
+library(magrittr)
+library(networkD3)
+
+source("miniMetabolomicsHelper.R")
+
+```
+
+```{r packages}
+
+url="http://www.bioconductor.org/packages/3.9/bioc/"
+
+all_pkgs <- biocAndCranPackages(bioc_url=url)
+views <- c("Metabolomics", "Cheminformatics", "Lipidomics", "SystemsBiology")
+
+packagesAndViews <- allPackagesInViews(url)
+
+vpkglist <- lapply(views, function(view) packagesInView(view, packagesAndViews=packagesAndViews))
+names(vpkglist) <- views
+
+vpkgs <- unlist(vpkglist)
+
+```
+
+| Repository                 | No. of packages                       |
+| -------------------------- | -------------------------------------:|
+| CRAN                       | `r table(all_pkgs)["http://cran.rstudio.com/src/contrib"]`   |
+| BioC                       | `r table(all_pkgs[,"Repository"])[paste(url, "src/contrib", sep="")]`   |
+
+
+
+| View                 | No. of packages                       |
+| -------------------- | -------------------------------------:|
+| Metabolomics         | `r length(vpkglist[["Metabolomics"]])`   |
+| Cheminformatics      | `r length(vpkglist[["Cheminformatics"]])`|
+| Lipidomics           | `r length(vpkglist[["Lipidomics"]])`     |
+| SystemsBiology       | `r length(vpkglist[["SystemsBiology"]])` |
+
+
+
+
+```{r dependencies}
+
+dg <- makeDepGraph(vpkgs, availPkgs=all_pkgs[vpkgs,], suggests = FALSE, enhances = FALSE)
+write.graph(dg, file="metaRbolomics.graphML", format="graphml")
+
+```
+
+
+
+```{r denetwork}
+
+# Remove all nodes with fewer than 1 edges
+deg <- degree(dg, mode = "in")
+idx <- names(which(deg > 0))
+gn <- induced.subgraph(dg, idx)
+
+# Extract into data frame and plot
+gd <- get.data.frame(gn, what = "edges")
+simpleNetwork(gd, fontSize = 12)
+
+```
+
+```{r contract}
+gs <- dg
+
+set.seed(42)
+# Compute communities (clusters)
+cl <- walktrap.community(gs, steps = 5)
+cl$degree <- (degree(gs)[cl$names])
+
+# Assign node with highest degree as name for each cluster
+cl$cluster <- unname(ave(cl$degree, cl$membership, 
+                         FUN=function(x)names(x)[which.max(x)])
+)
+V(gs)$name <- cl$cluster
+
+# Contract graph ----------------------------------------------------------
+
+# Contract vertices
+E(gs)$weight <- 1
+V(gs)$weight <- 1
+gcon <- contract.vertices(gs, cl$membership, 
+                          vertex.attr.comb = list(weight = "sum", name = function(x)x[1], "ignore"))
+
+# Simplify edges
+gcon <- simplify(gcon, edge.attr.comb = list(weight = "sum", function(x)length(x)))
+
+## weight threshhold determines how many nodes are shown
+gcc <- induced.subgraph(gcon, V(gcon)$weight > 0.5)
+V(gcc)$degree <- unname(degree(gcc))
+
+#  ------------------------------------------------------------------------
+
+set.seed(42)
+par(mar = rep(0.1, 4)) 
+g.layout <- layout.kamada.kawai(gcc)
+plot.igraph(gcc, edge.arrow.size = 0.1, layout = g.layout, vertex.size = 0.5 * (V(gcc)$degree))
+
+
+
+#  ------------------------------------------------------------------------
+
+
+# Extract into data frame and plot
+
+library(networkD3)
+library(visNetwork)
+library(magrittr)
+
+V(gcc)$size <- degree(gcc)
+
+gd <- get.data.frame(gcc, what = "both" )
+nodes <- with(gd[["vertices"]],
+              data.frame(
+                id =  name,
+                size =  size
+              ))
+
+visNetwork(
+  nodes = nodes, 
+  edges = gd[["edges"]],
+  height = 500,
+  width = "100%"
+) %>% 
+  visPhysics(timestep = 0.03) %>% 
+  visOptions(highlightNearest = TRUE)
+
+```
+
+## SessionInfo
+
+This page was created with the following packages:
+
+```{r sessionInfo}
+sessionInfo()
+```

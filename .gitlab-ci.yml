@@ -4,6 +4,8 @@ image: rocker/verse:3.5.3
 before_script:
   - apt-get update
   - apt-get -y install bzip2
+  - apt-get -y install chromium chromium-l10n # for webshot
+  - ENV CHROMOTE_CHROME /usr/bin/chromium
   - Rscript .gitlab-ci.R
 
 pages:
