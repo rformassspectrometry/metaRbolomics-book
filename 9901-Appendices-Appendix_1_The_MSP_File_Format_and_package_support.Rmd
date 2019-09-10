@@ -1,9 +1,3 @@
-```{r setip_app1, warning=FALSE, echo=FALSE, message=FALSE}
-source("funs.R")
-format <- opts_knit$get('rmarkdown.pandoc.to')
-```
-
-
 `r pagebreak()`
 
 ## Appendix 1: The MSP File Format and package support {-}
@@ -23,8 +17,8 @@ format <- opts_knit$get('rmarkdown.pandoc.to')
 
 ```{r getL, warning=FALSE, echo=FALSE, message=FALSE}
 
-a1 <- readLines("data/supp_L1S2.txt", encoding = "ANSI")
-b1 <- readLines("data/supp_L1S3.txt", encoding = "ANSI")
+a1 <- readLines("data/supp_L1S2.txt")
+b1 <- readLines("data/supp_L1S3.txt")
 
 if (format %in% c("html", "epub3")) {
     
@@ -55,8 +49,8 @@ if (format %in% c("pdf", "latex")) {
     LS23 <- cbind(a1, b1) %>% rbind(lower)
 
     kable(LS23, format = "latex", booktabs = TRUE, escape = FALSE, col.names = NULL) %>% 
-        column_spec(1, width = "24em", border_right = TRUE) %>% 
-        column_spec(2, width = "24em") %>% 
+        column_spec(1, width = "22em", border_right = TRUE) %>% 
+        column_spec(2, width = "22em") %>% 
         row_spec(1,hline_after = TRUE) %>% 
         row_spec(2,background="white")
 }
