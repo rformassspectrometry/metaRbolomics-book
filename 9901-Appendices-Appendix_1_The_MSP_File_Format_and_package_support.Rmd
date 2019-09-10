@@ -1,88 +1,74 @@
+```{r setip_app1, warning=FALSE, echo=FALSE, message=FALSE}
+source("funs.R")
+format <- opts_knit$get('rmarkdown.pandoc.to')
+```
+
+
 `r pagebreak()`
 
 ## Appendix 1: The MSP File Format and package support {-}
 
 
-```
-Name: unknown
-Num Peaks: 2
-85.345 100; 76.321 50;
-```
++---------------------------+
+|                           |
++===========================+
+| Name: unknown\            |
+| Num Peaks: 2\             |
+| 85.345 100; 76.321 50;    |
+
 **Listing S1:** Example for the basic NIST format.
 
-<br/><br/><br/><br/>
+`r breakline(4)`
 
 
-<div style="overflow: auto;">
-<div class="column-left">
+```{r getL, warning=FALSE, echo=FALSE, message=FALSE}
+
+a1 <- readLines("data/supp_L1S2.txt", encoding = "ANSI")
+b1 <- readLines("data/supp_L1S3.txt", encoding = "ANSI")
+
+if (format %in% c("html", "epub3")) {
+    
+    a1 <- a1 %>% paste(collapse="<br/>", sep = "")
+    b1 <- b1 %>% paste(collapse="<br/>", sep = "")
+    
+    lower <- cbind("**Listing S2:** Example for the canonical NIST format.", 
+                   "**Listing S3:** RIKEN PRIME msp format example."
+                  )
+    
+    LS23 <- cbind(a1, b1) %>% rbind(lower)
+    
+    kable(LS23, escape = FALSE, col.names = NULL) %>% 
+        column_spec(1, width = "50%", border_right = TRUE) %>% 
+        column_spec(2, width = "50%") %>% 
+        row_spec(2,background="white")
+}
+
+if (format %in% c("pdf", "latex")) {
+    
+    a1 <- a1 %>% map(sanitizeTexString_V) %>% paste(collapse="\n", sep = "") %>% linebreak
+    b1 <- b1 %>% map(sanitizeTexString_V) %>% paste(collapse="\n", sep = "") %>% linebreak
+    
+    lower <- cbind("{\\bf Listing S2:} Example for the canonical NIST format.", 
+                   "{\\bf Listing S3:} RIKEN PRIME msp format example."
+                  )
+        
+    LS23 <- cbind(a1, b1) %>% rbind(lower)
+
+    kable(LS23, format = "latex", booktabs = TRUE, escape = FALSE, col.names = NULL) %>% 
+        column_spec(1, width = "24em", border_right = TRUE) %>% 
+        column_spec(2, width = "24em") %>% 
+        row_spec(1,hline_after = TRUE) %>% 
+        row_spec(2,background="white")
+}
 
 ```
-Name: 1-Methylhistidine
-Synon: (2S)-2-amino-3-(1-methyl-1H-imidazol-4-yl)propanoic acid
-SYNON: $:00in-source
-DB#: HMDB0000001_c_ms_1469
-InChIKey: BRMWTNUJHUMWMS-LURJTMIESA-N
-Instrument_type: GC-MS
-Retention_index: 1807.71
-Formula: C7H11N3O2
-MW: 169
-ExactMass: 169.0851
-Comments: "column=5%-phenyl-95%-dimethylpolysiloxane capillary column" "derivatization type=2 TMS" "derivatization formula=C13H27N3O2Si2" "derivative mw=313.544" "retention index=1807.71" "retention index type=based on 9 n-alkanes (C10–C36)" "instrument type=GC-MS" "chromatography type=GC" "cas number=332-80-9" "molecular formula=C7H11N3O2" "total exact mass=169.085126592" "InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N"
-Num Peaks: 10
- 70  0.014;  71  0.007;  72  0.02;  76  0.008;  77  0.008;
- 78  0.002;  79  0.003;  80  0.005;  81  0.108;  82  0.017;
-```
-
-</div>
-
-<div class="column-right">
-
-```
-NAME: Aspartame; LC-ESI-ITFT; MS2; CE
-PRECURSORMZ: 295.128848
-PRECURSORTYPE: [M+H]+
-INSTRUMENTTYPE: LC-ESI-ITFT
-SMILES: COC(=O)C(CC1=CC=CC=C1)N=C(O)C(N)CC(O)=O
-INCHIKEY: IAOZJIPTCAWIRG-UHFFFAOYNA-N
-Ontology: Peptides
-COLLISIONENERGY: 35
-FORMULA: C14H18N2O5
-RETENTIONTIME:  
-IONMODE: Positive
-Comment: registered in MassBank
-Num Peaks: 9
-120.0804    13
-180.10201    138
-217.0968    14
-235.10789    390
-245.0921    274
-260.09171    132
-263.1026    286
-277.11859    1000
-278.1022    28
-```
-
-</div>
-</div>
-
-
-<div>
-<div class="column-left">
-**Listing S2:** Example for the canonical NIST format.
-</div>
-<div class="column-right">
-**Listing S3:** RIKEN PRIME msp format example.
-</div>
-</div>
-
-<div style="float: left; width: 100%;">
-</div>
 
 
 
 
 
-<br/><br/><br/><br/>
+`r breakline(4)`
+`r pagebreak()`
 
 **Table S1:** Overview of MS/MS handling in different R packages. ‘-’ means not available, for the remaining entries see the text above.
 
@@ -109,3 +95,4 @@ Num Peaks: 9
 | TargetSearch | NIST (with error)        | NIST                     | N vs DB; RI-based                                                      |
 
 </div>
+

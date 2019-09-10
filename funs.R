@@ -5,6 +5,16 @@ pagebreak <- function() {
     return('<div style="page-break-before: always;" />')
 }
 
+breakline <- function(n) {
+  if(knitr::is_latex_output())
+    return(paste(rep("\\leavevmode\\newline", n), sep="", collapse=""))
+  else
+    return(paste(rep('<br/>', n), sep="", collapse=""))
+}
+
+
+sanitizeTexString_V <- function(x) if(is.na(x)) return(as.character(NA)) else return(sanitizeTexString(x))
+
 metaRbolomics_show_table <- function(table_text = "Table 1:"){
     require(DT)
     require(dplyr)
@@ -12,9 +22,6 @@ metaRbolomics_show_table <- function(table_text = "Table 1:"){
     require(kableExtra)
     require(purrr)
     require(tikzDevice) # for sanitizeTexString
-    
-    sanitizeTexString_V <- function(x) if(is.na(x)) return(as.character(NA)) else return(sanitizeTexString(x))
-
     
     caption <- pack_list$Table %>% 
                     unique() %>% 

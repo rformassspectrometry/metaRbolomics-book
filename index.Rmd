@@ -5,6 +5,7 @@ always_allow_html: yes
 header-includes:
 - \usepackage{array}
 - \usepackage[table]{xcolor}
+- \usepackage{caption}
 urlcolor: blue
 ---
 
