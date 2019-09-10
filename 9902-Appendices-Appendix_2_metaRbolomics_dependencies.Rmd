@@ -9,7 +9,7 @@ author: "Steffen Neumann"
 ### Libraries and settings {-}
 
 
-```{r net_setup, cacheT=TRUE}
+```{r net_setup, cache=TRUE}
 options("repos" = list(CRAN="http://cran.rstudio.com/"))
 
 library(devtools)   # for revdp()
