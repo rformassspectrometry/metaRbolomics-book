@@ -1,4 +1,9 @@
-# metaRbolomics-book
+# The MetaRbolomics book
+
+Repository for the on-line metaRbolomics book. Work in progress.
+
+This material, unless excplicitly otherwise stated, is be under CC-BY 4.0 licence.
+
 
 Also check:
 
