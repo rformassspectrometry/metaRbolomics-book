@@ -8,7 +8,7 @@ Retention_index: 1807.71
 Formula: C7H11N3O2
 MW: 169
 ExactMass: 169.0851
-Comments: "column=5%-phenyl-95%-dimethylpolysiloxane capillary column" "derivatization type=2 TMS" "derivatization formula=C13H27N3O2Si2" "derivative mw=313.544" "retention index=1807.71" "retention index type=based on 9 n-alkanes (C10–C36)" "instrument type=GC-MS" "chromatography type=GC" "cas number=332-80-9" "molecular formula=C7H11N3O2" "total exact mass=169.085126592" "InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N"
+Comments: "column=5%-phenyl-95%-dimethylpolysiloxane capillary column" "derivatization type=2 TMS" "derivatization formula=C13H27N3O2Si2" "derivative mw=313.544" "retention index=1807.71" "retention index type=based on 9 n-alkanes (C10â€“C36)" "instrument type=GC-MS" "chromatography type=GC" "cas number=332-80-9" "molecular formula=C7H11N3O2" "total exact mass=169.085126592" "InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N"
 Num Peaks: 10
  70  0.014;  71  0.007;  72  0.02;  76  0.008;  77  0.008;
  78  0.002;  79  0.003;  80  0.005;  81  0.108;  82  0.017;
