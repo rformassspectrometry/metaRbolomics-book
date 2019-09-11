@@ -4,6 +4,8 @@
 
 Repository for the on-line metaRbolomics book at https://rformassspectrometry.github.io/metaRbolomics-book/
 
+Including some active code that is executed upon each build. 
+
 This material, unless excplicitly otherwise stated, is be under CC-BY 4.0 licence.
 
 
