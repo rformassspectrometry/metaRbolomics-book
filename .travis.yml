@@ -27,6 +27,7 @@ addons:
 
 jobs:
   include:
+  
     - stage: "Build"
       r_packages:
         - tidyverse
@@ -45,12 +46,14 @@ jobs:
         - fastmap
         - later
         - promises
+        - devtools
         - remotes
       r_github_packages:
         - rstudio/websocket
         - rstudio/webshot2
       script: true
       name: "Build dependencies and cache"
+      
     - stage: "Deploy"
       install: skip
       script:
