@@ -7,9 +7,12 @@ sudo: required
 warnings_are_errors: false
 # We run debian stretch on gitlab/docker so lets use the same here
 dist: xenial
-
 repos:
   CRAN: http://cran.rstudio.com
+  
+branches:
+  only:
+    - master
 
 # unfortunately apt packages are not cached
 # we could use these build dependencies just in the "Build" stage and
@@ -25,51 +28,45 @@ addons:
       - chromium-browser-l10n
       - libgit2-dev # git2r  
 
-jobs:
-  include:
-  
-    - stage: "Build"
-      r_packages:
-        - tidyverse
-        - bookdown
-        - knitr
-        - DT
-        - kableExtra
-        - tikzDevice
-        - webshot
-        - fastmap
-        - miniCRAN
-        - igraph
-        - magrittr
-        - networkD3
-        - visNetwork
-        - fastmap
-        - devtools
-        - remotes
-      r_github_packages:
-        - rstudio/websocket
-        - rstudio/webshot2
-        - r-lib/later
-        - rstudio/promises
-      script: true
-      name: "Build dependencies and cache"
-      
-    - stage: "Deploy"
-      install: skip
-      before_deploy:
-        - pip install travis-wait-improved
-        - travis-wait-improved --timeout 10m Rscript -e 'webshot::install_phantomjs()'
-      name: "bookdown (on master)"
-      deploy:
-      script:
-        - travis-wait-improved --timeout 40m Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
-        provider: pages
-        skip-cleanup: true
-        github-token: $GITHUB_PAT
-        keep-history: true
-        local-dir: public
-        on:
-          branch: master
+
+r_packages:
+    - tidyverse
+    - bookdown
+    - knitr
+    - DT
+    - kableExtra
+    - tikzDevice
+    - webshot
+    - fastmap
+    - miniCRAN
+    - igraph
+    - magrittr
+    - networkD3
+    - visNetwork
+    - fastmap
+    - devtools
+    - remotes
+r_github_packages:
+    - rstudio/websocket
+    - rstudio/webshot2
+    - r-lib/later
+    - rstudio/promises
+        
+        
+script:
+    - Rscript -e 'webshot::install_phantomjs()'
+    - Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
+        
+
+deploy:
+    provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_PAT
+    keep-history: true
+    local-dir: public
+    on:
+      branch: master
+
 
 # In general the r-travis script automatically dump the logs after failure but
 # because of a bug in travis the output is often truncated. See
