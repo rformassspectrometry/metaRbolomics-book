@@ -5,7 +5,8 @@ cache:
   packages: true
 sudo: required
 warnings_are_errors: false
-dist: trusty
+# We run debian stretch on gitlab/docker so lets use the same here
+dist: xenial
 
 # unfortunately apt packages are not cached
 # we could use these build dependencies just in the "Build" stage and
@@ -15,7 +16,7 @@ dist: trusty
 before_install:
   - sudo add-apt-repository universe
   - sudo apt-get update -q
-  - sudo apt-get install bzip2 chromium chromium-l10n libgit2-dev -y
+  - sudo apt-get install bzip2 chromium-browser chromium-browser-l10n libgit2-dev -y
   
 
 jobs:
