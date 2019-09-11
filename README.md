@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/rformassspectrometry/metaRbolomics-book.svg?branch=master)](https://travis-ci.org/rformassspectrometry/metaRbolomics-book)
+
 # The MetaRbolomics book
 
-Repository for the on-line metaRbolomics book. Work in progress.
+Repository for the on-line metaRbolomics book at https://rformassspectrometry.github.io/metaRbolomics-book/
 
 This material, unless excplicitly otherwise stated, is be under CC-BY 4.0 licence.
 
