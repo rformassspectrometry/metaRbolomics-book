@@ -56,12 +56,13 @@ jobs:
       
     - stage: "Deploy"
       install: skip
-      before_script:
+      before_deploy:
+        - pip install travis-wait-improved
         - travis-wait-improved --timeout 10m Rscript -e 'webshot::install_phantomjs()'
-      script:
-        - travis-wait-improved --timeout 40m Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
       name: "bookdown (on master)"
       deploy:
+      script:
+        - travis-wait-improved --timeout 40m Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
         provider: pages
         skip-cleanup: true
         github-token: $GITHUB_PAT
