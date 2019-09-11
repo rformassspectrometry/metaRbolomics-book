@@ -46,16 +46,15 @@ jobs:
         - mkdir -p ~/.R
         - echo -e 'MAKEFLAGS = -j2' > ~/.R/Makevars
         - echo 'options(Ncpus = 2)' > ~/.Rprofile
-      script:
-        - travis_wait 10 Rscript -e 'webshot::install_phantomjs()'
+      script: true
       name: "Build dependencies and cache"
     - stage: "Deploy"
       install: skip
       script:
-        - travis_wait 20 Rscript -e 'covr::codecov()'
+        - travis_wait 20 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "docs")'
       name: "codecov and pkgdown (on master)"
       before_deploy:
-        - travis_wait 20 Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook', 'bookdown::pdf_book', 'bookdown::epub_book'), output_dir = 'docs')"
+        - travis_wait 10 Rscript -e 'webshot::install_phantomjs()'
       deploy:
         provider: pages
         skip-cleanup: true
