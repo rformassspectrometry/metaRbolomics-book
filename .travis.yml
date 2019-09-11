@@ -4,7 +4,7 @@ r: bioc-devel
 cache:
   packages: true
 sudo: required
-warnings_are_errors: true
+warnings_are_errors: false
 dist: trusty
 
 # unfortunately apt packages are not cached
@@ -42,17 +42,15 @@ jobs:
       r_github_packages:
         - rstudio/websocket
         - rstudio/webshot2
-      before_install:
-        - mkdir -p ~/.R
-        - echo -e 'MAKEFLAGS = -j2' > ~/.R/Makevars
-        - echo 'options(Ncpus = 2)' > ~/.Rprofile
       script: true
       name: "Build dependencies and cache"
+    - stage: "Check"
+      install: skip
     - stage: "Deploy"
       install: skip
       script:
         - travis_wait 20 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "docs")'
-      name: "codecov and pkgdown (on master)"
+      name: "bookdown (on master)"
       before_deploy:
         - travis_wait 10 Rscript -e 'webshot::install_phantomjs()'
       deploy:
