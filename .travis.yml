@@ -14,21 +14,15 @@ dist: trusty
 
 before_install:
   - sudo add-apt-repository universe
+  - sudo apt-get update -q
+  - sudo apt-get install bzip2 chromium chromium-l10n libgit2-dev -y
   
-  
-addons:
-  apt:
-    update: true
-    packages:
-      - bzip2
-      - chromium
-      - chromium-l10n
-      - libgit2-dev # git2r
 
 jobs:
   include:
     - stage: "Build"
       r_packages:
+        - tidyverse
         - bookdown
         - knitr
         - DT
