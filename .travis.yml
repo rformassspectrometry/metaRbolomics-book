@@ -8,6 +8,9 @@ warnings_are_errors: false
 # We run debian stretch on gitlab/docker so lets use the same here
 dist: xenial
 
+repos:
+  CRAN: http://cran.rstudio.com
+
 # unfortunately apt packages are not cached
 # we could use these build dependencies just in the "Build" stage and
 # install their runtime libraries counter parts in "Check" but that would make
