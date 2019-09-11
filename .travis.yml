@@ -25,20 +25,20 @@ jobs:
       r_packages:
         - bookdown
         - knitr
-	- DT
-	- kableExtra
-	- tikzDevice
-	- webshot
-	- fastmap
-	- miniCRAN
-	- igraph
-	- magrittr
-	- networkD3
-	- visNetwork
-	- fastmap
-	- later
-	- promises
-	- remotes
+        - DT
+        - kableExtra
+        - tikzDevice
+        - webshot
+        - fastmap
+        - miniCRAN
+        - igraph
+        - magrittr
+        - networkD3
+        - visNetwork
+        - fastmap
+        - later
+        - promises
+        - remotes
       r_github_packages:
         - rstudio/websocket
         - rstudio/webshot2
