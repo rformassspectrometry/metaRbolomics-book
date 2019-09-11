@@ -55,7 +55,7 @@ r_github_packages:
         
 script:
     - Rscript -e 'webshot::install_phantomjs()'
-    - travis_wait 20 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
+    - travis_wait 40 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
         
 
 deploy:
