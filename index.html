@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>The MetaRbolomics book</title>
+  <meta name="description" content="The MetaRbolomics book" />
+  <meta name="generator" content="bookdown 0.13.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="The MetaRbolomics book" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The MetaRbolomics book" />
+  
+  
+  
+
+<meta name="author" content="Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="introduction.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.8/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-rowgroup-1.10.16/css/rowGroup.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-rowgroup-1.10.16/js/dataTables.rowGroup.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.8/visNetwork.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The MetaRbolomics book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="metabolomics-data-processing-and-analysis.html"><a href="metabolomics-data-processing-and-analysis.html"><i class="fa fa-check"></i><b>1.1</b> Metabolomics data processing and analysis</a></li>
+<li class="chapter" data-level="1.2" data-path="the-r-package-landscape.html"><a href="the-r-package-landscape.html"><i class="fa fa-check"></i><b>1.2</b> The R package landscape</a></li>
+<li class="chapter" data-level="1.3" data-path="dependences-and-connectivity-of-metabolomics-packages.html"><a href="dependences-and-connectivity-of-metabolomics-packages.html"><i class="fa fa-check"></i><b>1.3</b> Dependences and connectivity of metabolomics packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-packages-for-metabolomics.html"><a href="r-packages-for-metabolomics.html"><i class="fa fa-check"></i><b>2</b> R-packages for metabolomics</a><ul>
+<li class="chapter" data-level="2.1" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html"><i class="fa fa-check"></i><b>2.1</b> Mass spectrometry data handling and (pre-)processing</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#profile-mode-and-centroided-data"><i class="fa fa-check"></i><b>2.1.1</b> Profile mode and centroided data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#direct-infusion-mass-spectrometry-data"><i class="fa fa-check"></i><b>2.1.2</b> Direct infusion mass spectrometry data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#hyphenated-ms-and-non-targeted-data"><i class="fa fa-check"></i><b>2.1.3</b> Hyphenated MS and non-targeted data</a></li>
+<li class="chapter" data-level="2.1.4" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#targeted-data-and-alternative-representations-of-data"><i class="fa fa-check"></i><b>2.1.4</b> Targeted data and alternative representations of data</a></li>
+<li class="chapter" data-level="2.1.5" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#additional-dimensionality"><i class="fa fa-check"></i><b>2.1.5</b> Additional dimensionality</a></li>
+<li class="chapter" data-level="2.1.6" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#structuring-data-and-metadata"><i class="fa fa-check"></i><b>2.1.6</b> Structuring data and metadata</a></li>
+<li class="chapter" data-level="2.1.7" data-path="mass-spectrometry-data-handling-and-pre-processing.html"><a href="mass-spectrometry-data-handling-and-pre-processing.html#ion-species-grouping-and-annotation"><i class="fa fa-check"></i><b>2.1.7</b> Ion species grouping and annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="metabolite-identification-with-msms-data.html"><a href="metabolite-identification-with-msms-data.html"><i class="fa fa-check"></i><b>2.2</b> Metabolite identification with MS/MS data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="metabolite-identification-with-msms-data.html"><a href="metabolite-identification-with-msms-data.html#msms-data-handling-spectral-matching-and-clustering"><i class="fa fa-check"></i><b>2.2.1</b> MS/MS data handling, spectral matching and clustering</a></li>
+<li class="chapter" data-level="2.2.2" data-path="metabolite-identification-with-msms-data.html"><a href="metabolite-identification-with-msms-data.html#reading-of-spectral-databases"><i class="fa fa-check"></i><b>2.2.2</b> Reading of spectral databases</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="nmr-data-handling-and-pre-processing.html"><a href="nmr-data-handling-and-pre-processing.html"><i class="fa fa-check"></i><b>2.3</b> NMR data handling and (pre-)processing</a></li>
+<li class="chapter" data-level="2.4" data-path="uv-data-handling-and-pre-processing.html"><a href="uv-data-handling-and-pre-processing.html"><i class="fa fa-check"></i><b>2.4</b> UV data handling and (pre-)processing</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-analysis-of-metabolomics-data.html"><a href="statistical-analysis-of-metabolomics-data.html"><i class="fa fa-check"></i><b>2.5</b> Statistical analysis of metabolomics data</a></li>
+<li class="chapter" data-level="2.6" data-path="handling-of-molecule-structures-and-chemical-structure-databases.html"><a href="handling-of-molecule-structures-and-chemical-structure-databases.html"><i class="fa fa-check"></i><b>2.6</b> Handling of molecule structures and chemical structure databases</a></li>
+<li class="chapter" data-level="2.7" data-path="network-analysis-and-biochemical-pathways.html"><a href="network-analysis-and-biochemical-pathways.html"><i class="fa fa-check"></i><b>2.7</b> Network analysis and biochemical pathways</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="network-analysis-and-biochemical-pathways.html"><a href="network-analysis-and-biochemical-pathways.html#network-infrastructure-and-analysis"><i class="fa fa-check"></i><b>2.7.1</b> Network infrastructure and analysis</a></li>
+<li class="chapter" data-level="2.7.2" data-path="network-analysis-and-biochemical-pathways.html"><a href="network-analysis-and-biochemical-pathways.html#metabolite-annotation"><i class="fa fa-check"></i><b>2.7.2</b> Metabolite annotation</a></li>
+<li class="chapter" data-level="2.7.3" data-path="network-analysis-and-biochemical-pathways.html"><a href="network-analysis-and-biochemical-pathways.html#generation-of-metabolic-networks"><i class="fa fa-check"></i><b>2.7.3</b> Generation of metabolic networks</a></li>
+<li class="chapter" data-level="2.7.4" data-path="network-analysis-and-biochemical-pathways.html"><a href="network-analysis-and-biochemical-pathways.html#pathway-analysis"><i class="fa fa-check"></i><b>2.7.4</b> Pathway analysis</a></li>
+<li class="chapter" data-level="2.7.5" data-path="network-analysis-and-biochemical-pathways.html"><a href="network-analysis-and-biochemical-pathways.html#pathway-resources-and-interfaces"><i class="fa fa-check"></i><b>2.7.5</b> Pathway resources and interfaces</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="multifunctional-workflows.html"><a href="multifunctional-workflows.html"><i class="fa fa-check"></i><b>2.8</b> Multifunctional workflows</a></li>
+<li class="chapter" data-level="2.9" data-path="user-interfaces-and-workflow-management-systems.html"><a href="user-interfaces-and-workflow-management-systems.html"><i class="fa fa-check"></i><b>2.9</b> User interfaces and workflow management systems</a></li>
+<li class="chapter" data-level="2.10" data-path="metabolomics-data-sets.html"><a href="metabolomics-data-sets.html"><i class="fa fa-check"></i><b>2.10</b> Metabolomics data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>3</b> Conclusions</a></li>
+<li class="chapter" data-level="4" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i><b>4</b> Appendices</a><ul>
+<li class="chapter" data-level="" data-path="appendix-1-the-msp-file-format-and-package-support.html"><a href="appendix-1-the-msp-file-format-and-package-support.html"><i class="fa fa-check"></i>Appendix 1: The MSP File Format and package support</a></li>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html"><i class="fa fa-check"></i>Appendix 2: metaRbolomics dependencies network</a><ul>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html#libraries-and-settings"><i class="fa fa-check"></i>Libraries and settings</a></li>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html#read-package-names-from-our-table"><i class="fa fa-check"></i>Read package names from our table</a></li>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html#get-reverse-dependencies"><i class="fa fa-check"></i>Get reverse dependencies</a></li>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html#building-dependency-network"><i class="fa fa-check"></i>Building dependency network</a></li>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html#save-network-plot"><i class="fa fa-check"></i>Save network plot</a></li>
+<li class="chapter" data-level="" data-path="appendix-2-metarbolomics-dependencies-network.html"><a href="appendix-2-metarbolomics-dependencies-network.html#notes"><i class="fa fa-check"></i>Notes</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The MetaRbolomics book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">The MetaRbolomics book</h1>
+<p class="author"><em>Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann</em></p>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+
+<div style="page-break-before: always;" />
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://gitlab.com/stanstrup/metaRbolomics-book/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["The_MetaRbolomics_book.pdf", "The_MetaRbolomics_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
