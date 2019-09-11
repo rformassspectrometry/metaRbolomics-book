@@ -13,11 +13,14 @@ dist: xenial
 # install their runtime libraries counter parts in "Check" but that would make
 # the script more complicated and saves just a few seconds
 
-before_install:
-  - sudo add-apt-repository universe
-  - sudo apt-get update -q
-  - sudo apt-get install bzip2 chromium-browser chromium-browser-l10n libgit2-dev -y
-  
+addons:
+  apt:
+    update: true
+    packages:
+      - bzip2
+      - chromium-browser
+      - chromium-browser-l10n
+      - libgit2-dev # git2r  
 
 jobs:
   include:
