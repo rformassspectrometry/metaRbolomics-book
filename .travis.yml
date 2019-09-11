@@ -13,6 +13,7 @@ dist: trusty
 # the script more complicated and saves just a few seconds
 addons:
   apt:
+    update: true
     packages:
       - bzip2
       - chromium
