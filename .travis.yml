@@ -51,8 +51,6 @@ jobs:
         - rstudio/webshot2
       script: true
       name: "Build dependencies and cache"
-    - stage: "Check"
-      install: skip
     - stage: "Deploy"
       install: skip
       script:
