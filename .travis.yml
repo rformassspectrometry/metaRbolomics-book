@@ -57,7 +57,7 @@ jobs:
     - stage: "Deploy"
       install: skip
       script:
-        - travis_wait 20 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
+        - travis_wait 40 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"), output_dir = "public")'
       name: "bookdown (on master)"
       before_deploy:
         - travis_wait 10 Rscript -e 'webshot::install_phantomjs()'
