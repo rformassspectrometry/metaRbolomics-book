@@ -11,6 +11,11 @@ dist: trusty
 # we could use these build dependencies just in the "Build" stage and
 # install their runtime libraries counter parts in "Check" but that would make
 # the script more complicated and saves just a few seconds
+
+before_install:
+  - sudo add-apt-repository universe
+  
+  
 addons:
   apt:
     update: true
