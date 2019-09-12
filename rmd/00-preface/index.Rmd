@@ -26,6 +26,7 @@ if (format %in% c("pdf", "latex", "epub3"))  opts_chunk$set(dev = 'pdf')
 ```{r table_fun, warning=FALSE, echo=FALSE, message=FALSE}
 library(readr)
 library(googlesheets)
+library(dplyr)
 
 dir.create("public/data", recursive = TRUE)
 
