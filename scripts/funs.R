@@ -99,16 +99,16 @@ metaRbolomics_show_table <- function(table_text = "Table 1:"){
                      )
                 }
         
-        
-        for(i in seq_along(Section_labels)){
-            out <- out %>% 
-                group_rows(Section_labels[i], 
-                           pos_start[i], 
-                           pos_end[i], 
-                           indent=FALSE
-                           )
+        if(!all(is.na(Section_labels))){
+            for(i in seq_along(Section_labels)){
+                out <- out %>% 
+                    group_rows(Section_labels[i], 
+                               pos_start[i], 
+                               pos_end[i], 
+                               indent=FALSE
+                               )
+            }
         }
-        
         return(out)
     }
 }
