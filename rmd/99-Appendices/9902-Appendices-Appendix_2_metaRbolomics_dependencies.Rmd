@@ -22,7 +22,7 @@ library(png)        # For displaying an image
 library(dplyr)
 library(purrr)
 
-source("revDepNetHelper.R")
+source("scripts/revDepNetHelper.R")
 
 set_default_chromote_object(Chromote$new(browser = Chrome$new(args = "--no-sandbox")))
 ```

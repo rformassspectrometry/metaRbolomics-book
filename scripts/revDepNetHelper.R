@@ -27,7 +27,9 @@ get_git_deps <- function(package_link){
   if(downfail) return(tibble())
   
   # get dependencies from downloaded file
-  package <- sub("^.+/", "", package_link)
+  package <- package_link %>% 
+              sub("/$", "", .) %>% # in case of trailing slash
+              sub("^.+/", "", .)
   
   deps <- 
     desc_get_deps(file = file) %>% 

@@ -7,12 +7,12 @@ before_script:
   - apt-get update
   - apt-get -y install bzip2
   - apt-get -y install chromium chromium-l10n # for webshot
-  - Rscript .gitlab-ci.R
+  - Rscript scripts/gitlab-ci.R
 
 pages:
   stage: deploy
   script:
-  - Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook', 'bookdown::pdf_book', 'bookdown::epub_book'), output_dir = 'public')"
+  - Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook', 'bookdown::pdf_book', 'bookdown::epub_book'))"
   artifacts:
     paths:
     - public

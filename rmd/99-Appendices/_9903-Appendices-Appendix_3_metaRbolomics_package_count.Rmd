@@ -10,7 +10,7 @@ author: "Steffen Neumann"
 knitr::opts_chunk$set(echo = TRUE)
 
 library(miniCRAN)
-source("miniMetabolomicsHelper.R")
+source("scripts/miniMetabolomicsHelper.R")
 
 ```
 

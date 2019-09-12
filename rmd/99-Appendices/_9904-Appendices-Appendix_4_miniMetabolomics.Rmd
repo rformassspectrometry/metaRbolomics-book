@@ -16,7 +16,7 @@ library(igraph)
 library(magrittr)
 library(networkD3)
 
-source("miniMetabolomicsHelper.R")
+source("scripts/miniMetabolomicsHelper.R")
 
 ```
 

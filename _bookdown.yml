@@ -3,3 +3,6 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+rmd_subdir: ["rmd"]
+output_dir: "public"
+repo: https://github.com/rformassspectrometry/metaRbolomics-book

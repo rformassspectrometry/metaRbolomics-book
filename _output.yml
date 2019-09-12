@@ -1,13 +1,13 @@
 bookdown::gitbook:
   css: style.css
-  split_by: section
+  split_by: rmd
   config:
     toc:
       before: |
         <li><a href="./">The MetaRbolomics book</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://gitlab.com/stanstrup/metaRbolomics-book/edit/master/%s
+    edit: https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/%s
     download: ["pdf", "epub"]
 bookdown::html_chapters:
   css: style.css

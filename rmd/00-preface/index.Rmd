@@ -42,7 +42,7 @@ pack_list <- read_tsv("data/AllMetaRbolomicsTables.csv",
                      )
 
 
-source("funs.R")
+source("scripts/funs.R")
 ```
 
 
