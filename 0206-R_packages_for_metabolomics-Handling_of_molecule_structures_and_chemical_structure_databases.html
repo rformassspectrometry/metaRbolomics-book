@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The MetaRbolomics book</title>
-  <meta name="description" content="The MetaRbolomics book" />
+  <title>2.6 Handling of molecule structures and chemical structure databases | The MetaRbolomics book</title>
+  <meta name="description" content="2.6 Handling of molecule structures and chemical structure databases | The MetaRbolomics book" />
   <meta name="generator" content="bookdown 0.13.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The MetaRbolomics book" />
+  <meta property="og:title" content="2.6 Handling of molecule structures and chemical structure databases | The MetaRbolomics book" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The MetaRbolomics book" />
+  <meta name="twitter:title" content="2.6 Handling of molecule structures and chemical structure databases | The MetaRbolomics book" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="0100-introduction.html"/>
+<link rel="prev" href="0205-R_packages_for_metabolomics-Statistical_analysis_of_metabolomics_data.html"/>
+<link rel="next" href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -212,42 +212,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The MetaRbolomics book</h1>
-<p class="author"><em>Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann</em></p>
-</div>
 <div style="page-break-before: always;" />
 
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="how-to" class="section level2 unnumbered">
-<h2>How to</h2>
-<p><strong>Download data</strong><br>
-The list of packages found in the tables in this book can be downloaded from
-<a href="public/data/AllMetaRbolomicsTables.csv" class="uri">public/data/AllMetaRbolomicsTables.csv</a>.</p>
-<p><strong>Add packages to the tables</strong><br>
-Go to <a href="https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing">the googlesheet</a>
-and add the package. Please be careful with adding it to the right section.
-If it belongs in more than one table add it mulitple times as appropiate.</p>
-<p>The package will not appear instantly in the book but only after a change is made to
-the book itself. You can also <a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a>
-and request the reload such that the package shows up.</p>
-<p><strong>Contributing to the text</strong><br>
-There are several options. In order of convenience for the maintainer you can:</p>
-<ul>
-<li>make a pull request on the <a href="https://github.com/rformassspectrometry/metaRbolomics-book">GitHub repository</a>. You will find the text in the <code>rmd</code> folder.</li>
-<li><a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a> with the text you want to contribute. Clearly indicate where the text belongs.</li>
-<li>Send your contribution by email to jst( a t )nexs.ku.dk.</li>
-</ul>
-<p>Remember to add yourself to author contributions.</p>
+</div>
+<div id="handling-of-molecule-structures-and-chemical-structure-databases" class="section level2">
+<h2><span class="header-section-number">2.6</span> Handling of molecule structures and chemical structure databases</h2>
+<div id="htmlwidget-9607ec2cd73aaad4293c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9607ec2cd73aaad4293c">{"x":{"filter":"none","extensions":["RowGroup"],"caption":"<caption>Table 7: R Packages for molecule structures and chemical structure databases.<\/caption>","fillContainer":false,"data":[["Structure representation and manipulation","Structure representation and manipulation","Structure representation and manipulation","Structure representation and manipulation","Structure representation and manipulation","Structure representation and manipulation","Structure representation and manipulation","Structure representation and manipulation","Database queries","Database queries","Database queries","Database queries","Database queries","Database queries","Database queries","Database queries","Database queries","Database queries"],["Subset of functions from the Chemistry Development Kit. Provide a computer readable representation of molecular structures and provide functions to import structures from different molecule structure description formats, manipulate structures, visualize structures and calculate properties and molecular fingerprints.","Similar torcdkin functionality and provides more fingerprints and clustering methods and provides additional tools through querying the ChemMine Tools web service.","Provides conversion of structure representation through OpenBabel.","Exposes functionalities of the RDKit library, including reading and writing of SF files and calculating a few physicochemical properties.","Read and write InChI and InChIKey from and torcdk.","Maximum Common Substructure Searching using ChemmineR structures.","Basic cheminformatics functions tailored for mass spectrometry applications, enhancing functionality available in other packages likercdk, enviPat, RMassBank etc.","Provides fingerprinting methods forrcdk.","Calculation of molecular properties.","Querying information from PubChem.","Querying information from various web services (CACTUS, CTS, PubChem, ChemSpider) as part of compound list generation.","Querying information from a large number of databases.","R Interface to the ClassyFire REST API.","Allows mapping of identifiers from one database to another, for metabolites, genes, proteins, and interactions.","Define utilities for exploration of human metabolome database, including functions to retrieve specific metabolite entries and data snapshots with pairwise associations.","Parsers for many compound databases including HMDB, MetaCyc, ChEBI, FooDB, Wikidata, WikiPathways, RIKEN respect, MaConDa, T3DB, KEGG, Drugbank, LipidMaps, MetaboLights, Phenol-Explorer, MassBank.","Functionality to create and use compound databases generated from (mostly publicly) available resources such as HMDB, ChEBI and PubChem.","Standardized and extensible framework to query chemical and biological databases."],["<a target=_blank href=https://cran.r-project.org/package=rcdk>rcdk<\/a>","<a target=_blank href=https://doi.org/doi:10.18129/B9.bioc.ChemmineR>ChemmineR<\/a>","<a target=_blank href=https://doi.org/doi:10.18129/B9.bioc.ChemmineOB>ChemmineOB<\/a>","<a target=_blank href=https://github.com/pauca/RRDKit>RRDKit<\/a>","<a target=_blank href=https://github.com/rajarshi/cdkr>rinchi<\/a>","<a target=_blank href=https://doi.org/doi:10.18129/B9.bioc.fmcsR>FmcsR<\/a>","<a target=_blank href=https://github.com/schymane/RChemMass>RChemMass<\/a>","<a target=_blank href=https://cran.r-project.org/package=fingerprint>fingerprint<\/a>","<a target=_blank href=https://github.com/cambDI/camb>camb<\/a>","<a target=_blank href=https://cran.r-project.org/package=rpubchem>Rpubchem<\/a>","<a target=_blank href=https://doi.org/doi:10.18129/B9.bioc.RMassBank>RMassBank<\/a>","<a target=_blank href=https://cran.r-project.org/package=webchem>webchem<\/a>","<a target=_blank href=https://cran.r-project.org/web/packages/classyfireR/index.html>classyfireR<\/a>","<a target=_blank href=https://doi.org/10.18129/B9.bioc.BridgeDbR>BridgeDbR<\/a>","<a target=_blank href=https://doi.org/doi:10.18129/B9.bioc.hmdbQuery>hmdbQuery<\/a>","<a target=_blank href=https://github.com/UMCUGenetics/MetaDBparse>MetaDBparse<\/a>","<a target=_blank href=https://github.com/EuracBiomedicalResearch/CompoundDb>CompoundDb<\/a>","<a target=_blank href=https://github.com/pkrog/biodb>biodb<\/a>"],["CRAN","BioC","BioC","GitHub","GitHub","BioC","GitHub","CRAN","GitHub","CRAN","BioC","CRAN","CRAN","BioC","BioC","GitHub","GitHub","GitHub"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Section<\/th>\n      <th>Functionalities<\/th>\n      <th>Package<\/th>\n      <th>Repo<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"rowGroup":{"dataSrc":0},"ordering":false,"columnDefs":[{"visible":false,"targets":0}],"pageLength":-1,"dom":"ft","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="0100-introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="0205-R_packages_for_metabolomics-Statistical_analysis_of_metabolomics_data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -277,7 +256,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/00-preface/index.Rmd",
+"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/02-R_packages_for_metabolomics/0206-R_packages_for_metabolomics-Handling_of_molecule_structures_and_chemical_structure_databases.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The MetaRbolomics book</title>
-  <meta name="description" content="The MetaRbolomics book" />
+  <title>2.10 Metabolomics data sets | The MetaRbolomics book</title>
+  <meta name="description" content="2.10 Metabolomics data sets | The MetaRbolomics book" />
   <meta name="generator" content="bookdown 0.13.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The MetaRbolomics book" />
+  <meta property="og:title" content="2.10 Metabolomics data sets | The MetaRbolomics book" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The MetaRbolomics book" />
+  <meta name="twitter:title" content="2.10 Metabolomics data sets | The MetaRbolomics book" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="0100-introduction.html"/>
+<link rel="prev" href="0209-R_packages_for_metabolomics-User_interfaces_and_workflow_management_systems.html"/>
+<link rel="next" href="0300-conclusion.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -212,42 +212,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The MetaRbolomics book</h1>
-<p class="author"><em>Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann</em></p>
-</div>
 <div style="page-break-before: always;" />
 
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="how-to" class="section level2 unnumbered">
-<h2>How to</h2>
-<p><strong>Download data</strong><br>
-The list of packages found in the tables in this book can be downloaded from
-<a href="public/data/AllMetaRbolomicsTables.csv" class="uri">public/data/AllMetaRbolomicsTables.csv</a>.</p>
-<p><strong>Add packages to the tables</strong><br>
-Go to <a href="https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing">the googlesheet</a>
-and add the package. Please be careful with adding it to the right section.
-If it belongs in more than one table add it mulitple times as appropiate.</p>
-<p>The package will not appear instantly in the book but only after a change is made to
-the book itself. You can also <a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a>
-and request the reload such that the package shows up.</p>
-<p><strong>Contributing to the text</strong><br>
-There are several options. In order of convenience for the maintainer you can:</p>
-<ul>
-<li>make a pull request on the <a href="https://github.com/rformassspectrometry/metaRbolomics-book">GitHub repository</a>. You will find the text in the <code>rmd</code> folder.</li>
-<li><a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a> with the text you want to contribute. Clearly indicate where the text belongs.</li>
-<li>Send your contribution by email to jst( a t )nexs.ku.dk.</li>
-</ul>
-<p>Remember to add yourself to author contributions.</p>
+</div>
+<div id="metabolomics-data-sets" class="section level2">
+<h2><span class="header-section-number">2.10</span> Metabolomics data sets</h2>
+<div id="htmlwidget-5c70596bdb7d73a57d94" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5c70596bdb7d73a57d94">{"x":{"filter":"none","extensions":["RowGroup"],"caption":"<caption>Table 12: Metabolomics data sets packaged as R packages.<\/caption>","fillContainer":false,"data":[["LC-MS","LC-MS","LC-MS","LC-MS","LC-MS","LC-MS","LC-MS","LC-MS","LC-MS","LC-MS","FIA-MS","FIA-MS","GC-MS","NMR","NMR","NMR"],["12 HPLC-MS NetCDF files (Agilent 1100 LC-MSD SL).","16 UPLC-MS mzData files (Bruker microTOFq).","12 UPLC-MS mzML files (AB Sciex TripleTOF 5600, SWATH mode).","Different raw MS files (LTQ, TripleQ, FTICR, Orbitrap, QTOF) some in different formats (mzML, mzXML, mzData, mzData.gz, NetCDF, mz5). Also mzid format from proteomics.","Metadata and DDA MS/MS spectra of 15 narcotics standards (LTQ Orbitrap XL).","183 x 109 peak table.","69 x 5,501 peak table.","40 x 1,632 peak table.","Raw MS files from a set of blanks and standards that contain common environmental contaminants (acquired with Bruker maXis 4G).","Proteomics, metabolomics GC-MS and Lipidomics data from Calu-3 cell culture; 3 mockulum treated and 9 MERS-CoV treated; Time point, 18 hour from MassIVE dataset ids MSV000079152, MSV000079153, MSV000079154.","6 mzML files (human plasma spiked with 40 compounds acquired in positive mode on an orbitrap fusion).","mzML files (Thermo Exactive) from comparison of leaf tissue from 4 B. distachyon ecotypes with Flow-infusion electrospray ionisation-high resolution mass spectrometry (FIE-HRMS). Also includes data sets with 10 technical injections of human urine and another 10 injections from leaf tissue (ecotype ABR1).","52 x 154 peak table.","18 x 189 peak table.","33 x 164 peak table.","ASICSdata: 1D NMR spectra for ASICS."],["<a target=_blank href=NA>faahKO<\/a>","<a target=_blank href=NA>mtbls2<\/a>","<a target=_blank href=NA>mtbls297<\/a>","<a target=_blank href=NA>msdata<\/a>","<a target=_blank href=https://bioconductor.org/packages/release/data/experiment/html/RMassBankData.html>RMassBankData<\/a>","<a target=_blank href=http://bioconductor.org/packages/release/bioc/html/ropls.html>ropls<\/a>","<a target=_blank href=http://bioconductor.org/packages/release/bioc/html/biosigner.html>biosigner<\/a>","<a target=_blank href=https://cran.r-project.org/web/packages/BioMark/index.html>BioMark<\/a>","<a target=_blank href=https://github.com/rickhelmus/patRoonData>patRoonData<\/a>","<a target=_blank href=https://github.com/pmartR/pmartRdata>pmartRdata<\/a>","<a target=_blank href=NA>plasFIA<\/a>","<a target=_blank href=NA>metaboData<\/a>","<a target=_blank href=http://bioconductor.org/packages/release/bioc/html/pcaMethods.html>pcaMethods<\/a>","<a target=_blank href=https://cran.r-project.org/package=MetabolAnalyze>MetabolAnalyze<\/a>","<a target=_blank href=https://cran.r-project.org/package=MetabolAnalyze>MetabolAnalyze<\/a>","<a target=_blank href=https://www.bioconductor.org/packages/release/data/experiment/vignettes/ASICSdata/inst/doc/ASICSdata.html>ASICSdata<\/a>"],["BioC","BioC","GitHub","BioC","BioC","BioC","BioC","CRAN","GitHub","GitHub","BioC","GitHub","BioC","CRAN","CRAN","BioC"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Section<\/th>\n      <th>Functionalities<\/th>\n      <th>Package<\/th>\n      <th>Repo<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"rowGroup":{"dataSrc":0},"ordering":false,"columnDefs":[{"visible":false,"targets":0}],"pageLength":-1,"dom":"ft","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
+
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="0100-introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="0209-R_packages_for_metabolomics-User_interfaces_and_workflow_management_systems.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="0300-conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -277,7 +259,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/00-preface/index.Rmd",
+"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/02-R_packages_for_metabolomics/0210-R_packages_for_metabolomics-Metabolomics_data_sets.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The MetaRbolomics book</title>
-  <meta name="description" content="The MetaRbolomics book" />
+  <title>2.8 Multifunctional workflows | The MetaRbolomics book</title>
+  <meta name="description" content="2.8 Multifunctional workflows | The MetaRbolomics book" />
   <meta name="generator" content="bookdown 0.13.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The MetaRbolomics book" />
+  <meta property="og:title" content="2.8 Multifunctional workflows | The MetaRbolomics book" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The MetaRbolomics book" />
+  <meta name="twitter:title" content="2.8 Multifunctional workflows | The MetaRbolomics book" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="0100-introduction.html"/>
+<link rel="prev" href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"/>
+<link rel="next" href="0209-R_packages_for_metabolomics-User_interfaces_and_workflow_management_systems.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -212,42 +212,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The MetaRbolomics book</h1>
-<p class="author"><em>Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann</em></p>
-</div>
 <div style="page-break-before: always;" />
 
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="how-to" class="section level2 unnumbered">
-<h2>How to</h2>
-<p><strong>Download data</strong><br>
-The list of packages found in the tables in this book can be downloaded from
-<a href="public/data/AllMetaRbolomicsTables.csv" class="uri">public/data/AllMetaRbolomicsTables.csv</a>.</p>
-<p><strong>Add packages to the tables</strong><br>
-Go to <a href="https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing">the googlesheet</a>
-and add the package. Please be careful with adding it to the right section.
-If it belongs in more than one table add it mulitple times as appropiate.</p>
-<p>The package will not appear instantly in the book but only after a change is made to
-the book itself. You can also <a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a>
-and request the reload such that the package shows up.</p>
-<p><strong>Contributing to the text</strong><br>
-There are several options. In order of convenience for the maintainer you can:</p>
-<ul>
-<li>make a pull request on the <a href="https://github.com/rformassspectrometry/metaRbolomics-book">GitHub repository</a>. You will find the text in the <code>rmd</code> folder.</li>
-<li><a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a> with the text you want to contribute. Clearly indicate where the text belongs.</li>
-<li>Send your contribution by email to jst( a t )nexs.ku.dk.</li>
-</ul>
-<p>Remember to add yourself to author contributions.</p>
+
+</div>
+</div>
+<div id="multifunctional-workflows" class="section level2">
+<h2><span class="header-section-number">2.8</span> Multifunctional workflows</h2>
+<div id="htmlwidget-62e788320aa5f71948b0" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-62e788320aa5f71948b0">{"x":{"filter":"none","extensions":["RowGroup"],"caption":"<caption>Table 9: R packages with multifunctional workflows.<\/caption>","fillContainer":false,"data":[[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],["Convenience wrapper for pre-processing tools (XCMS, CAMERA) and a number of statistical analyses.","Preprocessing (XCMS), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations, probabilistic putative metabolite annotation.","XCMS and CAMERA based workflow for non-targeted processing of LC-MS datasets, It includes pre-processing, peak picking,peak filtering, data normalization and descriptive statistics calculation.","Performs simultaneous raw data to mzXML conversion (MSConvert), peak-picking, automatic PCA outlier detection and statistical analysis, visualization and possible MS2 target list determination during an MS1 metabolomic profiling experiment.","Pre-processing of large LC-MS datasets. Performs automatic PCA with iterative automatic outlier removal and, clustering analysis and biomarker discovery.","Workflow for the systematic analysis of 1H NMR metabolomics dataset in quantitative genetics. Performs pre-processing, mQTL mapping, metabolites structural assignment and offers data visualisation tools.","Workflow for pre-processing, qc, annotation and statistical data analysis of LC-MS and GC-MS based metabolomics data to be submitted to public repositories.","Specmine is a framework mainly built on a number of already published packages. It supports data processing form different analytical platforms (LC-MS, GC-MS, NMR, IR, UV-Vis).","Common interface for a number of different MS based data processing software. It covers various aspects, such as data preparation and data extraction, formula calculation, compound identification and reporting.","Processing of high resolution of LC-MS data for environmental trend analysis.","Workflow for preprocessing of LC-HRMS data, suspect screening, screening for transformation products using combinatorial prediction, and interactive filtering based on ratios between sample groups.","Workflow to perform pre-processing, statistical analysis and metabolite identifications based on database search of detected spectra.","Shiny-based platform to extract differential features from LC-MS data, includes XCMS-based feature detection, statistical analysis, prediction of molecular formulas, annotation of MS2 spectra, MS2 molecular networking and chemical compound database search.","RShiny interface to Metabolomics packages & MetaboAnalyst scripts.","Preprocessing and visualizing for LC-MS data, as well as statistical analyses, mainly based on univariate linear models."],["<a target=_blank href=https://www.bioconductor.org/packages/release/bioc/html/MAIT.html>MAIT<\/a>","<a target=_blank href=http://mzmatch.sourceforge.net/>mzMatch<\/a>","<a target=_blank href=https://github.com/search?q=MStractor>MStractor<\/a>","<a target=_blank href=https://github.com/WMBEdmands/simExTargId>simExTargId<\/a>","<a target=_blank href=https://github.com/WMBEdmands/MetMSLine>MetMSLine<\/a>","<a target=_blank href=https://www.bioconductor.org/packages/3.5/bioc/html/mQTL.NMR.html>mQTL.NMR<\/a>","<a target=_blank href=https://github.com/rmylonas/MetaDB>MetaDB<\/a>","<a target=_blank href=https://github.com/cran/specmine>specmine<\/a>","<a target=_blank href=https://github.com/rickhelmus/patRoon>patRoon<\/a>","<a target=_blank href=https://zenodo.org/record/1213098>enviMass<\/a>","<a target=_blank href=https://github.com/meowcat/RMassScreening>RMassScreening<\/a>","<a target=_blank href=https://github.com/tohweizhong/MetaboNexus>MetaboNexus<\/a>","<a target=_blank href=https://github.com/mjhelf/METABOseek>METABOseek<\/a>","<a target=_blank href=https://github.com/UMCUGenetics/MetaboShiny/>MetaboShiny<\/a>","<a target=_blank href=https://github.com/antonvsdata/amp>amp<\/a>"],["BioC","SF","GitHub","GitHub","GitHub","BioC","GitHub","GitHub","GitHub","Zenodo","GitHub","GitHub","GitHub","GitHub","GitHub"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Section<\/th>\n      <th>Functionalities<\/th>\n      <th>Package<\/th>\n      <th>Repo<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"rowGroup":{"dataSrc":0},"ordering":false,"columnDefs":[{"visible":false,"targets":0}],"pageLength":-1,"dom":"ft","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="0100-introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="0209-R_packages_for_metabolomics-User_interfaces_and_workflow_management_systems.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -277,7 +258,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/00-preface/index.Rmd",
+"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/02-R_packages_for_metabolomics/0208-R_packages_for_metabolomics-Multifunctional_workflows.Rmd",
 "text": "Edit"
 },
 "history": {

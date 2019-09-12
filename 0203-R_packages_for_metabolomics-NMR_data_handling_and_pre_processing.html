@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The MetaRbolomics book</title>
-  <meta name="description" content="The MetaRbolomics book" />
+  <title>2.3 NMR data handling and (pre-)processing | The MetaRbolomics book</title>
+  <meta name="description" content="2.3 NMR data handling and (pre-)processing | The MetaRbolomics book" />
   <meta name="generator" content="bookdown 0.13.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The MetaRbolomics book" />
+  <meta property="og:title" content="2.3 NMR data handling and (pre-)processing | The MetaRbolomics book" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The MetaRbolomics book" />
+  <meta name="twitter:title" content="2.3 NMR data handling and (pre-)processing | The MetaRbolomics book" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="0100-introduction.html"/>
+<link rel="prev" href="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html"/>
+<link rel="next" href="0204-R_packages_for_metabolomics-UV_data_handling_and_pre_processing.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -212,42 +212,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The MetaRbolomics book</h1>
-<p class="author"><em>Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann</em></p>
-</div>
 <div style="page-break-before: always;" />
 
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="how-to" class="section level2 unnumbered">
-<h2>How to</h2>
-<p><strong>Download data</strong><br>
-The list of packages found in the tables in this book can be downloaded from
-<a href="public/data/AllMetaRbolomicsTables.csv" class="uri">public/data/AllMetaRbolomicsTables.csv</a>.</p>
-<p><strong>Add packages to the tables</strong><br>
-Go to <a href="https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing">the googlesheet</a>
-and add the package. Please be careful with adding it to the right section.
-If it belongs in more than one table add it mulitple times as appropiate.</p>
-<p>The package will not appear instantly in the book but only after a change is made to
-the book itself. You can also <a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a>
-and request the reload such that the package shows up.</p>
-<p><strong>Contributing to the text</strong><br>
-There are several options. In order of convenience for the maintainer you can:</p>
-<ul>
-<li>make a pull request on the <a href="https://github.com/rformassspectrometry/metaRbolomics-book">GitHub repository</a>. You will find the text in the <code>rmd</code> folder.</li>
-<li><a href="https://github.com/rformassspectrometry/metaRbolomics-book/issues">open an issue</a> with the text you want to contribute. Clearly indicate where the text belongs.</li>
-<li>Send your contribution by email to jst( a t )nexs.ku.dk.</li>
-</ul>
-<p>Remember to add yourself to author contributions.</p>
+</div>
+</div>
+<div id="nmr-data-handling-and-pre-processing" class="section level2">
+<h2><span class="header-section-number">2.3</span> NMR data handling and (pre-)processing</h2>
+<div id="htmlwidget-6efb5a2dad38ec838ac3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6efb5a2dad38ec838ac3">{"x":{"filter":"none","extensions":["RowGroup"],"caption":"<caption>Table 4: R packages for NMR data handling, (pre-)processing and analysis.<\/caption>","fillContainer":false,"data":[["Data processing and Analysis","Data processing and Analysis","Data processing and Analysis","Data processing and Analysis","Data Analysis and Identification","Data Analysis and Identification","Data Analysis and Identification","Data Analysis and Identification","Data Analysis and Identification","Data Analysis and Identification","NMR and integration with Genomics","NMR and integration with Genomics","NMR and integration with Genomics"],["A tool for processing of 1H NMR data including: Apodization, baseline correction, bucketing, Fourier transformation, warping and phase correction. Bruker FID can be directly imported.","Spectra alignment, peak picking based processing, Quantitative analysis and visualizations for 1D NMR.","Interactive environment based on R-Shiny that includes a complete set of tools to process and visualize 1D NMR spectral data. Processing includes baseline correction, ppm calibration, removal of solvents and contaminants and re-alignment of chemical shifts.","TheMetaboMateR toolbox covers basic processing andstatisticalanalysis steps including; several spectral quality assessment (such as dealing with baseline distortions, water suppression to quality assessment of shimming and line width) as well as pre-processing (referencing,baselinecorrection, ... ) to multivariate analysis statistics functions.","Analysis of 1D and 2D NMR spectra using a ROIs based approach. Export to MMCD or uploaded to BMRB for identification.","Pre-processing and identification in an R-based GUI for 1D NMR.","Bayesian automated metabolite analyser for 1D NMR spectra. Deconvolution of NMR spectra and automate metabolite quantification. Also identification based on chemical shift lists.","“ASICS: an automatic method for identification and quantification of metabolites in complex 1D 1H NMR spectra.”","ASICSdata: 1D NMR spectra for ASICS.","shiny-based interactive NMR data import and Statistical TOtal Correlation SpectroscopY (STOCSY) analyses.","MWASTools: an integrated pipeline to perform NMR based metabolome-wide association studies (MWAS). Quality control analysis; MWAS using various models (partial correlations, generalized linear models); visualization of statistical outcomes; metabolite assignment using STOCSY; and biological interpretation of MWAS results.","An Integrated Suite for Genetic Mapping of Quantitative Variations of 1H NMR-Based Metabolic Profiles. mQTL-NMR provides a complete metabotype quantitative trait locus (mQTL) mapping analysis pipeline for metabolomic data.","Handles hyperspectral data, i.e. spectra plus further information such as spatial information, time, concentrations, etc. Such data are frequently encountered in Raman, IR, NIR, UV/VIS, NMR, MS, etc."],["<a target=_blank href=https://github.com/ManonMartin/SOAP-NMR>PepsNMR<\/a>","<a target=_blank href=https://cran.r-project.org/package=speaq>speaq<\/a>","<a target=_blank href=https://www.nmrprocflow.org/>NMRProcFlow<\/a>","<a target=_blank href=https://github.com/kimsche/MetaboMate>MetaboMate<\/a>","<a target=_blank href=http://rnmr.nmrfam.wisc.edu/>rNMR<\/a>","<a target=_blank href=https://github.com/danielcanueto/rDolphin>rDolphin<\/a>","<a target=_blank href=http://batman.r-forge.r-project.org/>BATMAN<\/a>","<a target=_blank href=https://bioconductor.org/packages/release/bioc/html/ASICS.html>ASICS<\/a>","<a target=_blank href=https://www.bioconductor.org/packages/release/data/experiment/vignettes/ASICSdata/inst/doc/ASICSdata.html>ASICSdata<\/a>","<a target=_blank href=https://cran.r-project.org/package=iSTATS>iSTATS<\/a>","<a target=_blank href=https://bioconductor.org/packages/release/bioc/html/MWASTools.html>MWASTools<\/a>","<a target=_blank href=NA>mQTL.NMR<\/a>","<a target=_blank href=https://cran.r-project.org/package=ChemoSpec>hyperSpec<\/a>"],["GitHub","CRAN","Bitbucket","GitHub",null,"GitHub","RF","BioC","BioC","CRAN","BioC","BioC","CRAN"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Section<\/th>\n      <th>Functionalities<\/th>\n      <th>Package<\/th>\n      <th>Repo<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"rowGroup":{"dataSrc":0},"ordering":false,"columnDefs":[{"visible":false,"targets":0}],"pageLength":-1,"dom":"ft","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="0100-introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="0204-R_packages_for_metabolomics-UV_data_handling_and_pre_processing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -277,7 +257,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/00-preface/index.Rmd",
+"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/02-R_packages_for_metabolomics/0203-R_packages_for_metabolomics-NMR_data_handling_and_pre_processing.Rmd",
 "text": "Edit"
 },
 "history": {

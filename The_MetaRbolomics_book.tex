@@ -142,9 +142,43 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\newpage
+
 \hypertarget{preface}{%
 \section*{Preface}\label{preface}}
 \addcontentsline{toc}{section}{Preface}
+
+\hypertarget{how-to}{%
+\subsection*{How to}\label{how-to}}
+\addcontentsline{toc}{subsection}{How to}
+
+\textbf{Download data}
+The list of packages found in the tables in this book can be downloaded from
+\url{public/data/AllMetaRbolomicsTables.csv}.
+
+\textbf{Add packages to the tables}
+Go to \href{https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing}{the googlesheet}
+and add the package. Please be careful with adding it to the right section.
+If it belongs in more than one table add it mulitple times as appropiate.
+
+The package will not appear instantly in the book but only after a change is made to
+the book itself. You can also \href{https://github.com/rformassspectrometry/metaRbolomics-book/issues}{open an issue}
+and request the reload such that the package shows up.
+
+\textbf{Contributing to the text}
+There are several options. In order of convenience for the maintainer you can:
+
+\begin{itemize}
+\tightlist
+\item
+  make a pull request on the \href{https://github.com/rformassspectrometry/metaRbolomics-book}{GitHub repository}. You will find the text in the \texttt{rmd} folder.
+\item
+  \href{https://github.com/rformassspectrometry/metaRbolomics-book/issues}{open an issue} with the text you want to contribute. Clearly indicate where the text belongs.
+\item
+  Send your contribution by email to jst( a t )nexs.ku.dk.
+\end{itemize}
+
+Remember to add yourself to author contributions.
 
 \newpage
 
@@ -219,7 +253,7 @@ Converts MRM-MS (.mzML) files to LC-MS style .mzML. & \href{https://github.com/w
 Infrastructure for import, handling, representation and analysis of MS spectra. & \href{https://github.com/RforMassSpectrometry/Spectra}{Spectra} & GitHub\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Peak picking, grouping and alignment (LC-MS focussed or general)}}\\
-Pre-processing and visualization for (LC/GC-)MS data. Includes visualization and simple statistics. & \href{NA}{xcms} & BioC\\
+Pre-processing and visualization for (LC/GC-)MS data. Includes visualization and simple statistics. & \href{https://doi.org/doi:10.18129/B9.bioc.xcms}{xcms} & BioC\\
 Automatic optimization of XCMS parameters based on isotopes. & \href{http://bioconductor.org/packages/release/bioc/html/IPO.html}{IPO} & BioC\\
 \rowcolor{gray!6}  Parameter tuning algorithm forXCMS, MZmine2, and other metabolomics data processingsoftware. & \href{https://doi.org/doi:10.18129/B9.bioc.Autotuner}{Autotuner} & BioC\\
 Pre-processing and visualization for (LC/GC-)MS data. Includes visualization and simple statistics. & \href{http://bioconductor.org/packages/release/bioc/html/yamss.html}{yamss} & BioC\\
@@ -231,54 +265,55 @@ Peak picking for (LC/GC-)MS data, improving the detection of low abundance signa
 (GC/LC)-MS data analysis for environmental science, including raw data processing, analysis of molecular isotope ratios, matrix effects, and short-chain chlorinated paraffins. & \href{https://cran.r-project.org/web/packages/enviGCMS/index.html}{enviGCMS} & CRAN\\
 \rowcolor{gray!6}  Sequential partitioning, clustering and peak detection of centroided LC-MS mass spectrometry data (.mzXML), with Interactive result and raw data plot. & \href{https://cran.r-project.org/web/packages/enviPick/index.html}{enviPick} & CRAN\\
 PeakpickingwithXCMS. Groups chemically related features beforealignmentacross samples. Additional processing after alignment includes feature validation, re-integration and annotation based on custom database. & \href{https://github.com/lauzikaite/massFlowR}{massFlowR} & GitHub\\
-\rowcolor{gray!6}  \addlinespace[0.3em]
+\rowcolor{gray!6}  KPIC2 extracts pure ion chromatograms (PIC) via K-means clustering of ions in region of interest, performs grouping and alignment, grouping of isotopic and adduct features, peak filling and Random Forest classification. & \href{https://github.com/hcji/KPIC2}{KPIC2} & GitHub\\
+\addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Isotope labeling using MS}}\\
 Analysis of untargeted LC/MS data from stable isotope-labeling experiments. Also uses XCMS for feature detection. & \href{https://github.com/jcapelladesto/geoRge}{geoRge} & GitHub\\
-Correction of MS and MS/MS data from stable isotope labeling (any tracer isotope) experiments for natural isotope abundance and tracer impurity. Separate GUI available in IsoCorrectoRGUI. & \href{NA}{IsoCorrectoR} & BioC\\
-\rowcolor{gray!6}  Extension of XCMS that provides support for isotopic labeling. Detection of metabolites that have been enriched with isotopic labeling. & \href{http://pattilab.wustl.edu/software/x13cms/x13cms.php}{X13CMS} & NA\\
-Analysis of isotopic patterns in isotopically-labeled MS data. Estimates the isotopic abundance of the stable isotope (either 2H or 13C) within specified compounds. & \href{https://github.com/RuggeroFerrazza/IsotopicLabelling}{IsotopicLabelling} & GitHub\\
-\rowcolor{gray!6}  Finding the dual (or multiple) isotope labeled analytes using dual labeling of metabolites for metabolome analysis (DLEMMA) approach, described in Liron [42]. & \href{https://cran.r-project.org/web/packages/Miso}{Miso} & CRAN\\
-\addlinespace[0.3em]
+\rowcolor{gray!6}  Correction of MS and MS/MS data from stable isotope labeling (any tracer isotope) experiments for natural isotope abundance and tracer impurity. Separate GUI available in IsoCorrectoRGUI. & \href{https://bioconductor.org/packages/release/bioc/html/IsoCorrectoR.html}{IsoCorrectoR} & BioC\\
+Extension of XCMS that provides support for isotopic labeling. Detection of metabolites that have been enriched with isotopic labeling. & \href{http://pattilab.wustl.edu/software/x13cms/x13cms.php}{X13CMS} & NA\\
+\rowcolor{gray!6}  Analysis of isotopic patterns in isotopically-labeled MS data. Estimates the isotopic abundance of the stable isotope (either 2H or 13C) within specified compounds. & \href{https://github.com/RuggeroFerrazza/IsotopicLabelling}{IsotopicLabelling} & GitHub\\
+Finding the dual (or multiple) isotope labeled analytes using dual labeling of metabolites for metabolome analysis (DLEMMA) approach, described in Liron [42]. & \href{https://cran.r-project.org/web/packages/Miso}{Miso} & CRAN\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Targeted MS}}\\
 Peak picking using peak apex intensities for selected masses. Reference library matching, RT/RI conversion plus metabolite identification using multiple correlated masses. Includes GUI. & \href{http://bioconductor.org/packages/2.5/bioc/html/TargetSearch.html}{TargetSearch} & BioC\\
-\rowcolor{gray!6}  Pre-processing for targeted (SIM) GC-MS data. Guided selection of appropriate fragments for the targets of interest by using an optimization algorithm based on user provided library. & \href{https://doi.org/doi:10.18129/B9.bioc.SIMAT}{SIMAT} & BioC\\
-Deconvolution of MS2 spectra obtained with wide isolation windows. & \href{http://pattilab.wustl.edu/software/decoms2/decoms2.php}{decoMS2} & NA\\
-\rowcolor{gray!6}  Deconvolution of SWATH-MS experiments to MRM transitions. & \href{http://www.metabolomics-shanghai.org/softwaredetail.php?id=128}{SWATHtoMRM} & NA\\
-Automatic analysis of large scale MRM experiments. & \href{http://www.metabolomics-shanghai.org/softwaredetail.php?id=34}{MRMAnalyzer} & NA\\
-\rowcolor{gray!6}  Tailors peak detection for targeted metabolites through iterative user interface. It automatically integrates peak areas for all isotopologues and outputs extracted ion chromatograms (EICs). & \href{https://github.com/stevehoang/assayr}{AssayR} & GitHub\\
-Targeted peak picking and annotation. Includes Shiny GUI. & \href{https://github.com/phenomecentre/peakPantheR}{peakPantheR} & GitHub\\
-\rowcolor{gray!6}  Toolkit for working with Selective Reaction Monitoring (SRM) MS data and other variants of targeted LC-MS data. & \href{https://github.com/wilsontom/sRm}{sRm} & GitHub\\
-Deconvolution of SWATH-MS data. & \href{https://github.com/ZhuMSLab/DecoMetDIA}{DecoMetDIA} & GitHub\\
-\rowcolor{gray!6}  Targeted peak picking and annotation. All functions through Shiny GUI. & \href{https://github.com/hcji/TarMet}{TarMet} & GitHub\\
-\addlinespace[0.3em]
+Pre-processing for targeted (SIM) GC-MS data. Guided selection of appropriate fragments for the targets of interest by using an optimization algorithm based on user provided library. & \href{https://doi.org/doi:10.18129/B9.bioc.SIMAT}{SIMAT} & BioC\\
+\rowcolor{gray!6}  Deconvolution of MS2 spectra obtained with wide isolation windows. & \href{http://pattilab.wustl.edu/software/decoms2/decoms2.php}{decoMS2} & NA\\
+Deconvolution of SWATH-MS experiments to MRM transitions. & \href{http://www.metabolomics-shanghai.org/softwaredetail.php?id=128}{SWATHtoMRM} & NA\\
+\rowcolor{gray!6}  Automatic analysis of large scale MRM experiments. & \href{http://www.metabolomics-shanghai.org/softwaredetail.php?id=34}{MRMAnalyzer} & NA\\
+Tailors peak detection for targeted metabolites through iterative user interface. It automatically integrates peak areas for all isotopologues and outputs extracted ion chromatograms (EICs). & \href{https://github.com/stevehoang/assayr}{AssayR} & GitHub\\
+\rowcolor{gray!6}  Targeted peak picking and annotation. Includes Shiny GUI. & \href{https://github.com/phenomecentre/peakPantheR}{peakPantheR} & GitHub\\
+Toolkit for working with Selective Reaction Monitoring (SRM) MS data and other variants of targeted LC-MS data. & \href{https://github.com/wilsontom/sRm}{sRm} & GitHub\\
+\rowcolor{gray!6}  Deconvolution of SWATH-MS data. & \href{https://github.com/ZhuMSLab/DecoMetDIA}{DecoMetDIA} & GitHub\\
+Targeted peak picking and annotation. All functions through Shiny GUI. & \href{https://github.com/hcji/TarMet}{TarMet} & GitHub\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{GC-MS and GC×GC-MS}}\\
 Unsupervised data mining on GC-MS. Clustering of mass spectra to detect compound spectra. The output can be searched in NIST and ARISTO [50]. & \href{https://cran.r-project.org/package=MSeasy}{MSeasy} & CRAN\\
-\rowcolor{gray!6}  Pre-processing for GC/MS, MassBank search, NIST format export. & \href{https://cran.r-project.org/package=erah}{erah} & CRAN\\
-Pre-processing using AMDIS [53, 54] for untargeted GC-MS analysis. Feature grouping across samples, improved quantification, removal of false positives, normalisation via internal standard or biomass; basic statistics. & \href{https://doi.org/doi:10.18129/B9.bioc.Metab}{Metab} & BioC\\
-\rowcolor{gray!6}  Deconvolution of GC-MS and GC×GC-MS unit resolution data using orthogonal signal deconvolution (OSD), independent component regression (ICR) and multivariate curve resolution (MCR-ALS). & \href{NA}{osd} & CRAN\\
-Corrects overloaded signals directly in raw data (from GC-APCI-MS) automatically by using a Gaussian or isotopic-ratio approach. & \href{https://cran.r-project.org/package=CorrectOverloadedPeaks}{CorrectOverloadedPeaks} & CRAN\\
-\rowcolor{gray!6}  Alignment of GC data. Also GC-FID or any single channel data since it works directly on peak lists. & \href{https://cran.r-project.org/package=GCalignR}{GCalignR} & CRAN\\
-GC-MS data processing and compound annotation pipeline. Includes the building, validating, and query of in-house databases. & \href{https://www.bioconductor.org/packages/release/bioc/html/metaMS.html}{metaMS} & BioC\\
-\rowcolor{gray!6}  Peak picking for GC×GC-MS using bayes factor and mixture probability models. & \href{http://mrr.sourceforge.net/download.html}{msPeak} & SF\\
-Peak alignment for GC×GC-MS data with homogeneous peaks based on mixture similarity measures. & \href{http://mrr.sourceforge.net/download.html}{mSPA} & SF\\
-\rowcolor{gray!6}  Peak alignment for GC×GC-MS data with homogeneous and/or heterogenous peaks based on mixture similarity measures. & \href{http://mrr.sourceforge.net/download.html}{SWPA} & SF\\
-Chemometrics analysis GC×GC-MS: baseline correction, smoothing, COW peak alignment, multiway PCA is incorporated. & \href{https://cran.r-project.org/package=RGCxGC}{RGCxGC} & CRAN\\
-\rowcolor{gray!6}  Retention time and mass spectra similarity threshold-free alignments, seamlessly integrates retention time standards for universally reproducible alignments, performs common ion filtering, and provides compatibility with multiple peak quantification methods. & \href{https://github.com/rramaker/R2DGC}{R2DGC} & GitHub\\
-\addlinespace[0.3em]
+Pre-processing for GC/MS, MassBank search, NIST format export. & \href{https://cran.r-project.org/package=erah}{erah} & CRAN\\
+\rowcolor{gray!6}  Pre-processing using AMDIS [53, 54] for untargeted GC-MS analysis. Feature grouping across samples, improved quantification, removal of false positives, normalisation via internal standard or biomass; basic statistics. & \href{https://doi.org/doi:10.18129/B9.bioc.Metab}{Metab} & BioC\\
+Deconvolution of GC-MS and GC×GC-MS unit resolution data using orthogonal signal deconvolution (OSD), independent component regression (ICR) and multivariate curve resolution (MCR-ALS). & \href{http://cran.r-project.org/package=osd}{osd} & CRAN\\
+\rowcolor{gray!6}  Corrects overloaded signals directly in raw data (from GC-APCI-MS) automatically by using a Gaussian or isotopic-ratio approach. & \href{https://cran.r-project.org/package=CorrectOverloadedPeaks}{CorrectOverloadedPeaks} & CRAN\\
+Alignment of GC data. Also GC-FID or any single channel data since it works directly on peak lists. & \href{https://cran.r-project.org/package=GCalignR}{GCalignR} & CRAN\\
+\rowcolor{gray!6}  GC-MS data processing and compound annotation pipeline. Includes the building, validating, and query of in-house databases. & \href{https://www.bioconductor.org/packages/release/bioc/html/metaMS.html}{metaMS} & BioC\\
+Peak picking for GC×GC-MS using bayes factor and mixture probability models. & \href{http://mrr.sourceforge.net/download.html}{msPeak} & SF\\
+\rowcolor{gray!6}  Peak alignment for GC×GC-MS data with homogeneous peaks based on mixture similarity measures. & \href{http://mrr.sourceforge.net/download.html}{mSPA} & SF\\
+Peak alignment for GC×GC-MS data with homogeneous and/or heterogenous peaks based on mixture similarity measures. & \href{http://mrr.sourceforge.net/download.html}{SWPA} & SF\\
+\rowcolor{gray!6}  Chemometrics analysis GC×GC-MS: baseline correction, smoothing, COW peak alignment, multiway PCA is incorporated. & \href{https://cran.r-project.org/package=RGCxGC}{RGCxGC} & CRAN\\
+Retention time and mass spectra similarity threshold-free alignments, seamlessly integrates retention time standards for universally reproducible alignments, performs common ion filtering, and provides compatibility with multiple peak quantification methods. & \href{https://github.com/rramaker/R2DGC}{R2DGC} & GitHub\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Flow injection / direct infusion analysis}}\\
 Pre-processing of data from Flow Injection Analysis (FIA) coupled to High-Resolution Mass Spectrometry (HRMS). & \href{https://doi.org/doi:10.18129/B9.bioc.proFIA}{proFIA} & BioC\\
-\rowcolor{gray!6}  Flow In-jection Electrospray Mass Spectrometry Processing: data processing, classification modelling and variable selection in metabolite fingerprinting & \href{https://github.com/aberHRML/FIEmspro}{FIEmspro} & GitHub\\
-Processing Mass Spectrometry spectrum by using wavelet based algorithm. Can be used for direct infusion experiments. & \href{http://bioconductor.org/packages/release/bioc/html/MassSpecWavelet.html}{MassSpecWavelet} & BioC\\
-\rowcolor{gray!6}  \addlinespace[0.3em]
+Flow In-jection Electrospray Mass Spectrometry Processing: data processing, classification modelling and variable selection in metabolite fingerprinting & \href{https://github.com/aberHRML/FIEmspro}{FIEmspro} & GitHub\\
+\rowcolor{gray!6}  Processing Mass Spectrometry spectrum by using wavelet based algorithm. Can be used for direct infusion experiments. & \href{http://bioconductor.org/packages/release/bioc/html/MassSpecWavelet.html}{MassSpecWavelet} & BioC\\
+\addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Other}}\\
 Filtering of features originating from artifactual interference. Based on the analysis of an extract of E. coli grown in 13C-enriched media. & \href{https://github.com/pattilab/credential}{credential} & GitHub\\
-Wrappers for XCMS and CAMERA. Also includes matching to a spectral library and a GUI. & \href{https://doi.org/doi:10.18129/B9.bioc.metaMS}{metaMS} & BioC\\
-\rowcolor{gray!6}  Processing of peaktables from AMDIS, XCMS or ChromaTOF. Functions for plotting also provided. & \href{https://doi.org/doi:10.18129/B9.bioc.flagme}{flagme} & BioC\\
-Parametric Time Warping (RT correction) for both DAD and LC-MS. & \href{https://cran.r-project.org/package=ptw}{ptw} & CRAN\\
-\rowcolor{gray!6}  R wrapper for X!Tandem software for protein identification. & \href{http://bioconductor.org/packages/release/bioc/html/rTANDEM.html}{rTANDEM} & BioC\\
-Building, validation, and statistical analysis of extended assay libraries for SWATH proteomics data. & \href{https://bioconductor.org/packages/release/bioc/html/SwathXtend.html}{SwathXtend} & BioC\\
-\rowcolor{gray!6}  Split a data set into a set of likely true metabolites and likely measurement artifacts by comparing missing rates of pooled plasma samples and biological samples. & \href{https://cran.r-project.org/package=MetProc}{MetProc} & CRAN\\
-Quality of LC-MS and direct infusion MS data. Generates a report that contains a comprehensive set of quality control metrics and charts. & \href{https://github.com/computational-metabolomics/qcrms}{qcrms} & GitHub\\*
+\rowcolor{gray!6}  Wrappers for XCMS and CAMERA. Also includes matching to a spectral library and a GUI. & \href{https://doi.org/doi:10.18129/B9.bioc.metaMS}{metaMS} & BioC\\
+Processing of peaktables from AMDIS, XCMS or ChromaTOF. Functions for plotting also provided. & \href{https://doi.org/doi:10.18129/B9.bioc.flagme}{flagme} & BioC\\
+\rowcolor{gray!6}  Parametric Time Warping (RT correction) for both DAD and LC-MS. & \href{https://cran.r-project.org/package=ptw}{ptw} & CRAN\\
+R wrapper for X!Tandem software for protein identification. & \href{http://bioconductor.org/packages/release/bioc/html/rTANDEM.html}{rTANDEM} & BioC\\
+\rowcolor{gray!6}  Building, validation, and statistical analysis of extended assay libraries for SWATH proteomics data. & \href{https://bioconductor.org/packages/release/bioc/html/SwathXtend.html}{SwathXtend} & BioC\\
+Split a data set into a set of likely true metabolites and likely measurement artifacts by comparing missing rates of pooled plasma samples and biological samples. & \href{https://cran.r-project.org/package=MetProc}{MetProc} & CRAN\\
+\rowcolor{gray!6}  Quality of LC-MS and direct infusion MS data. Generates a report that contains a comprehensive set of quality control metrics and charts. & \href{https://github.com/computational-metabolomics/qcrms}{qcrms} & GitHub\\*
 \end{longtable}
 
 \hypertarget{ion-species-grouping-and-annotation}{%
@@ -383,12 +418,12 @@ Uses MetFrag and adds substructure prediction using the isotopic pattern. Can be
 \subsection{NMR data handling and (pre-)processing}\label{nmr-data-handling-and-pre-processing}}
 
 \begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
-\caption{\label{tab:tab4}R packages for NMR data handling and (pre-)processing.}\\
+\caption{\label{tab:tab4}R packages for NMR data handling, (pre-)processing and analysis.}\\
 \toprule
 Functionalities & Package & Repo\\
 \midrule
 \endfirsthead
-\caption[]{\label{tab:tab4}R packages for NMR data handling and (pre-)processing. \textit{(continued)}}\\
+\caption[]{\label{tab:tab4}R packages for NMR data handling, (pre-)processing and analysis. \textit{(continued)}}\\
 \toprule
 Functionalities & Package & Repo\\
 \midrule
@@ -402,7 +437,7 @@ Functionalities & Package & Repo\\
 A tool for processing of 1H NMR data including: Apodization, baseline correction, bucketing, Fourier transformation, warping and phase correction. Bruker FID can be directly imported. & \href{https://github.com/ManonMartin/SOAP-NMR}{PepsNMR} & GitHub\\
 Spectra alignment, peak picking based processing, Quantitative analysis and visualizations for 1D NMR. & \href{https://cran.r-project.org/package=speaq}{speaq} & CRAN\\
 \rowcolor{gray!6}  Interactive environment based on R-Shiny that includes a complete set of tools to process and visualize 1D NMR spectral data. Processing includes baseline correction, ppm calibration, removal of solvents and contaminants and re-alignment of chemical shifts. & \href{https://www.nmrprocflow.org/}{NMRProcFlow} & Bitbucket\\
-TheMetaboMateR toolbox covers basic processing andstatisticalanalysis steps including; several spectral quality assessment (such as dealing with baseline distortions, water suppression to quality assessment of shimming and line width) as well as pre-processing (referencing,baselinecorrection, ... ) to multivariate analysis statistics functions. & \href{NA}{MetaboMate} & GitHub\\
+TheMetaboMateR toolbox covers basic processing andstatisticalanalysis steps including; several spectral quality assessment (such as dealing with baseline distortions, water suppression to quality assessment of shimming and line width) as well as pre-processing (referencing,baselinecorrection, ... ) to multivariate analysis statistics functions. & \href{https://github.com/kimsche/MetaboMate}{MetaboMate} & GitHub\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Data Analysis and Identification}}\\
 Analysis of 1D and 2D NMR spectra using a ROIs based approach. Export to MMCD or uploaded to BMRB for identification. & \href{http://rnmr.nmrfam.wisc.edu/}{rNMR} & NA\\
@@ -410,11 +445,12 @@ Pre-processing and identification in an R-based GUI for 1D NMR. & \href{https://
 \rowcolor{gray!6}  Bayesian automated metabolite analyser for 1D NMR spectra. Deconvolution of NMR spectra and automate metabolite quantification. Also identification based on chemical shift lists. & \href{http://batman.r-forge.r-project.org/}{BATMAN} & RF\\
 “ASICS: an automatic method for identification and quantification of metabolites in complex 1D 1H NMR spectra.” & \href{https://bioconductor.org/packages/release/bioc/html/ASICS.html}{ASICS} & BioC\\
 \rowcolor{gray!6}  ASICSdata: 1D NMR spectra for ASICS. & \href{https://www.bioconductor.org/packages/release/data/experiment/vignettes/ASICSdata/inst/doc/ASICSdata.html}{ASICSdata} & BioC\\
-\addlinespace[0.3em]
+shiny-based interactive NMR data import and Statistical TOtal Correlation SpectroscopY (STOCSY) analyses. & \href{https://cran.r-project.org/package=iSTATS}{iSTATS} & CRAN\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{NMR and integration with Genomics}}\\
 MWASTools: an integrated pipeline to perform NMR based metabolome-wide association studies (MWAS). Quality control analysis; MWAS using various models (partial correlations, generalized linear models); visualization of statistical outcomes; metabolite assignment using STOCSY; and biological interpretation of MWAS results. & \href{https://bioconductor.org/packages/release/bioc/html/MWASTools.html}{MWASTools} & BioC\\
-\rowcolor{gray!6}  An Integrated Suite for Genetic Mapping of Quantitative Variations of 1H NMR-Based Metabolic Profiles. mQTL-NMR provides a complete metabotype quantitative trait locus (mQTL) mapping analysis pipeline for metabolomic data. & \href{NA}{mQTL.NMR} & BioC\\
-Handles hyperspectral data, i.e. spectra plus further information such as spatial information, time, concentrations, etc. Such data are frequently encountered in Raman, IR, NIR, UV/VIS, NMR, MS, etc. & \href{https://cran.r-project.org/package=ChemoSpec}{hyperSpec} & CRAN\\*
+An Integrated Suite for Genetic Mapping of Quantitative Variations of 1H NMR-Based Metabolic Profiles. mQTL-NMR provides a complete metabotype quantitative trait locus (mQTL) mapping analysis pipeline for metabolomic data. & \href{NA}{mQTL.NMR} & BioC\\
+\rowcolor{gray!6}  Handles hyperspectral data, i.e. spectra plus further information such as spatial information, time, concentrations, etc. Such data are frequently encountered in Raman, IR, NIR, UV/VIS, NMR, MS, etc. & \href{https://cran.r-project.org/package=ChemoSpec}{hyperSpec} & CRAN\\*
 \end{longtable}
 
 \newpage
@@ -518,6 +554,8 @@ Linear and non-linear Discriminant Analysis methods (e.g. LDA), stepwise selecti
 Predictive multivariate modelling using PLS and Random Forest Data. Repeated double cross unbiased validation and variable selection. & \href{https://gitlab.com/CarlBrunius/MUVR}{MUVR} & GitLab\\
 \rowcolor{gray!6}  Biomarker validation for predicting survival. Cross validation methods to validate and select biomarkers when the outcome of interest is survival. & \href{https://cran.r-project.org/package=MetabolicSurv}{MetabolicSurv} & CRAN\\
 Pre-treatment, classification, feature selection and correlation analyses of metabolomics data. & \href{https://github.com/jasenfinch/metabolyseR}{metabolyseR} & GitHub\\
+\rowcolor{gray!6}  Components search, optimal model components number search, optimal model validity test by permutation tests, observed values evaluation of optimal model parameters and predicted categories, bootstrap values evaluation of optimal model parameters and predicted cross-validated categories. & \href{https://cran.r-project.org/package=packMBPLSDA}{packMBPLSDA} & CRAN\\
+Robust identification of time intervals are significantly different between groups. & \href{NA}{OmicsLonDA} & BioC\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{Omics Data integration}}\\
 Multiple co-inertia analysis of omics datasets (MCIA) is a multivariate approach for visualization and integration of multi-omics datasets. The MCIA method is not dependent on feature annotation therefore can extract important features even when there are not present across all datasets. & \href{http://bioconductor.org/packages/release/bioc/html/omicade4.html}{omicade4} & BioC\\
@@ -719,18 +757,18 @@ Functionalities & Package & Repo\\
 \endfoot
 \bottomrule
 \endlastfoot
-\rowcolor{gray!6}  \addlinespace[0.3em]
-\multicolumn{3}{l}{\textbf{NA}}\\
-Convenience wrapper for pre-processing tools (XCMS, CAMERA) and a number of statistical analyses. & \href{https://www.bioconductor.org/packages/release/bioc/html/MAIT.html}{MAIT} & BioC\\
+\rowcolor{gray!6}  Convenience wrapper for pre-processing tools (XCMS, CAMERA) and a number of statistical analyses. & \href{https://www.bioconductor.org/packages/release/bioc/html/MAIT.html}{MAIT} & BioC\\
 Preprocessing (XCMS), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations, probabilistic putative metabolite annotation. & \href{http://mzmatch.sourceforge.net/}{mzMatch} & SF\\
 \rowcolor{gray!6}  XCMS and CAMERA based workflow for non-targeted processing of LC-MS datasets, It includes pre-processing, peak picking,peak filtering, data normalization and descriptive statistics calculation. & \href{https://github.com/search?q=MStractor}{MStractor} & GitHub\\
 Performs simultaneous raw data to mzXML conversion (MSConvert), peak-picking, automatic PCA outlier detection and statistical analysis, visualization and possible MS2 target list determination during an MS1 metabolomic profiling experiment. & \href{https://github.com/WMBEdmands/simExTargId}{simExTargId} & GitHub\\
 \rowcolor{gray!6}  Pre-processing of large LC-MS datasets. Performs automatic PCA with iterative automatic outlier removal and, clustering analysis and biomarker discovery. & \href{https://github.com/WMBEdmands/MetMSLine}{MetMSLine} & GitHub\\
+\addlinespace
 Workflow for the systematic analysis of 1H NMR metabolomics dataset in quantitative genetics. Performs pre-processing, mQTL mapping, metabolites structural assignment and offers data visualisation tools. & \href{https://www.bioconductor.org/packages/3.5/bioc/html/mQTL.NMR.html}{mQTL.NMR} & BioC\\
 \rowcolor{gray!6}  Workflow for pre-processing, qc, annotation and statistical data analysis of LC-MS and GC-MS based metabolomics data to be submitted to public repositories. & \href{https://github.com/rmylonas/MetaDB}{MetaDB} & GitHub\\
 Specmine is a framework mainly built on a number of already published packages. It supports data processing form different analytical platforms (LC-MS, GC-MS, NMR, IR, UV-Vis). & \href{https://github.com/cran/specmine}{specmine} & GitHub\\
 \rowcolor{gray!6}  Common interface for a number of different MS based data processing software. It covers various aspects, such as data preparation and data extraction, formula calculation, compound identification and reporting. & \href{https://github.com/rickhelmus/patRoon}{patRoon} & GitHub\\
 Processing of high resolution of LC-MS data for environmental trend analysis. & \href{https://zenodo.org/record/1213098}{enviMass} & Zenodo\\
+\addlinespace
 \rowcolor{gray!6}  Workflow for preprocessing of LC-HRMS data, suspect screening, screening for transformation products using combinatorial prediction, and interactive filtering based on ratios between sample groups. & \href{https://github.com/meowcat/RMassScreening}{RMassScreening} & GitHub\\
 Workflow to perform pre-processing, statistical analysis and metabolite identifications based on database search of detected spectra. & \href{https://github.com/tohweizhong/MetaboNexus}{MetaboNexus} & GitHub\\
 \rowcolor{gray!6}  Shiny-based platform to extract differential features from LC-MS data, includes XCMS-based feature detection, statistical analysis, prediction of molecular formulas, annotation of MS2 spectra, MS2 molecular networking and chemical compound database search. & \href{https://github.com/mjhelf/METABOseek}{METABOseek} & GitHub\\
@@ -758,9 +796,7 @@ Functionalities & Package & Repo\\
 \endfoot
 \bottomrule
 \endlastfoot
-\rowcolor{gray!6}  \addlinespace[0.3em]
-\multicolumn{3}{l}{\textbf{NA}}\\
-Given an R function and its manual page, make the documented function available in Galaxy. & \href{http://bioconductor.org/packages/release/bioc/html/RGalaxy.html}{RGalaxy} & BioC\\
+\rowcolor{gray!6}  Given an R function and its manual page, make the documented function available in Galaxy. & \href{http://bioconductor.org/packages/release/bioc/html/RGalaxy.html}{RGalaxy} & BioC\\
 Integration of R and C++. Many R data types and objects can be mapped back and forth to C++ equivalents. & \href{https://cran.r-project.org/package=Rcpp}{Rcpp} & CRAN\\
 \rowcolor{gray!6}  Low-Level R to Java Interface. & \href{https://cran.r-project.org/package=rJava}{rJava} & CRAN\\
 Interface to 'Python' modules, classes, and functions and translation between R and Python objects. & \href{https://cran.r-project.org/package=reticulate}{reticulate} & CRAN\\*
@@ -1047,7 +1083,7 @@ N vs DB; RI-based\strut
 \KeywordTok{library}\NormalTok{(dplyr)}
 \KeywordTok{library}\NormalTok{(purrr)}
 
-\KeywordTok{source}\NormalTok{(}\StringTok{"revDepNetHelper.R"}\NormalTok{)}
+\KeywordTok{source}\NormalTok{(}\StringTok{"scripts/revDepNetHelper.R"}\NormalTok{)}
 
 \KeywordTok{set_default_chromote_object}\NormalTok{(Chromote}\OperatorTok{$}\KeywordTok{new}\NormalTok{(}\DataTypeTok{browser =}\NormalTok{ Chrome}\OperatorTok{$}\KeywordTok{new}\NormalTok{(}\DataTypeTok{args =} \StringTok{"--no-sandbox"}\NormalTok{)))}
 \end{Highlighting}
@@ -1059,7 +1095,7 @@ N vs DB; RI-based\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{reviewTables <-}\StringTok{ }\KeywordTok{read.delim}\NormalTok{(}\StringTok{"data/AllMetaRbolomicsTables.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{reviewTables <-}\StringTok{ }\KeywordTok{read.delim}\NormalTok{(}\StringTok{"public/data/AllMetaRbolomicsTables.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
 \NormalTok{reviewPkgs <-}\StringTok{ }\NormalTok{reviewTables[,}\StringTok{"Package"}\NormalTok{]}
 
 \NormalTok{pkgs <-}\StringTok{ }\NormalTok{reviewPkgs}
@@ -1107,12 +1143,12 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## Rtmp5z1ADy/file3b955d5df61b'
+## RtmpHmUeVz/file3b8b127ba7e'
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## Rtmp5z1ADy/file3b9546dde508'
+## RtmpHmUeVz/file3b8b152f5a7'
 \end{verbatim}
 
 \begin{Shaded}
@@ -1125,7 +1161,7 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 \subsubsection*{Building dependency network}\label{building-dependency-network}}
 \addcontentsline{toc}{subsubsection}{Building dependency network}
 
-In total, we were analysing 288 packages.
+In total, we were analysing 292 packages.
 For each package, this returns the set of packages in CRAN or BioC that depend on, import from or link to the package (i.e., its direct reverse dependencies) using the \texttt{devtools::revdep()} function. A few packages with the highest number of reverse dependencies have been excluded, as they would dominate the visualisation.
 It was not possible to detect reverse dependencies from other hosting places such as GitHub or GitLab.
 
@@ -1256,32 +1292,33 @@ This page was created with the following packages:
 ##  [4] chromote_0.0.0.9001 networkD3_0.4       visNetwork_2.0.8   
 ##  [7] igraph_1.2.4.1      devtools_2.2.0      usethis_1.5.1      
 ## [10] tikzDevice_0.12.3   purrr_0.3.2         kableExtra_1.1.0   
-## [13] dplyr_0.8.3         DT_0.8              readr_1.3.1        
-## [16] knitr_1.24         
+## [13] DT_0.8              dplyr_0.8.3         googlesheets_0.3.0 
+## [16] readr_1.3.1         knitr_1.24         
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] httr_1.4.1          pkgload_1.0.2       jsonlite_1.6       
 ##  [4] viridisLite_0.3.0   shiny_1.3.2         assertthat_0.2.1   
-##  [7] BiocManager_1.30.4  yaml_2.2.0          remotes_2.1.0      
-## [10] sessioninfo_1.1.1   pillar_1.4.2        backports_1.1.4    
-## [13] glue_1.3.1          digest_0.6.20       promises_1.0.1.9002
-## [16] rvest_0.3.4         colorspace_1.4-1    websocket_1.1.0    
-## [19] htmltools_0.3.6     httpuv_1.5.2        pkgconfig_2.0.2    
-## [22] bookdown_0.13.2     xtable_1.8-4        scales_1.0.0       
-## [25] webshot_0.5.1       processx_3.4.1      later_0.8.0.9003   
-## [28] tibble_2.1.3        ellipsis_0.2.0.1    withr_2.1.2        
-## [31] cli_1.1.0           magrittr_1.5        crayon_1.3.4       
-## [34] mime_0.7            memoise_1.1.0       evaluate_0.14      
-## [37] ps_1.3.0            fs_1.3.1            xml2_1.2.2         
-## [40] pkgbuild_1.0.5      tools_3.6.1         prettyunits_1.0.2  
-## [43] hms_0.5.1           stringr_1.4.0       munsell_0.5.0      
-## [46] callr_3.3.1         compiler_3.6.1      rlang_0.4.0        
-## [49] grid_3.6.1          rstudioapi_0.10     htmlwidgets_1.3    
-## [52] filehash_2.4-2      crosstalk_1.0.0     rmarkdown_1.15     
-## [55] testthat_2.2.1      codetools_0.2-16    curl_4.0           
-## [58] R6_2.4.0            fastmap_1.0.0       zeallot_0.1.0      
-## [61] rprojroot_1.3-2     stringi_1.4.3       Rcpp_1.0.2         
-## [64] vctrs_0.2.0         tidyselect_0.2.5    xfun_0.9
+##  [7] BiocManager_1.30.4  cellranger_1.1.0    yaml_2.2.0         
+## [10] remotes_2.1.0       sessioninfo_1.1.1   pillar_1.4.2       
+## [13] backports_1.1.4     glue_1.3.1          digest_0.6.20      
+## [16] promises_1.0.1.9002 rvest_0.3.4         colorspace_1.4-1   
+## [19] websocket_1.1.0     htmltools_0.3.6     httpuv_1.5.2       
+## [22] pkgconfig_2.0.2     bookdown_0.13.2     xtable_1.8-4       
+## [25] scales_1.0.0        webshot_0.5.1       processx_3.4.1     
+## [28] later_0.8.0.9003    tibble_2.1.3        ellipsis_0.2.0.1   
+## [31] withr_2.1.2         cli_1.1.0           magrittr_1.5       
+## [34] crayon_1.3.4        mime_0.7            memoise_1.1.0      
+## [37] evaluate_0.14       ps_1.3.0            fs_1.3.1           
+## [40] xml2_1.2.2          pkgbuild_1.0.5      tools_3.6.1        
+## [43] prettyunits_1.0.2   hms_0.5.1           stringr_1.4.0      
+## [46] munsell_0.5.0       callr_3.3.1         compiler_3.6.1     
+## [49] rlang_0.4.0         grid_3.6.1          rstudioapi_0.10    
+## [52] htmlwidgets_1.3     filehash_2.4-2      crosstalk_1.0.0    
+## [55] rmarkdown_1.15      testthat_2.2.1      codetools_0.2-16   
+## [58] curl_4.0            R6_2.4.0            fastmap_1.0.0      
+## [61] zeallot_0.1.0       rprojroot_1.3-2     stringi_1.4.3      
+## [64] Rcpp_1.0.2          vctrs_0.2.0         tidyselect_0.2.5   
+## [67] xfun_0.9
 \end{verbatim}
 
 
