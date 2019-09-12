@@ -32,7 +32,7 @@ set_default_chromote_object(Chromote$new(browser = Chrome$new(args = "--no-sandb
 ### Read package names from our table {-}
 
 ```{r net_packages, cache=TRUE}
-reviewTables <- read.delim("data/AllMetaRbolomicsTables.csv", stringsAsFactors = FALSE)
+reviewTables <- read.delim("public/data/AllMetaRbolomicsTables.csv", stringsAsFactors = FALSE)
 reviewPkgs <- reviewTables[,"Package"]
 
 pkgs <- reviewPkgs
