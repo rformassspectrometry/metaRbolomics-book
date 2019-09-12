@@ -46,6 +46,7 @@ r_packages:
     - fastmap
     - devtools
     - remotes
+    - googlesheets
 r_github_packages:
     - rstudio/websocket
     - rstudio/webshot2

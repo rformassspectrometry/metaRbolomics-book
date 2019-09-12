@@ -28,9 +28,17 @@ if (format %in% c("pdf", "latex", "epub3"))  opts_chunk$set(dev = 'pdf')
 
 ```{r table_fun, warning=FALSE, echo=FALSE, message=FALSE}
 library(readr)
+library(googlesheets)
+
+dir.create("public/data", recursive = TRUE)
+
+"https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing" %>% 
+    gs_url() %>% 
+    gs_read(1) %>% 
+    write_tsv("public/data/AllMetaRbolomicsTables.csv")
 
 # read package list
-pack_list <- read_tsv("data/AllMetaRbolomicsTables.csv",
+pack_list <- read_tsv("public/data/AllMetaRbolomicsTables.csv",
                       col_types=cols(
                                        Table = col_character(),
                                        Section = col_character(),
@@ -49,4 +57,28 @@ source("scripts/funs.R")
 
 # Preface {-}
 
+## How to {-}
 
+**Download data**<br>
+The list of packages found in the tables in this book can be downloaded from
+[public/data/AllMetaRbolomicsTables.csv](public/data/AllMetaRbolomicsTables.csv).
+
+
+**Add packages to the tables**<br>
+Go to [the googlesheet](https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing)
+and add the package. Please be careful with adding it to the right section.
+If it belongs in more than one table add it mulitple times as appropiate.
+
+The package will not appear instantly in the book but only after a change is made to
+the book itself. You can also [open an issue](https://github.com/rformassspectrometry/metaRbolomics-book/issues)
+and request the reload such that the package shows up.
+
+
+**Contributing to the text**<br>
+There are several options. In order of convenience for the maintainer you can:
+
+* make a pull request on the [GitHub repository](https://github.com/rformassspectrometry/metaRbolomics-book). You will find the text in the `rmd` folder.
+* [open an issue](https://github.com/rformassspectrometry/metaRbolomics-book/issues) with the text you want to contribute. Clearly indicate where the text belongs.
+* Send your contribution by email to jst( a t )nexs.ku.dk.
+
+Remember to add yourself to author contributions.
