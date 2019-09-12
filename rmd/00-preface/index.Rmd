@@ -32,6 +32,8 @@ dir.create("public/data", recursive = TRUE)
 "https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing" %>% 
     gs_url() %>% 
     gs_read(1) %>% 
+    select(Table, Section, Functionalities, Package, Code_link, Repo) %>% 
+    mutate_all(~ifelse(is.na(.),"", .)) %>% 
     write_tsv("public/data/AllMetaRbolomicsTables.csv")
 
 # read package list
