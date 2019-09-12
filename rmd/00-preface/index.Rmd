@@ -9,8 +9,6 @@ header-includes:
 urlcolor: blue
 ---
 
-`r pagebreak()`
-
 ```{r setup, include=FALSE}
 r <- getOption("repos")
 r["CRAN"] <- "http://cran.rstudio.com"
@@ -53,6 +51,7 @@ source("scripts/funs.R")
 ```
 
 
+`r pagebreak()`
 
 # Preface {-}
 
