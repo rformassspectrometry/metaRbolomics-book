@@ -2,6 +2,8 @@
 
 ## UV data handling and (pre-)processing
 
+Another, in metabolomics sometimes under-appreciated, analytical approach is UV absorption detection, usually coupled to an HPLC or UHPLC system. In some cases, the photo-diode array detector (DAD or PDA) is part of an LC-MS system, actually an LC-UV-MS setup. There are other detectors (e.g. fluorescence) with a different principle, but similar characteristics when it comes to the acquired data. Alignment and baseline correction are typically the first steps of preprocessing LC-UV data. Alignment can be achieved for example with the alsace or the ptw package while baseline correction can be achieved using the hyperSpec, ChemoSpec, mdatools (or the baseline packages). The alsace package provides an alternative to using all channels (wavelengths) by first finding unique components (i.e. “pure” spectra) and then performing peak-picking in these components. After alignment general multiway statistical methods like PARAFAC, simultaneous component analysis (SCA), and Tucker Factor Analysis can be applied in the same matter as feature tables would be handled. Table 5 provides an overview of the available R packages for UV data.
+
 ```{r tab5, warning=FALSE, echo=FALSE, message=FALSE}
 metaRbolomics_show_table("Table 5:")
 ```

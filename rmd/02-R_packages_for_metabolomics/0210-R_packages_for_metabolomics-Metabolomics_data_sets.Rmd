@@ -2,6 +2,11 @@
 
 ## Metabolomics data sets
 
+Sharing of data has become increasingly common, and metabolomics data are available from MetaboLights [@haug_2013] in the EU, GNPS [@wang_2016] and Metabolomics Workbench [@sud_2016] in the US. In the context of this review, we focus instead on data in R packages, which is important for development, unit testing, documentation and user training (see Table 12). While there is no difference in R between software and data packages per se, they are handled differently in the Bioconductor infrastructure and separate views exist. 
+
+There are several data sets with raw data from LC-MS and flow injection analysis, which can be used by the data pre-processing packages in the previous sections. Other packages contain pre-processed data from GC-MS, LC-MS or NMR in the form of peak tables, which are then typically used in statistics packages, network analysis and other downstream analyses. 
+
+
 ```{r tab12, warning=FALSE, echo=FALSE, message=FALSE}
 metaRbolomics_show_table("Table 12:")
 ```
