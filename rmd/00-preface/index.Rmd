@@ -6,7 +6,9 @@ header-includes:
 - \usepackage{array}
 - \usepackage[table]{xcolor}
 - \usepackage{caption}
-urlcolor: blue
+#urlcolor: blue
+bibliography: ["references.bib"]
+link-citations: true
 ---
 
 ```{r setup, include=FALSE}

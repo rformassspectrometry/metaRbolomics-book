@@ -1,4 +1,6 @@
+citation_package: none
 bookdown::gitbook:
+  pandoc_args: [ "--csl", "metabolites.csl" ]
   css: style.css
   split_by: rmd
   config:
@@ -10,11 +12,14 @@ bookdown::gitbook:
     edit: https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/%s
     download: ["pdf", "epub"]
 bookdown::html_chapters:
+  pandoc_args: [ "--csl", "metabolites.csl" ]
   css: style.css
 bookdown::pdf_book:
+  citation_package: none
+  pandoc_args: [ "--csl", "metabolites.csl" ]
   includes:
   latex_engine: xelatex
-  citation_package: natbib
   keep_tex: yes
 bookdown::epub_book:
+  pandoc_args: [ "--csl", "metabolites.csl" ]
   stylesheet: style.css
