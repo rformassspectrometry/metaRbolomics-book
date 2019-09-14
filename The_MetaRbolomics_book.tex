@@ -23,18 +23,12 @@
 }{}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
-\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
             pdftitle={The MetaRbolomics book},
             pdfauthor={Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann},
-            colorlinks=true,
-            linkcolor=Maroon,
-            citecolor=Blue,
-            urlcolor=blue,
+            pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{plainnat}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -138,7 +132,6 @@
 \maketitle
 
 {
-\hypersetup{linkcolor=black}
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
@@ -185,20 +178,53 @@ Remember to add yourself to author contributions.
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
+Metabolomics aims to measure, identify and (semi-)quantify a large number of metabolites in a biological system. The methods of choice are generally Nuclear Magnetic Resonance (NMR) spectroscopy or Mass Spectrometry (MS). The latter can be used directly (e.g.~direct infusion MS), but is normally coupled to a separation system such as Gas Chromatography (GC-MS), Liquid Chromatography (LC-MS) or Capillary Electrophoresis (CE-MS). In order to increase the separation power multidimensional separation systems are becoming common, such as comprehensive two-dimensional GC or LC (GC×GC, LC×LC) or LC combined with ion mobility spectrometry (LC-IMS) before MS detection. Other detection techniques include Raman spectroscopy, UV/VIS (ultraviolet/visible absorbance spectrophotometric detection- typically with a Diode Array Detector (DAD)) and fluorescence. NMR also benefits from separation techniques, such as LC-MS-NMR or LC-SPE-NMR. Additionally, there are a wide variety of pulse programs commonly used in 1D and even bigger set of 2D pulse programs used in metabolomics and for metabolite identification, for a comprehensive review on this see {[}\protect\hyperlink{ref-emwas_2019}{1}{]}. A general introduction to metabolomics can be found in textbooks like {[}\protect\hyperlink{ref-lammerhofer_2013}{2}--\protect\hyperlink{ref-wehrens_2019}{4}{]} or online courses like {[}\protect\hyperlink{ref-InternationalMetabolomicsSociety_2019}{5},\protect\hyperlink{ref-salek_website_nd}{6}{]}.
+
+All of these analytical platforms and methodologies generate large amounts of high dimensional and complex experimental raw data when used in a metabolomics context. The amount of data, the need for reproducible research, and the complexities of the biological problem under investigation necessitates a high degree of automation and standard workflows in the data analysis. Beside vendor software, which is usually not open, open source projects offer the possibility to work in community-driven teams, perform reproducible data analysis and to work with different types of raw data. Many tools and methods have been developed to facilitate the processing and analysis of metabolomics data; most seek to solve a specific challenge in the multi-step data processing and analysis workflow.
+
+This review provides an overview of the metabolomics-related tools that are made available as packages (and a limited number of non-trivial, non-packaged scripts) for the statistics environment and programming language R {[}\protect\hyperlink{ref-rcoredevelopmentteam_website_2018}{7}{]}. We have included packages even if they are not anymore part of current CRAN or Bioconductor, i.e.~as archived versions only. We have not included packages described in the literature if no longer available for download at all. We did include packages that are currently available, but not yet published in the scientific literature. The package descriptions have been grouped in sections according to the typical steps in the metabolomics data analysis pipeline for different analytical technologies, following the typical workflow steps from MS, NMR and UV data analysis, metabolite annotation, statistical analysis, molecular structure, network and pathway analysis and finally covering packages embracing large parts of the workflow.
+
 \newpage
 
 \hypertarget{metabolomics-data-processing-and-analysis}{%
 \subsection{Metabolomics data processing and analysis}\label{metabolomics-data-processing-and-analysis}}
+
+\includegraphics{figures/Figure 1.png}
+\emph{Figure 1: Overview of typical tasks in metabolomics workflows, ranging from metabolite profiling (left, green) via metabolite annotation (center, purple) to data analysis using statistics and metabolite networks (right, red).}
+
+The remainder of this section gives a broad overview and explains the typical steps, which are summarized in Figure 1, while common approaches and the available R packages are described in more detail in Section 2.
+
+The first step for any metabolomics study is conversion from vendor formats into open data formats and pre-processing of the obtained raw data. The latter entails converting chromatographic (usually hyphenated to MS) or spectroscopic data into a data matrix suitable for data analysis. For LC-MS data this typically involves feature detection (or peak-picking) in individual samples followed by matching of features between samples. For spectroscopic data, this typically means alignment of spectra and potentially binning of the spectra into `buckets'. The final matrix will have samples in one dimension and so-called features (unique chromatographic features or spectral bins) in the other dimension. In NMR based metabolomics, several steps are carried out to process raw time domain data to a spectrum to improve quality such as phasing and baseline correction of the spectrum. Next is alignment of peaks across spectra and samples, followed by segmenting data into bins or a peak fitting step depending on the method used.
+
+Once the analytical data has been preprocessed, it is generally subjected to different statistical approaches to find features that are ``interesting'' in the context of the experimental design, e.g.~differentiating diseased patients from healthy controls.
+In untargeted metabolomics, the selected features contain only the characteristics (e.g.~m/z, retention time, chemical shift, intensity) obtained from the measurement, but not (yet) the metabolite identification or chemical structure as such. Different approaches exist for this metabolite annotation step, ranging from (usually insufficient) database lookup of exact mass (MS) or chemical shift (NMR) alone, to the use of fragmentation patterns obtained in tandem MS experiments, which can be searched against spectral databases or analysed with in silico algorithms, to spectral searching or de novo structure elucidation using combinations of NMR experiments (often 1D and 2D).
+
+Large parts of the metabolomics software landscape in general have been covered in reviews, recent ones include the large list of software packages {[}\protect\hyperlink{ref-spicer_website_2018}{8}{]} first described by Spicer et al. {[}\protect\hyperlink{ref-spicer_2017}{9}{]}, and a series of annual reviews covering the list maintained by Misra and others {[}\protect\hyperlink{ref-misra_2016}{10}--\protect\hyperlink{ref-misra_website_2017}{13}{]}, a review by Kannan et al. {[}\protect\hyperlink{ref-kannan_2016}{14}{]} and the review focussing on approaches for compound identification of LC-MS/MS data by Blaženović et al. {[}\protect\hyperlink{ref-blaenovi_2018}{15}{]}. These reviews did include software regardless of the programming environment or language used for the implementation. In section 2.9 we briefly mention how those can be accessed from within R.
+
+This review will focus on the ecosystem of R packages for metabolomics. It provides an overview of packages to carry out one or multiple of the above mentioned steps. Some aspects are not covered in depth or not at all. For example, MS based imaging in metabolomics is an area that has unique challenges and merits its own review, and it is also beyond the scope of this review to discuss all statistical methods that could be applied in metabolomics.
 
 \newpage
 
 \hypertarget{the-r-package-landscape}{%
 \subsection{The R package landscape}\label{the-r-package-landscape}}
 
+The core of the R language was started in 1997 and provided the basic functionality of a programming language, with some functions targeting statistics. The real power driving the popularity of R today is the huge number of contributed packages providing algorithms and data types for a myriad of application realms. Many packages have an Open Source license. This is not a phenomenon exclusive to R, but is rather a positive cultural aspect of bioinformatics software being mostly published under Open Source license terms, regardless of the implementation language. An R interpreter can be embedded in several other languages to execute R code snippets, and R code can also be executed via different workflow systems (e.g.~KNIME or Galaxy, see section 2.9), which is beneficial for analysis workflows, interoperability and reuse.
+
+These packages are typically hosted on platforms that serve as an umbrella project and are a ``home'' for the developer and user communities. The Comprehensive R Archive Network (CRAN) repository contains over 14,500 packages for many application areas, including some for bioinformatics and metabolomics. The ``CRAN Task Views'', which are manually curated resources describing available packages, books etc, help users navigate CRAN and find packages for a particular task. For metabolomics, the most relevant Task View is ``\emph{Chemometrics and Computational Physics}'' {[}\protect\hyperlink{ref-mullen_website_2019}{16}{]} edited by Katharine Mullen, which includes sections on Spectroscopy, Mass Spectrometry and other tasks relevant for metabolomics applications. The Bioconductor project (BioC for short) was started by a team around Robert Gentleman in 2001 {[}\protect\hyperlink{ref-gentleman_2004}{17}{]}, and has become a vibrant community of around 1,000 contributors, working on 1,741 software, 371 data and 948 annotation packages (BioC release 3.9). In addition to a rich development infrastructure (website, developer infrastructure, version control, build farm, etc) there are regular workshops for developers and users. To enable reproducible research, BioC runs bi-annual software releases tied to a particular R release, thus ensuring and guaranteeing interoperability of packages within the same BioC release and allowing to install BioC packages from a certain release to reproduce or repeat old data analyses. On both CRAN and BioC, each package has a landing page pointing to sources, build information, binary packages and documentation. On BioC, packages are sorted (by their respective authors) into ``BiocViews'', where most packages are targeting genomics and gene expression analysis, and the most relevant ones for metabolomics are Cheminformatics (containing 11 packages), Lipidomics (11), SystemsBiology (66) and, of course, Metabolomics (56). Bioconductor workflows (organised as separate BioC View {[}\protect\hyperlink{ref-bioconductor_website_nda}{18}{]}) provide well documented examples of typical analyses. For community support, BioC maintains mailing lists, a web-based support site, slack communication channels and more. Both CRAN and BioC have a well-defined process for accepting new packages, and the respective developer guidelines (see guidelines for CRAN {[}\protect\hyperlink{ref-thecomprehensiverarchivenetwork_website_nd}{19}{]} and for BioC {[}\protect\hyperlink{ref-bioconductor_website_nd}{20}{]}) cover the package life-cycle from submission, updates and maintenance, to deprecation/orphaning of packages. In the case of BioC, new submissions undergo a peer review process, which also provides feedback on technical aspects and integration with the BioC landscape.
+
+A smaller number of packages are also hosted on sites like \href{https://rforge.net/}{rforge.net}, \href{http://r-forge.wu-wien.ac.at/}{r-forge.wu-wien.ac.at} {[}\protect\hyperlink{ref-theul_2009}{21}{]}, or \href{https://sourceforge.net/}{sourceforge.net} (SF). The non-profit initiative rOpenSci {[}\protect\hyperlink{ref-boettiger_2015}{22}{]} maintains an ecosystem around reproducible research, including staff and community-contributed R packages with additional peer review. Currently, there are no specific metabolomics related packages.
+
+The GitHub (and also GitLab, Bitbucket) hosting services are not specific to R development, but have gained a lot of popularity due to their excellent support for participation and contribution to software projects. The maintenance of BioC packages on one of the git-based sites has become easier since the BioC team migrated to git as its version control system. A downside of these generic repository hosting sites is that there is no central point of entry, and finding packages for specific tasks is difficult compared with dedicated platforms and relies on search engines and publications. Also, while these hosting services make it easier to provide packages that do not meet BioC and CRAN requirements (e.g.~rinchi due to limitations in the InChI algorithm itself), it also allows users to postpone (or circumvent entirely) the review process that helps ensure the quality of BioC contributions. In addition to generic search engines like \href{http://google.com}{Google}\href{http://google.com}{.com} or \href{http://bing.com}{Bing}\href{http://bing.com}{.com}, the \href{https://rdrr.io/}{rdrr.io} is a comprehensive index of R packages and documentation from CRAN, Bioconductor, GitHub and R-Forge. Initially, its main purpose was to find R packages by name, perform full-text search in package documentation, functions and R source code. Recently, it also serves as hub to actually run R code without local installation, see Section 2.9.
+
 \newpage
 
 \hypertarget{dependences-and-connectivity-of-metabolomics-packages}{%
 \subsection{Dependences and connectivity of metabolomics packages}\label{dependences-and-connectivity-of-metabolomics-packages}}
+
+\includegraphics{figures/Figure 2.png}
+\emph{Figure 2: Dependency network of R packages. Shown in blue are packages mentioned in the review. Edges connect to packages that depend on another package, as long as they are in CRAN or BioC. Green nodes correspond to packages in CRAN or BioC not covered in the review. The inset shows the neighbourhood of the ptw package. Not shown are 1) infrastructure packages, e.g.~rJava, Rcpp 2) packages from the review without reverse dependencies and 3) data packages. Some packages from the review are not in current versions of CRAN or BioC. An interactive version of this figure is also available online (\href{https://rformassspectrometry.github.io/metaRbolomics-book/}{rformassspectrometry.github.io/metaRbolomics-book}, Appendix 2) and as supplemental file 2.}
+
+Code reuse and object inheritance can be a sign for a well-connected and interacting community. At the useR!2015 and JSM2015 conferences, A. de Vries and J. Rickert (both Microsoft, London, UK) showed the analysis of the CRAN and BioC dependency network structure {[}\protect\hyperlink{ref-devries_website_2015b}{23}--\protect\hyperlink{ref-devries_website_2015}{25}{]}. Compared to CRAN, BioC packages had a higher connectivity: ``\emph{It seems that the Bioconductor policy encourages package authors to reuse existing material and write packages that work better together}''. We repeated such an analysis {[}\protect\hyperlink{ref-neumann_website_2019}{26}{]} with the packages mentioned in this review and created a network of reverse dependencies (i.e., the set of packages that depend on these metabolomics related packages in BioC or CRAN). The resulting network is shown in Figure 2.
 
 \newpage
 
@@ -853,6 +879,93 @@ ASICSdata: 1D NMR spectra for ASICS. & \href{https://www.bioconductor.org/packag
 \hypertarget{conclusions}{%
 \section{Conclusions}\label{conclusions}}
 
+\newpage
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-emwas_2019}{}%
+1. Emwas, A.-H.; Roy, R.; McKay, R.T.; Tenori, L.; Saccenti, E.; Gowda, G.A.N.; Raftery, D.; Alahmari, F.; Jaremko, L.; Jaremko, M. et al. NMR spectroscopy for metabolomics research. \emph{Metabolites} \textbf{2019}, \emph{9}.
+
+\leavevmode\hypertarget{ref-lammerhofer_2013}{}%
+2. \emph{Metabolomics in practice: Successful strategies to generate and analyze metabolic data}; Lämmerhofer, M., Weckwerth, W., Eds.; Wiley-VCH Verlag GmbH \& Co. KGaA: Weinheim, Germany, 2013; ISBN \href{https://worldcat.org/isbn/9783527330898}{9783527330898}.
+
+\leavevmode\hypertarget{ref-villasboas_2007}{}%
+3. Villas-Boas, S.G.; Nielsen, J.; Smedsgaard, J.; Hansen, M.A.E.; Roessner-Tunali, U. \emph{Metabolome analysis: An introduction}; 1st ed.; Wiley, John \& Sons, Incorporated, 2007; p. 319; ISBN \href{https://worldcat.org/isbn/978-0-471-74344-6}{978-0-471-74344-6}.
+
+\leavevmode\hypertarget{ref-wehrens_2019}{}%
+4. \emph{Metabolomics: Practical guide to design and analysis}; Wehrens, R., Salek, R., Eds.; Chapman \& hall/CRC mathematical and computational biology; Chapman; Hall/CRC, 2019; ISBN \href{https://worldcat.org/isbn/1498725260}{1498725260}.
+
+\leavevmode\hypertarget{ref-InternationalMetabolomicsSociety_2019}{}%
+5. International Metabolomics Society Free Tools \& Learning Resources - Metabolomics Society Wiki.
+
+\leavevmode\hypertarget{ref-salek_website_nd}{}%
+6. Salek, R.; Emery, L.; Beisken, S. Metabolomics: An introduction EMBL-EBI train online.
+
+\leavevmode\hypertarget{ref-rcoredevelopmentteam_website_2018}{}%
+7. R Core Development Team R: A language and environment for statistical computing 2018.
+
+\leavevmode\hypertarget{ref-spicer_website_2018}{}%
+8. Spicer, R. GitHub - RASpicer/MetabolomicsTools 2018.
+
+\leavevmode\hypertarget{ref-spicer_2017}{}%
+9. Spicer, R.; Salek, R.M.; Moreno, P.; Cañueto, D.; Steinbeck, C. Navigating freely-available software tools for metabolomics analysis. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2017}, \emph{13}, 106.
+
+\leavevmode\hypertarget{ref-misra_2016}{}%
+10. Misra, B.B.; Hooft, J.J.J. van der Updates in metabolomics tools and resources: 2014-2015. \emph{Electrophoresis} \textbf{2016}, \emph{37}, 86--110.
+
+\leavevmode\hypertarget{ref-misra_2017}{}%
+11. Misra, B.B.; Fahrmann, J.F.; Grapov, D. Review of emerging metabolomic tools and resources: 2015-2016. \emph{Electrophoresis} \textbf{2017}, \emph{38}, 2257--2274.
+
+\leavevmode\hypertarget{ref-misra_2018}{}%
+12. Misra, B.B. New tools and resources in metabolomics: 2016-2017. \emph{Electrophoresis} \textbf{2018}, \emph{39}, 909--923.
+
+\leavevmode\hypertarget{ref-misra_website_2017}{}%
+13. Misra, B. GitHub - biswapriyamisra/metabolomics: Tools databases resources in metabolomics \& integrated omics in 2015-2016 2017.
+
+\leavevmode\hypertarget{ref-kannan_2016}{}%
+14. Kannan, L.; Ramos, M.; Re, A.; El-Hachem, N.; Safikhani, Z.; Gendoo, D.M.A.; Davis, S.; Gomez-Cabrero, D.; Castelo, R.; Hansen, K.D. et al. Public data and open source tools for multi-assay genomic investigation of disease. \emph{Briefings in Bioinformatics} \textbf{2016}, \emph{17}, 603--615.
+
+\leavevmode\hypertarget{ref-blaenovi_2018}{}%
+15. Blaženović, I.; Kind, T.; Ji, J.; Fiehn, O. Software tools and approaches for compound identification of LC-MS/MS data in metabolomics. \emph{Metabolites} \textbf{2018}, \emph{8}.
+
+\leavevmode\hypertarget{ref-mullen_website_2019}{}%
+16. Mullen, K. CRAN task view: Chemometrics and computational physics 2019.
+
+\leavevmode\hypertarget{ref-gentleman_2004}{}%
+17. Gentleman, R.C.; Carey, V.J.; Bates, D.M.; Bolstad, B.; Dettling, M.; Dudoit, S.; Ellis, B.; Gautier, L.; Ge, Y.; Gentry, J. et al. Bioconductor: Open software development for computational biology and bioinformatics. \emph{Genome Biology} \textbf{2004}, \emph{5}, R80.
+
+\leavevmode\hypertarget{ref-bioconductor_website_nda}{}%
+18. Bioconductor Bioconductor - BiocViews.
+
+\leavevmode\hypertarget{ref-thecomprehensiverarchivenetwork_website_nd}{}%
+19. The Comprehensive R Archive Network CRAN repository policy.
+
+\leavevmode\hypertarget{ref-bioconductor_website_nd}{}%
+20. Bioconductor Bioconductor - developers.
+
+\leavevmode\hypertarget{ref-theul_2009}{}%
+21. Theußl, S.; Zeileis, A. Collaborative software development using r-forge. \emph{The R journal} \textbf{2009}, \emph{1}, 9.
+
+\leavevmode\hypertarget{ref-boettiger_2015}{}%
+22. Boettiger, C.; Chamberlain, S.; Hart, E.; Ram, K. Building software, building community: Lessons from the rOpenSci project. \emph{Journal of open research software} \textbf{2015}, \emph{3}.
+
+\leavevmode\hypertarget{ref-devries_website_2015b}{}%
+23. Vries, A. de; Rickert, J. The network structure of r packages on CRAN \& BioConductor 2015.
+
+\leavevmode\hypertarget{ref-devries_website_2015a}{}%
+24. Vries, A. de Differences in the network structure of CRAN and BioConductor (revolutions) 2015.
+
+\leavevmode\hypertarget{ref-devries_website_2015}{}%
+25. Vries, A. de GitHub - andrie/cran-network-structure: Scripts used for my UseR!2015 presentation on the network structure of CRAN 2015.
+
+\leavevmode\hypertarget{ref-neumann_website_2019}{}%
+26. Neumann, S. GitHub - sneumann/metaRbolomics: Metabolomics in r and bioconductor 2019.
+
+\newpage
+
 \hypertarget{appendices}{%
 \section{Appendices}\label{appendices}}
 
@@ -1143,12 +1256,12 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## RtmpHmUeVz/file3b8b127ba7e'
+## RtmpKYNMBZ/file3bd639cc31cb'
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## RtmpHmUeVz/file3b8b152f5a7'
+## RtmpKYNMBZ/file3bd6398fe9f5'
 \end{verbatim}
 
 \begin{Shaded}
@@ -1305,7 +1418,7 @@ This page was created with the following packages:
 ## [19] websocket_1.1.0     htmltools_0.3.6     httpuv_1.5.2       
 ## [22] pkgconfig_2.0.2     bookdown_0.13.2     xtable_1.8-4       
 ## [25] scales_1.0.0        webshot_0.5.1       processx_3.4.1     
-## [28] later_0.8.0.9003    tibble_2.1.3        ellipsis_0.2.0.1   
+## [28] later_0.8.0.9004    tibble_2.1.3        ellipsis_0.2.0.1   
 ## [31] withr_2.1.2         cli_1.1.0           magrittr_1.5       
 ## [34] crayon_1.3.4        mime_0.7            memoise_1.1.0      
 ## [37] evaluate_0.14       ps_1.3.0            fs_1.3.1           

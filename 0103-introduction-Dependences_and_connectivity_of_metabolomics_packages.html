@@ -181,6 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="0210-R_packages_for_metabolomics-Metabolomics_data_sets.html"><a href="0210-R_packages_for_metabolomics-Metabolomics_data_sets.html"><i class="fa fa-check"></i><b>2.10</b> Metabolomics data sets</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="0300-conclusion.html"><a href="0300-conclusion.html"><i class="fa fa-check"></i><b>3</b> Conclusions</a></li>
+<li class="chapter" data-level="" data-path="0400-references.html"><a href="0400-references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="4" data-path="9900-Appendices.html"><a href="9900-Appendices.html"><i class="fa fa-check"></i><b>4</b> Appendices</a><ul>
 <li class="chapter" data-level="" data-path="9901-Appendices-Appendix_1_The_MSP_File_Format_and_package_support.html"><a href="9901-Appendices-Appendix_1_The_MSP_File_Format_and_package_support.html"><i class="fa fa-check"></i>Appendix 1: The MSP File Format and package support</a></li>
 <li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><i class="fa fa-check"></i>Appendix 2: metaRbolomics dependencies network</a><ul>
@@ -217,6 +218,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="dependences-and-connectivity-of-metabolomics-packages" class="section level2">
 <h2><span class="header-section-number">1.3</span> Dependences and connectivity of metabolomics packages</h2>
+<p><img src="figures/Figure%202.png" alt="Figure 2" />
+<em>Figure 2: Dependency network of R packages. Shown in blue are packages mentioned in the review. Edges connect to packages that depend on another package, as long as they are in CRAN or BioC. Green nodes correspond to packages in CRAN or BioC not covered in the review. The inset shows the neighbourhood of the ptw package. Not shown are 1) infrastructure packages, e.g. rJava, Rcpp 2) packages from the review without reverse dependencies and 3) data packages. Some packages from the review are not in current versions of CRAN or BioC. An interactive version of this figure is also available online (<a href="https://rformassspectrometry.github.io/metaRbolomics-book/">rformassspectrometry.github.io/metaRbolomics-book</a>, Appendix 2) and as supplemental file 2.</em></p>
+<p>Code reuse and object inheritance can be a sign for a well-connected and interacting community. At the useR!2015 and JSM2015 conferences, A. de Vries and J. Rickert (both Microsoft, London, UK) showed the analysis of the CRAN and BioC dependency network structure <span class="citation">[<a href="0400-references.html#ref-devries_website_2015b">23</a>–<a href="0400-references.html#ref-devries_website_2015">25</a>]</span>. Compared to CRAN, BioC packages had a higher connectivity: “<em>It seems that the Bioconductor policy encourages package authors to reuse existing material and write packages that work better together</em>”. We repeated such an analysis <span class="citation">[<a href="0400-references.html#ref-neumann_website_2019">26</a>]</span> with the packages mentioned in this review and created a network of reverse dependencies (i.e., the set of packages that depend on these metabolomics related packages in BioC or CRAN). The resulting network is shown in Figure 2.</p>
 
             </section>
 
