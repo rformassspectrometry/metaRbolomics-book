@@ -424,7 +424,9 @@ Screening, annotation, and putative identification of mass spectral features in 
 Annotation of lipid type and acyl groups on independent acquisition-mass spectrometry lipidomics based on fragmentation and intensity rules. & \href{https://cran.r-project.org/package=LipidMS}{LipidMS} & CRAN\\
 \rowcolor{gray!6}  Accurate mass and/or retention time and/or collisional cross section matching. & \href{https://github.com/michaelwitting/masstrixR}{masstrixR} & GitHub\\
 Downloads KEGG compounds orthology data and wraps the KEGGREST package to extractgene data. & \href{https://cran.r-project.org/package=omu}{omu} & CRAN\\
-\rowcolor{gray!6}  Paired mass distance analysis to find independent peaks inm/z-retention time profiles based on retention time hierarchical cluster analysis and frequency analysis of paired mass distances within retention time groups. Structure directed analysis to find potential relationship among those independent peaks. Shiny GUI included. & \href{https://cran.r-project.org/package=pmd}{pmd} & CRAN\\*
+\rowcolor{gray!6}  Paired mass distance analysis to find independent peaks inm/z-retention time profiles based on retention time hierarchical cluster analysis and frequency analysis of paired mass distances within retention time groups. Structure directed analysis to find potential relationship among those independent peaks. Shiny GUI included. & \href{https://cran.r-project.org/package=pmd}{pmd} & CRAN\\
+Preprocessing (xcms), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations and probabilistic putative metabolite annotation using MetAssign. & \href{https://github.com/andzajan/mzmatch.R}{mzMatch} & GitHub\\
+\rowcolor{gray!6}  Putative annotation of unknowns in MS1 data. & \href{https://sourceforge.net/projects/xmsannotator/}{xMSAnnotator} & SF\\*
 \end{longtable}
 
 \newpage
@@ -700,7 +702,9 @@ Data transformation, filtering of feature and/or samples and data normalization.
 Missing value filtering and imputation, zero value filtering, data normalization, data integration, data quality assessment, univariate statistical analysis, multivariate statistical analysis such as PCA and PLS-D and potential marker selection & \href{https://github.com/MetabLAB/MetCleaning}{MetCleaning} & GitHub\\
 \rowcolor{gray!6}  Univariate analysis (linear model), PCA, clustered heatmap, and partial correlation network analysis. Based on classes from the Metabase package(Zhu 2019). & \href{https://github.com/zhuchcn/ShinyMetabase}{ShinyMetabase} & GitHub\\
 Outlier detection, PCA, drift correction,visualization, missing value imputation,classification. & \href{https://cran.r-project.org/package=MetabolomicsBasics}{MetabolomicsBasics} & CRAN\\
-\rowcolor{gray!6}  Pre-processing, differential compound identification and grouping, traditional PK parameters calculation, multivariate statistical analysis, correlations, cluster analyses and resulting visualization. & \href{https://cran.r-project.org/package=polyPK}{polyPK} & CRAN\\*
+\rowcolor{gray!6}  Pre-processing, differential compound identification and grouping, traditional PK parameters calculation, multivariate statistical analysis, correlations, cluster analyses and resulting visualization. & \href{https://cran.r-project.org/package=polyPK}{polyPK} & CRAN\\
+Integration of omics data using multivariate methods such as PLS. Performs community detection and network analysis to allow visualization of positive or negative associations between different datasets generated using samples from the same individuals. Also available as ashinyapp (https://kuppal.shinyapps.io/xmwas). & \href{https://github.com/kuppal2/xMWAS}{xMWAS} & GitHub\\
+\rowcolor{gray!6}  Joint metabolic model-based analysis of metabolomics measurements and taxonomic composition from microbial communities. & \href{https://github.com/borenstein-lab/MIMOSA/tree/master/mimosa}{MIMOSA} & GitHub\\*
 \end{longtable}
 
 \newpage
@@ -922,7 +926,7 @@ Functionalities & Package & Repo\\
 \bottomrule
 \endlastfoot
 \rowcolor{gray!6}  Convenience wrapper for pre-processing tools (XCMS, CAMERA) and a number of statistical analyses. & \href{https://www.bioconductor.org/packages/release/bioc/html/MAIT.html}{MAIT} & BioC\\
-Preprocessing (XCMS), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations, probabilistic putative metabolite annotation. & \href{http://mzmatch.sourceforge.net/}{mzMatch} & SF\\
+Preprocessing (xcms), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations and probabilistic putative metabolite annotation using MetAssign. & \href{https://github.com/andzajan/mzmatch.R}{mzMatch} & GitHub\\
 \rowcolor{gray!6}  XCMS and CAMERA based workflow for non-targeted processing of LC-MS datasets, It includes pre-processing, peak picking,peak filtering, data normalization and descriptive statistics calculation. & \href{https://github.com/search?q=MStractor}{MStractor} & GitHub\\
 Performs simultaneous raw data to mzXML conversion (MSConvert), peak-picking, automatic PCA outlier detection and statistical analysis, visualization and possible MS2 target list determination during an MS1 metabolomic profiling experiment. & \href{https://github.com/WMBEdmands/simExTargId}{simExTargId} & GitHub\\
 \rowcolor{gray!6}  Pre-processing of large LC-MS datasets. Performs automatic PCA with iterative automatic outlier removal and, clustering analysis and biomarker discovery. & \href{https://github.com/WMBEdmands/MetMSLine}{MetMSLine} & GitHub\\
@@ -1086,7 +1090,7 @@ Functionalities & Package & Repo\\
 12 HPLC-MS NetCDF files (Agilent 1100 LC-MSD SL). & \href{http://bioconductor.org/packages/release/data/experiment/html/faahKO.html}{faahKO} & BioC\\
 16 UPLC-MS mzData files (Bruker microTOFq). & \href{http://bioconductor.org/packages/release/data/experiment/html/mtbls2.html}{mtbls2} & BioC\\
 \rowcolor{gray!6}  12 UPLC-MS mzML files (AB Sciex TripleTOF 5600, SWATH mode). & \href{https://github.com/sneumann/mtbls297/}{mtbls297} & GitHub\\
-Different raw MS files (LTQ, TripleQ, FTICR, Orbitrap, QTOF) some in different formats (mzML, mzXML, mzData, mzData.gz, NetCDF, mz5). Also mzid format from proteomics. & \href{NA}{msdata} & BioC\\
+Different raw MS files (LTQ, TripleQ, FTICR, Orbitrap, QTOF) some in different formats (mzML, mzXML, mzData, mzData.gz, NetCDF, mz5). Also mzid format from proteomics. & \href{http://bioconductor.org/packages/release/data/experiment/html/msdata.html}{msdata} & BioC\\
 \rowcolor{gray!6}  Metadata and DDA MS/MS spectra of 15 narcotics standards (LTQ Orbitrap XL). & \href{https://bioconductor.org/packages/release/data/experiment/html/RMassBankData.html}{RMassBankData} & BioC\\
 183 x 109 peak table. & \href{http://bioconductor.org/packages/release/bioc/html/ropls.html}{ropls} & BioC\\
 \rowcolor{gray!6}  69 x 5,501 peak table. & \href{http://bioconductor.org/packages/release/bioc/html/biosigner.html}{biosigner} & BioC\\
@@ -1095,8 +1099,8 @@ Different raw MS files (LTQ, TripleQ, FTICR, Orbitrap, QTOF) some in different f
 Proteomics, metabolomics GC-MS and Lipidomics data from Calu-3 cell culture; 3 mockulum treated and 9 MERS-CoV treated; Time point, 18 hour from MassIVE dataset ids MSV000079152, MSV000079153, MSV000079154. & \href{https://github.com/pmartR/pmartRdata}{pmartRdata} & GitHub\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{FIA-MS}}\\
-6 mzML files (human plasma spiked with 40 compounds acquired in positive mode on an orbitrap fusion). & \href{NA}{plasFIA} & BioC\\
-mzML files (Thermo Exactive) from comparison of leaf tissue from 4 B. distachyon ecotypes with Flow-infusion electrospray ionisation-high resolution mass spectrometry (FIE-HRMS). Also includes data sets with 10 technical injections of human urine and another 10 injections from leaf tissue (ecotype ABR1). & \href{NA}{metaboData} & GitHub\\
+6 mzML files (human plasma spiked with 40 compounds acquired in positive mode on an orbitrap fusion). & \href{http://bioconductor.org/packages/release/data/experiment/html/plasFIA.html}{plasFIA} & BioC\\
+mzML files (Thermo Exactive) from comparison of leaf tissue from 4 B. distachyon ecotypes with Flow-infusion electrospray ionisation-high resolution mass spectrometry (FIE-HRMS). Also includes data sets with 10 technical injections of human urine and another 10 injections from leaf tissue (ecotype ABR1). & \href{https://github.com/aberHRML/metaboData}{metaboData} & GitHub\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
 \multicolumn{3}{l}{\textbf{GC-MS}}\\
 52 x 154 peak table. & \href{http://bioconductor.org/packages/release/bioc/html/pcaMethods.html}{pcaMethods} & BioC\\
@@ -1860,12 +1864,12 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## RtmpW9qPLs/file3b2a241b969e'
+## Rtmp1wpjBI/file3bafe07b751'
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## RtmpW9qPLs/file3b2a19f4838c'
+## Rtmp1wpjBI/file3baf5e42b69'
 \end{verbatim}
 
 \begin{Shaded}
@@ -1878,7 +1882,7 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 \subsubsection*{Building dependency network}\label{building-dependency-network}}
 \addcontentsline{toc}{subsubsection}{Building dependency network}
 
-In total, we were analysing 292 packages.
+In total, we were analysing 296 packages.
 For each package, this returns the set of packages in CRAN or BioC that depend on, import from or link to the package (i.e., its direct reverse dependencies) using the \texttt{devtools::revdep()} function. A few packages with the highest number of reverse dependencies have been excluded, as they would dominate the visualisation.
 It was not possible to detect reverse dependencies from other hosting places such as GitHub or GitLab.
 
