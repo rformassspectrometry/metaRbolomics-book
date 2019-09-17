@@ -101,3 +101,10 @@ There are several options. In order of convenience for the maintainer you can:
 * Send your contribution by email to jst( a t )nexs.ku.dk.
 
 Remember to add yourself to author contributions.
+
+## This book in other formats
+
+The book is also available as static [PDF](https://rformassspectrometry.github.io/metaRbolomics-book/The_MetaRbolomics_book.pdf)
+file, and as [ePUB](https://rformassspectrometry.github.io/metaRbolomics-book/The_MetaRbolomics_book.epub).
+
+
