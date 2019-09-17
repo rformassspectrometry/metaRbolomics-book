@@ -60,14 +60,30 @@ source("scripts/funs.R")
 
 # Preface {-}
 
-## How to {-}
+The term metaRbolomics has been coined for a workshop at the 2016
+annual conference of the international Metabolomics society in Dublin,
+Ireland. On May 11, 2016, a small team of authors started to compile a
+review of "a few R packages" and how they can be used to do
+metabolomics data analysis. After some hiatus, Jan Stanstrup revived
+the idea and this turned into a 60+ page review (accepted in MDPI
+Metabolites) with more than 200 packages and more than 300
+references. But the journey did not end there. In march 2018 Egon
+Willighagen suggested that this effort should turn into a book, and
+more importantly, should become a community effort, with more
+introduction and also include code examples. It now found a home at
+[RforMassSpectrometry](https://rformassspectrometry.github.io/RforMassSpectrometry/),
+a community website dedicated to R software for the analysis and
+interpretation of high throughput mass spectrometry assays, including
+proteomics and metabolomics experiments.
 
-**Download data**<br>
+## How to ... {-}
+
+**... download data**<br>
 The list of packages found in the tables in this book can be downloaded from
 [public/data/AllMetaRbolomicsTables.csv](public/data/AllMetaRbolomicsTables.csv).
 
 
-**Add packages to the tables**<br>
+** ... ddd packages to the tables**<br>
 Go to [the googlesheet](https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing)
 and add the package. Please be careful with adding it to the right section.
 If it belongs in more than one table add it mulitple times as appropiate.
@@ -77,7 +93,7 @@ the book itself. You can also [open an issue](https://github.com/rformassspectro
 and request the reload such that the package shows up.
 
 
-**Contributing to the text**<br>
+** ... contribute to the text**<br>
 There are several options. In order of convenience for the maintainer you can:
 
 * make a pull request on the [GitHub repository](https://github.com/rformassspectrometry/metaRbolomics-book). You will find the text in the `rmd` folder.
