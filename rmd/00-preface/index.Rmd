@@ -83,7 +83,7 @@ The list of packages found in the tables in this book can be downloaded from
 [public/data/AllMetaRbolomicsTables.csv](public/data/AllMetaRbolomicsTables.csv).
 
 
-** ... ddd packages to the tables**<br>
+**... add packages to the tables**<br>
 Go to [the googlesheet](https://docs.google.com/spreadsheets/d/1QTe_FhiiFEJJ7hn25V973OV3Y9up8CsiLXgZXgTg_UU/edit?usp=sharing)
 and add the package. Please be careful with adding it to the right section.
 If it belongs in more than one table add it mulitple times as appropiate.
@@ -93,7 +93,7 @@ the book itself. You can also [open an issue](https://github.com/rformassspectro
 and request the reload such that the package shows up.
 
 
-** ... contribute to the text**<br>
+**... contribute to the text**<br>
 There are several options. In order of convenience for the maintainer you can:
 
 * make a pull request on the [GitHub repository](https://github.com/rformassspectrometry/metaRbolomics-book). You will find the text in the `rmd` folder.
