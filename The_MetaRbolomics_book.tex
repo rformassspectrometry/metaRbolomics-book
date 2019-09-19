@@ -190,7 +190,8 @@ There are several options. In order of convenience for the maintainer you can:
 Remember to add yourself to author contributions.
 
 \hypertarget{this-book-in-other-formats}{%
-\subsection{This book in other formats}\label{this-book-in-other-formats}}
+\subsection*{This book in other formats}\label{this-book-in-other-formats}}
+\addcontentsline{toc}{subsection}{This book in other formats}
 
 The book is also available as static \href{https://rformassspectrometry.github.io/metaRbolomics-book/The_MetaRbolomics_book.pdf}{PDF}
 file, and as \href{https://rformassspectrometry.github.io/metaRbolomics-book/The_MetaRbolomics_book.epub}{ePUB}.
@@ -304,7 +305,7 @@ The result from the pre-processing is usually a matrix of abundances, rows being
 
 For the downstream export of mass spectrometry data from metabolomics or lipidomics experiments, the package rmzTab-M provides support for exporting quantitative and identification results backed by analytical and mass spectrometric evidence into the mzTab-M metabolomics file format {[}\protect\hyperlink{ref-hoffmann_2019}{37}{]}.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab1}R packages for mass spectrometry data handling and (pre-)processing.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -401,7 +402,7 @@ Detailed reconstructed isotope patterns can be used to determine the molecular f
 
 A typical next step is the annotation of \emph{m/z} with putative metabolites using accurate mass lookup, or if the molecular formula was calculated, lookup of the formula in metabolite databases. It has to be noted that annotation with accurate mass search by no means is equivalent to identification. Under the assumption that all the metabolites measured in a sample have some biochemical relation, a global annotation strategy as used in ProbMetab can help as well. Here, the individual ranked lists of formulae are re-evaluated to also maximize the number of pairs with (potential) biochemical substrate-product pairs. The masstrixR package contains several utility functions for accurate mass lookup. It enables matching of measured \emph{m/z} values against a given database or library and can additionally perform matching based on retention times (RT) and/or collisional cross sections (CCS) if available.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab2}R packages for ion species grouping, annotation, molecular formula generation and accurate mass lookup.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -477,7 +478,7 @@ Spectral matching of measured MS/MS data with spectral libraries is an important
 
 A growing number of packages, e.g.~LOBSTAHS {[}\protect\hyperlink{ref-collins_2016}{43}{]}, LipidMatch {[}\protect\hyperlink{ref-koelmel_2017}{44}{]} and LipidMS {[}\protect\hyperlink{ref-alcorizabalaguer_2018}{45}{]}, support the annotation of lipids, see Table 2. They use a combination of lipid database lookup, spectral or selected fragment mass matching and \emph{in silico} spectra prediction. To improve disambiguation between lipids of the same species that may only differ in their fatty acid chain composition, they usually rely on identifying specific MS/MS feature masses that are indicative of substructure fragments, such as the lipid headgroup, the headgroup with a certain fatty acid attached, or losses of fatty acid(s), and other modifications, such as oxidation. Additionally, they require certain intensity ratios between characteristic fragments of a lipid in order to identify the lipid species or subspecies.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab3}R packages for MS/MS data.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -529,7 +530,7 @@ NMR is another analytical technique commonly used in metabolomics research. The 
 
 NMR metabolite annotation uses either chemical shifts and multiplicity matching from existing database, such as Human Metabolome Database {[}\protect\hyperlink{ref-wishart_2009}{52}--\protect\hyperlink{ref-wishart_2018}{55}{]} (HMDB), literature experimental search or uses simulated reference library compounds {[}\protect\hyperlink{ref-beckonert_2007}{56}{]} to match or to fit the existing biological spectra. 1D NMR data often is not sufficient for a confident assignment of the metabolite peaks {[}\protect\hyperlink{ref-pudakalakatti_2014}{57}{]} therefore complementary 2D spectral data acquisition are often required to confirm the assignment {[}\protect\hyperlink{ref-ludwig_2010}{58}{]}. The only package that explicitly deals with 2D NMR is rNMR that takes a targeted approach where the user defines regions of interest to be quantified and compared. DOLPHIN, originally written in MATLAB {[}\protect\hyperlink{ref-gmez_2014}{59}{]}, uses both 1D and 2D NMR data for targeted profiling that is also available as an R version called rDolphin. We are not aware of other R packages that handle 2D NMR data processing. Several general multiway statistical tools such as PARAFAC {[}\protect\hyperlink{ref-shinzawa_2012}{60}{]}, Tucker3 {[}\protect\hyperlink{ref-chen_2018}{61}{]} and MCR have been described {[}\protect\hyperlink{ref-pedersen_2006}{62}{]} that are able to analyse 1D and 2D NMR data, see the section on statistical analysis for a list of packages available for these techniques. BATMAN uses a Bayesian model and some template information such as chemical shifts, \emph{J}-couplings, multiplicity and intensity ratios derived from spectral database to automatically quantify metabolites in a targeted manner {[}\protect\hyperlink{ref-hao_2012}{63}{]}.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab4}R packages for NMR data handling, (pre-)processing and analysis.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -572,7 +573,7 @@ An Integrated Suite for Genetic Mapping of Quantitative Variations of 1H NMR-Bas
 
 Another, in metabolomics sometimes under-appreciated, analytical approach is UV absorption detection, usually coupled to an HPLC or UHPLC system. In some cases, the photo-diode array detector (DAD or PDA) is part of an LC-MS system, actually an LC-UV-MS setup. There are other detectors (e.g.~fluorescence) with a different principle, but similar characteristics when it comes to the acquired data. Alignment and baseline correction are typically the first steps of preprocessing LC-UV data. Alignment can be achieved for example with the alsace or the ptw package while baseline correction can be achieved using the hyperSpec, ChemoSpec, mdatools (or the baseline packages). The alsace package provides an alternative to using all channels (wavelengths) by first finding unique components (i.e. ``pure'' spectra) and then performing peak-picking in these components. After alignment general multiway statistical methods like PARAFAC, simultaneous component analysis (SCA), and Tucker Factor Analysis can be applied in the same matter as feature tables would be handled. Table 5 provides an overview of the available R packages for UV data.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab5}R Packages for UV data handling and (pre-)processing.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -619,7 +620,7 @@ MetaboDiff is presented as an entry level, user friendly package for differentia
 
 MetaboAnalystR is a toolbox built over several R packages and contains more than 500 functions organised in eleven modules. The package was created to overcome the limitations of the homonymous web application, such as the possibility of creating flexible customized workflows (including xcms interoperability) and the capacity of dealing with large data sets. MetaboAnalystR functionalities cover a wide range of tools: exploratory statistical analysis, biomarker analysis, power analysis, biomarker meta-analysis, functional enrichment analysis, pathway and joint pathway analysis. Through an implementation of the \emph{mummichog} algorithm {[}\protect\hyperlink{ref-li_2013}{98}{]}, MetaboAnalystR also allows to infer pathways for from user-generated \emph{m/z} peak-lists. Using the MetaboAnalyst knowledgebase, MetaboAnalystR provides access to metabolite set libraries, compound libraries and pathway libraries.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab6}R packages for statistical analysis of metabolomics data.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -742,7 +743,7 @@ A number of existing compound databases are useful for metabolomics. These can s
 
 The analysis of identified compounds on the level of substance classes can give biochemical insights which are not obvious from the individual structures, or in case the structures are not fully elucidated. The web tool ClassyFire is able to annotate a given structure with compound classes from their ChemOnt taxonomy as well as different substituents {[}\protect\hyperlink{ref-djoumboufeunang_2016}{111}{]}. The classyfireR package supports the retrieval of substance classes using the RESTful API of the ClassyFire tool based on InChIKeys.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab7}R Packages for molecule structures and chemical structure databases.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -831,7 +832,7 @@ A plethora of pathway resources exist, aptly aggregated by Pathguide.org. A numb
 Another package, paxtoolsr, provides literature-curated pathway using the Biological Pathway Exchange (BioPAX) format by providing an interface to the Pathway Commons database (including data from the NCI Pathway Interaction Database (PID), PantherDB, HumanCyc, Reactome, PhosphoSitePlus and HPRD). rWikiPathways is an interface between R and WikiPathways.org. Pathways can be queried, interrogated and downloaded to the R session. Furthermore, rWikiPathways associates metabolite information to pathways when providing the system code of a chemical database (e.g.~from HMDB, ChEBI, or ChemSpider).
 RaMP provides a relational database of Metabolomics Pathways, integrates pathway, gene, and metabolite annotations from KEGG, HMDB, Reactome, and WikiPathways. The database is downloadable as a standalone MySQL dump, for integration with other software, and is also accessible through an R package, and includes a shiny {[}\protect\hyperlink{ref-chang_website_2012}{125}{]} web interface that supports four basic queries: 1) retrieve analytes (genes of metabolites) given a pathway name; 2) retrieve a pathways for one or more analytes; 3) retrieve analytes involved in the same reaction; 4) retrieve ontologies (cellular location, biofluid locations, etc.) from metabolites. The web interface also supports pathway overrepresentation analysis on genes, metabolites, or genes and metabolites combined (query 3) and includes clustering of significantly enriched pathways according to the percent of overlapping analytes between pathways. Further, the web interface provides network visualization of gene-metabolites relationships (query 4).
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab8}R packages for network analysis and Biochemical pathways.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -932,7 +933,7 @@ enviMass is a comprehensive workflow for the data-mining of LC-MS and GC-MS data
 
 MetaboNexus is an interactive data analysis platform for metabolomics experiments, which provides a user friendly R shiny-based GUI designed to work without the need of web server connections. It allows pre-processing (using xcms and MZmine), data scaling, univariate and multivariate statistics (t-test, ANOVA, PCA, PLS-DA, Random Forest, Heatmap), putative metabolite identification (library matching of MS and MS/MS adduct with METLIN, HMDB and MassBank databases), and a number of functions for data visualization.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab9}R packages with multifunctional workflows.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -1062,7 +1063,7 @@ Galaxy is a web-based environment for omics data analysis {[}\protect\hyperlink{
 
 Workflows and input/output data can be publicly referenced {[}\protect\hyperlink{ref-guitton_2017}{138},\protect\hyperlink{ref-workflow4metabolomics_website_nd}{139}{]} on the Workflow4metabolomics platform, thus enabling fully reproducible research. By using workflow systems the reuse and reprocessing of data sets is greatly encouraged, as well as the tracking of data provenance {[}\protect\hyperlink{ref-goble_2019}{140}{]}. This way, workflows help to boost the FAIR principles that were shaped for data {[}\protect\hyperlink{ref-wilkinson_2016}{141}{]}.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab11}Packages to interface R with other languages and workflow environments}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -1092,7 +1093,7 @@ Sharing of data has become increasingly common, and metabolomics data are availa
 
 There are several data sets with raw data from LC-MS and flow injection analysis, which can be used by the data pre-processing packages in the previous sections. Other packages contain pre-processed data from GC-MS, LC-MS or NMR in the form of peak tables, which are then typically used in statistics packages, network analysis and other downstream analyses.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab12}Metabolomics data sets packaged as R packages.}\\
 \toprule
 Functionalities & Package & Repo\\
@@ -1887,12 +1888,12 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## RtmpAjnmBG/file3b82697ff296'
+## RtmptivSlU/file3b36ffa97b0'
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## RtmpAjnmBG/file3b82c80280'
+## RtmptivSlU/file3b3610f68f92'
 \end{verbatim}
 
 \begin{Shaded}
@@ -2037,7 +2038,7 @@ This page was created with the following packages:
 ##  [7] igraph_1.2.4.1      devtools_2.2.0      usethis_1.5.1      
 ## [10] tikzDevice_0.12.3   purrr_0.3.2         kableExtra_1.1.0   
 ## [13] DT_0.9              dplyr_0.8.3         googlesheets_0.3.0 
-## [16] readr_1.3.1         knitr_1.24         
+## [16] readr_1.3.1         knitr_1.25         
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] httr_1.4.1          pkgload_1.0.2       jsonlite_1.6       
