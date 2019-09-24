@@ -448,8 +448,9 @@ Annotation of lipid type and acyl groups on independent acquisition-mass spectro
 \rowcolor{gray!6}  Accurate mass and/or retention time and/or collisional cross section matching. & \href{https://github.com/michaelwitting/masstrixR}{masstrixR} & GitHub\\
 Downloads KEGG compounds orthology data and wraps the KEGGREST package to extractgene data. & \href{https://cran.r-project.org/package=omu}{omu} & CRAN\\
 \rowcolor{gray!6}  Paired mass distance analysis to find independent peaks inm/z-retention time profiles based on retention time hierarchical cluster analysis and frequency analysis of paired mass distances within retention time groups. Structure directed analysis to find potential relationship among those independent peaks. Shiny GUI included. & \href{https://cran.r-project.org/package=pmd}{pmd} & CRAN\\
-Preprocessing (xcms), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations and probabilistic putative metabolite annotation using MetAssign. & \href{https://github.com/andzajan/mzmatch.R}{mzMatch} & GitHub\\
-\rowcolor{gray!6}  Putative annotation of unknowns in MS1 data. & \href{https://sourceforge.net/projects/xmsannotator/}{xMSAnnotator} & SF\\*
+A Bayesian annotation method for LC/MS data integrating biochemical relations, isotope patterns and adduct formation & \href{https://github.com/francescodc87/IPA}{IPA} & GitHub\\
+\rowcolor{gray!6}  Preprocessing (xcms), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations and probabilistic putative metabolite annotation using MetAssign. & \href{https://github.com/andzajan/mzmatch.R}{mzMatch} & GitHub\\
+Putative annotation of unknowns in MS1 data. & \href{https://sourceforge.net/projects/xmsannotator/}{xMSAnnotator} & SF\\*
 \end{longtable}
 
 \newpage
@@ -1888,12 +1889,12 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## Rtmp3rrcFI/file3b915e691c94'
+## RtmpAfVlkk/file3bbf89e10df'
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in readLines(file): incomplete final line found on '/tmp/
-## Rtmp3rrcFI/file3b9163d7b2ba'
+## RtmpAfVlkk/file3bbf6e0cec9f'
 \end{verbatim}
 
 \begin{Shaded}
@@ -1906,11 +1907,11 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 \subsubsection*{Building dependency network}\label{building-dependency-network}}
 \addcontentsline{toc}{subsubsection}{Building dependency network}
 
-In total, we were analysing 296 packages.
+In total, we were analysing 297 packages.
 For each package, this returns the set of packages in CRAN or BioC that depend on, import from or link to the package (i.e., its direct reverse dependencies) using the \texttt{devtools::revdep()} function. A few packages with the highest number of reverse dependencies have been excluded, as they would dominate the visualisation.
 It was not possible to detect reverse dependencies from other hosting places such as GitHub or GitLab.
 
-From the total, 68 packages had at least one
+From the total, 69 packages had at least one
 such reverse dependency.
 
 \begin{Shaded}
@@ -2045,7 +2046,7 @@ This page was created with the following packages:
 ##  [4] viridisLite_0.3.0   shiny_1.3.2         assertthat_0.2.1   
 ##  [7] BiocManager_1.30.4  cellranger_1.1.0    yaml_2.2.0         
 ## [10] remotes_2.1.0       sessioninfo_1.1.1   pillar_1.4.2       
-## [13] backports_1.1.4     glue_1.3.1          digest_0.6.20      
+## [13] backports_1.1.4     glue_1.3.1          digest_0.6.21      
 ## [16] promises_1.0.1.9002 rvest_0.3.4         colorspace_1.4-1   
 ## [19] websocket_1.1.0     htmltools_0.3.6     httpuv_1.5.2       
 ## [22] pkgconfig_2.0.2     bookdown_0.13.2     xtable_1.8-4       
