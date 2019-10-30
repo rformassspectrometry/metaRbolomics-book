@@ -7,7 +7,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@master
       - name: Install apt dependencies
-        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends bzip2 chromium-browser chromium-browser-l10n libgit2-dev
+        run: sudo add-apt-repository universe && sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends bzip2 chromium-browser chromium-browser-l10n libgit2-dev
       - name: Install Package Dependencies
         run: |-
           Rscript -e 'install.packages(c("tidyverse", "bookdown", "knitr", "DT", "kableExtra", "tikzDevice", "webshot", "fastmap", "miniCRAN", "igraph", "magrittr", "networkD3", "visNetwork", "fastmap", "devtools", "remotes", "googlesheets"))'
