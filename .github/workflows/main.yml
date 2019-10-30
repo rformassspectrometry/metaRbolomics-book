@@ -6,17 +6,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
+      - name: Install apt dependencies
+        run: sudo apt-get install bzip2 chromium-browser chromium-browser-l10n libgit2-dev
       - name: Install Package Dependencies
         run: |-
-          Rscript -e "install.packages('remotes', repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')"
-          Rscript -e "remotes::install_deps(dependencies = TRUE, repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')"
+          Rscript -e 'install.packages(c("tidyverse", "bookdown", "knitr", "DT", "kableExtra", "tikzDevice", "webshot", "fastmap", "miniCRAN", "igraph", "magrittr", "networkD3", "visNetwork", "fastmap", "devtools", "remotes", "googlesheets"))'
+          Rscript -e 'devtoools::install_github(c("rstudio/websocket", "rstudio/webshot2", "r-lib/later", "rstudio/promises"))'
       - run: |-
           Rscript -e "deploy_path <- rmarkdown::render_site(encoding = 'UTF-8')"
           Rscript -e "Sys.setenv(DEPLOY_PATH = deploy_path)"
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
-        uses: maxheld83/ghpages@v0.2.0
-        env:
-          BUILD_DIR: $DEPLOY_PATH
-          GH_PAT: ${{ secrets.GH_PAT }}
     container: rocker/verse:latest
