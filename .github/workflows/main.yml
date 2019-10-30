@@ -14,4 +14,6 @@ jobs:
           Rscript -e 'devtools::install_github(c("rstudio/websocket", "rstudio/webshot2", "r-lib/later", "rstudio/promises"))'
       - run: |-
           Rscript -e 'webshot::install_phantomjs()' && Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
+        env:
+          CHROMOTE_CHROME: /usr/bin/chromium
     container: rocker/verse:latest
