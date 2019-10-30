@@ -11,8 +11,7 @@ jobs:
       - name: Install Package Dependencies
         run: |-
           Rscript -e 'install.packages(c("tidyverse", "bookdown", "knitr", "DT", "kableExtra", "tikzDevice", "webshot", "fastmap", "miniCRAN", "igraph", "magrittr", "networkD3", "visNetwork", "fastmap", "devtools", "remotes", "googlesheets"))'
-          Rscript -e 'devtoools::install_github(c("rstudio/websocket", "rstudio/webshot2", "r-lib/later", "rstudio/promises"))'
+          Rscript -e 'devtools::install_github(c("rstudio/websocket", "rstudio/webshot2", "r-lib/later", "rstudio/promises"))'
       - run: |-
-          Rscript -e "deploy_path <- rmarkdown::render_site(encoding = 'UTF-8')"
-          Rscript -e "Sys.setenv(DEPLOY_PATH = deploy_path)"
+          Rscript -e 'webshot::install_phantomjs()' && Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
     container: rocker/verse:latest
