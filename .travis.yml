@@ -1,64 +1,27 @@
 # full script at https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb
-language: r
-r: bioc-devel
+#language: r
+#r: bioc-devel
+
 cache:
   packages: true
-sudo: required
-warnings_are_errors: false
-# We run debian stretch on gitlab/docker so lets use the same here
-dist: xenial
-repos:
-  CRAN: http://cran.rstudio.com
+
+#sudo: required
+#warnings_are_errors: false
+
+## https://docs.travis-ci.com/user/docker/
+services:
+  - docker
   
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 
-# unfortunately apt packages are not cached
-# we could use these build dependencies just in the "Build" stage and
-# install their runtime libraries counter parts in "Check" but that would make
-# the script more complicated and saves just a few seconds
+before_install:
+    - docker pull sneumann/metarbolomics-book-base
 
-addons:
-  apt:
-    update: true
-    packages:
-      - bzip2
-      - chromium-browser
-      - chromium-browser-l10n
-      - libgit2-dev # git2r  
-
-
-r_packages:
-    - tidyverse
-    - bookdown
-    - knitr
-    - DT
-    - kableExtra
-    - tikzDevice
-    - webshot
-    - fastmap
-    - miniCRAN
-    - igraph
-    - magrittr
-    - networkD3
-    - visNetwork
-    - fastmap
-    - devtools
-    - remotes
-    - googlesheets
-r_github_packages:
-    - rstudio/websocket
-    - rstudio/webshot2
-    - r-lib/later
-    - rstudio/promises
-        
-        
 script:
-    - Rscript -e 'webshot::install_phantomjs()'
-    - travis_wait 40 Rscript -e 'bookdown::render_book("index.Rmd", c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book"))'
+    - docker run sneumann/metarbolomics-book-base /buildbook.sh
         
-
 deploy:
     provider: pages
     skip-cleanup: true
