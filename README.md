@@ -6,8 +6,12 @@ Repository for the on-line metaRbolomics book at https://rformassspectrometry.gi
 
 Including some active code that is executed upon each build. 
 
-This material, unless excplicitly otherwise stated, is be under CC-BY 4.0 licence.
+This material, unless excplicitly otherwise stated, is CC-BY 4.0 licenced.
 
+## Docker images
+
+There is a docker image that contains the build environment 
+to render the book at https://hub.docker.com/repository/docker/sneumann/metarbolomics-book-base
 
 Also check:
 
