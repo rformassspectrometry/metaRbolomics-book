@@ -19,12 +19,13 @@ before_install:
     - docker pull sneumann/metarbolomics-book-base
 
 env:
+    - OUTPUT_DIR='"/tmp/public"'
     - RENDER_BOOK_TARGET='"bookdown::gitbook"'
     - RENDER_BOOK_TARGET='"bookdown::pdf_book"'
     - RENDER_BOOK_TARGET='"bookdown::epub_book"'
     
 script:
-    - docker run sneumann/metarbolomics-book-base /buildbook.sh
+    - docker run -v $PWD/public:/tmp/public -e OUTPUT_DIR -e RENDER_BOOK_TARGET sneumann/metarbolomics-book-base /buildbook.sh
         
 deploy:
     provider: pages
