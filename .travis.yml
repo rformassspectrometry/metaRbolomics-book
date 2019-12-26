@@ -21,8 +21,7 @@ env:
     - RENDER_BOOK_TARGET='"bookdown::epub_book"'
     
 script:
-    - chmod -R 777 public
-    - docker run -v $PWD/public:/tmp/public -e OUTPUT_DIR='"/tmp/public"' -e RENDER_BOOK_TARGET sneumann/metarbolomics-book-base /buildbook.sh
+    - runDockerizedBuild.sh
         
 deploy:
     provider: pages

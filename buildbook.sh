@@ -3,6 +3,8 @@
 git clone --depth 1 https://github.com/rformassspectrometry/metaRbolomics-book.git
 cd metaRbolomics-book
 
+#touch /tmp/public/search_index.json
+
 if [ -z "$RENDER_BOOK_TARGET" ] ; then 
   RENDER_BOOK_TARGET='c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book")'
 fi 
