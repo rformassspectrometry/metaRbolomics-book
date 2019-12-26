@@ -1,6 +1,5 @@
-# full script at https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb
-#language: r
-#r: bioc-devel
+# https://docs.travis-ci.com/user/languages/minimal-and-generic/
+language: minimal
 
 cache:
   packages: true
@@ -19,6 +18,11 @@ services:
 before_install:
     - docker pull sneumann/metarbolomics-book-base
 
+env:
+    - RENDER_BOOK_TARGET='"bookdown::gitbook"'
+    - RENDER_BOOK_TARGET='"bookdown::pdf_book"'
+    - RENDER_BOOK_TARGET='"bookdown::epub_book"'
+    
 script:
     - docker run sneumann/metarbolomics-book-base /buildbook.sh
         
