@@ -12,6 +12,8 @@ This material, unless excplicitly otherwise stated, is CC-BY 4.0 licenced.
 
 There is a docker image that contains the build environment 
 to render the book at https://hub.docker.com/repository/docker/sneumann/metarbolomics-book-base
+Output directory and output format are configurable via environment
+variables.
 
 Also check:
 
