@@ -21,7 +21,7 @@ env:
     - RENDER_BOOK_TARGET='"bookdown::epub_book"'
     
 script:
-    - runDockerizedBuild.sh
+    - ./runDockerizedBuild.sh
         
 deploy:
     provider: pages
