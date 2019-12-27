@@ -5,6 +5,5 @@ if [ -z "$RENDER_BOOK_TARGET" ] ; then
 fi 
 
 cd /tmp/metaRbolomics-book
-ls -l >/dev/stderr
 
 Rscript -e 'bookdown::render_book("index.Rmd",'$RENDER_BOOK_TARGET')'

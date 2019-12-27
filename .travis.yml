@@ -17,9 +17,8 @@ before_install:
 
 env:
     - RENDER_BOOK_TARGET='"bookdown::gitbook"'
-
-#    - RENDER_BOOK_TARGET='"bookdown::pdf_book"'
-#    - RENDER_BOOK_TARGET='"bookdown::epub_book"'
+    - RENDER_BOOK_TARGET='"bookdown::pdf_book"'
+    - RENDER_BOOK_TARGET='"bookdown::epub_book"'
     
 script:
     - ./travisScript.sh
