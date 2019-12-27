@@ -16,9 +16,11 @@ before_install:
     - docker pull sneumann/metarbolomics-book-base
 
 env:
-    - RENDER_BOOK_TARGET='"bookdown::gitbook"'
-    - RENDER_BOOK_TARGET='"bookdown::pdf_book"'
-    - RENDER_BOOK_TARGET='"bookdown::epub_book"'
+    - RENDER_BOOK_TARGET='c("bookdown::gitbook", "bookdown::pdf_book", "bookdown::epub_book")'
+
+#    - RENDER_BOOK_TARGET='"bookdown::gitbook"'
+#    - RENDER_BOOK_TARGET='"bookdown::pdf_book"'
+#    - RENDER_BOOK_TARGET='"bookdown::epub_book"'
     
 script:
     - ./travisScript.sh
