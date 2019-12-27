@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 The R package landscape | The MetaRbolomics book</title>
+  <meta name="description" content="1.2 The R package landscape | The MetaRbolomics book" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 The R package landscape | The MetaRbolomics book" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 The R package landscape | The MetaRbolomics book" />
+  
+  
+  
+
+<meta name="author" content="Jan Stanstrup, Corey D. Broeckling, Rick Helmus, Nils Hoffmann, Ewy Mathé, Thomas Naake, Luca Nicolotti, Kristian Peters, Johannes Rainer, Reza M. Salek, Tobias Schulze, Emma L. Schymanski, Michael A. Stravs, Etienne A Thévenot, Hendrik Treutler, Ralf J. M. Weber, Egon Willighagen, Michael Witting, Steffen Neumann" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="0101-introduction-Metabolomics_data_processing_and_analysis.html"/>
+<link rel="next" href="0103-introduction-Dependences_and_connectivity_of_metabolomics_packages.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.11/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-rowgroup-1.10.19/css/rowGroup.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-rowgroup-1.10.19/js/dataTables.rowGroup.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The MetaRbolomics book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to"><i class="fa fa-check"></i>How to …</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#this-book-in-other-formats"><i class="fa fa-check"></i>This book in other formats</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="0100-introduction.html"><a href="0100-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="0101-introduction-Metabolomics_data_processing_and_analysis.html"><a href="0101-introduction-Metabolomics_data_processing_and_analysis.html"><i class="fa fa-check"></i><b>1.1</b> Metabolomics data processing and analysis</a></li>
+<li class="chapter" data-level="1.2" data-path="0102-introduction-The_R_package_landscape.html"><a href="0102-introduction-The_R_package_landscape.html"><i class="fa fa-check"></i><b>1.2</b> The R package landscape</a></li>
+<li class="chapter" data-level="1.3" data-path="0103-introduction-Dependences_and_connectivity_of_metabolomics_packages.html"><a href="0103-introduction-Dependences_and_connectivity_of_metabolomics_packages.html"><i class="fa fa-check"></i><b>1.3</b> Dependences and connectivity of metabolomics packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="0200-R_packages_for_metabolomics.html"><a href="0200-R_packages_for_metabolomics.html"><i class="fa fa-check"></i><b>2</b> R-packages for metabolomics</a><ul>
+<li class="chapter" data-level="2.1" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><i class="fa fa-check"></i><b>2.1</b> Mass spectrometry data handling and (pre-)processing</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#profile-mode-and-centroided-data"><i class="fa fa-check"></i><b>2.1.1</b> Profile mode and centroided data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#direct-infusion-mass-spectrometry-data"><i class="fa fa-check"></i><b>2.1.2</b> Direct infusion mass spectrometry data</a></li>
+<li class="chapter" data-level="2.1.3" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#hyphenated-ms-and-non-targeted-data"><i class="fa fa-check"></i><b>2.1.3</b> Hyphenated MS and non-targeted data</a></li>
+<li class="chapter" data-level="2.1.4" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#targeted-data-and-alternative-representations-of-data"><i class="fa fa-check"></i><b>2.1.4</b> Targeted data and alternative representations of data</a></li>
+<li class="chapter" data-level="2.1.5" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#additional-dimensionality"><i class="fa fa-check"></i><b>2.1.5</b> Additional dimensionality</a></li>
+<li class="chapter" data-level="2.1.6" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#structuring-data-and-metadata"><i class="fa fa-check"></i><b>2.1.6</b> Structuring data and metadata</a></li>
+<li class="chapter" data-level="2.1.7" data-path="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html"><a href="0201-R_packages_for_metabolomics-Mass_spectrometry_data_handling_and_pre_processing.html#ion-species-grouping-and-annotation"><i class="fa fa-check"></i><b>2.1.7</b> Ion species grouping and annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html"><a href="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html"><i class="fa fa-check"></i><b>2.2</b> Metabolite identification with MS/MS data</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html"><a href="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html#msms-data-handling-spectral-matching-and-clustering"><i class="fa fa-check"></i><b>2.2.1</b> MS/MS data handling, spectral matching and clustering</a></li>
+<li class="chapter" data-level="2.2.2" data-path="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html"><a href="0202-R_packages_for_metabolomics-Metabolite_identification_with_MS_MS_data.html#reading-of-spectral-databases"><i class="fa fa-check"></i><b>2.2.2</b> Reading of spectral databases</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="0203-R_packages_for_metabolomics-NMR_data_handling_and_pre_processing.html"><a href="0203-R_packages_for_metabolomics-NMR_data_handling_and_pre_processing.html"><i class="fa fa-check"></i><b>2.3</b> NMR data handling and (pre-)processing</a></li>
+<li class="chapter" data-level="2.4" data-path="0204-R_packages_for_metabolomics-UV_data_handling_and_pre_processing.html"><a href="0204-R_packages_for_metabolomics-UV_data_handling_and_pre_processing.html"><i class="fa fa-check"></i><b>2.4</b> UV data handling and (pre-)processing</a></li>
+<li class="chapter" data-level="2.5" data-path="0205-R_packages_for_metabolomics-Statistical_analysis_of_metabolomics_data.html"><a href="0205-R_packages_for_metabolomics-Statistical_analysis_of_metabolomics_data.html"><i class="fa fa-check"></i><b>2.5</b> Statistical analysis of metabolomics data</a></li>
+<li class="chapter" data-level="2.6" data-path="0206-R_packages_for_metabolomics-Handling_of_molecule_structures_and_chemical_structure_databases.html"><a href="0206-R_packages_for_metabolomics-Handling_of_molecule_structures_and_chemical_structure_databases.html"><i class="fa fa-check"></i><b>2.6</b> Handling of molecule structures and chemical structure databases</a></li>
+<li class="chapter" data-level="2.7" data-path="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><i class="fa fa-check"></i><b>2.7</b> Network analysis and biochemical pathways</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html#network-infrastructure-and-analysis"><i class="fa fa-check"></i><b>2.7.1</b> Network infrastructure and analysis</a></li>
+<li class="chapter" data-level="2.7.2" data-path="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html#metabolite-annotation"><i class="fa fa-check"></i><b>2.7.2</b> Metabolite annotation</a></li>
+<li class="chapter" data-level="2.7.3" data-path="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html#generation-of-metabolic-networks"><i class="fa fa-check"></i><b>2.7.3</b> Generation of metabolic networks</a></li>
+<li class="chapter" data-level="2.7.4" data-path="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html#pathway-analysis"><i class="fa fa-check"></i><b>2.7.4</b> Pathway analysis</a></li>
+<li class="chapter" data-level="2.7.5" data-path="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html"><a href="0207-R_packages_for_metabolomics-Network_analysis_and_biochemical_pathways.html#pathway-resources-and-interfaces"><i class="fa fa-check"></i><b>2.7.5</b> Pathway resources and interfaces</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="0208-R_packages_for_metabolomics-Multifunctional_workflows.html"><a href="0208-R_packages_for_metabolomics-Multifunctional_workflows.html"><i class="fa fa-check"></i><b>2.8</b> Multifunctional workflows</a></li>
+<li class="chapter" data-level="2.9" data-path="0209-R_packages_for_metabolomics-User_interfaces_and_workflow_management_systems.html"><a href="0209-R_packages_for_metabolomics-User_interfaces_and_workflow_management_systems.html"><i class="fa fa-check"></i><b>2.9</b> User interfaces and workflow management systems</a></li>
+<li class="chapter" data-level="2.10" data-path="0210-R_packages_for_metabolomics-Metabolomics_data_sets.html"><a href="0210-R_packages_for_metabolomics-Metabolomics_data_sets.html"><i class="fa fa-check"></i><b>2.10</b> Metabolomics data sets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="0300-conclusion.html"><a href="0300-conclusion.html"><i class="fa fa-check"></i><b>3</b> Conclusions</a></li>
+<li class="chapter" data-level="" data-path="0400-references.html"><a href="0400-references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="9900-Appendices.html"><a href="9900-Appendices.html"><i class="fa fa-check"></i>Appendices</a><ul>
+<li class="chapter" data-level="" data-path="9901-Appendices-Appendix_1_The_MSP_File_Format_and_package_support.html"><a href="9901-Appendices-Appendix_1_The_MSP_File_Format_and_package_support.html"><i class="fa fa-check"></i>Appendix 1: The MSP File Format and package support</a></li>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><i class="fa fa-check"></i>Appendix 2: metaRbolomics dependencies network</a><ul>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html#libraries-and-settings"><i class="fa fa-check"></i>Libraries and settings</a></li>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html#read-package-names-from-our-table"><i class="fa fa-check"></i>Read package names from our table</a></li>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html#get-reverse-dependencies"><i class="fa fa-check"></i>Get reverse dependencies</a></li>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html#building-dependency-network"><i class="fa fa-check"></i>Building dependency network</a></li>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html#save-network-plot"><i class="fa fa-check"></i>Save network plot</a></li>
+<li class="chapter" data-level="" data-path="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html"><a href="9902-Appendices-Appendix_2_metaRbolomics_dependencies.html#notes"><i class="fa fa-check"></i>Notes</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The MetaRbolomics book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div style="page-break-before: always;" />
+
+</div>
+<div id="the-r-package-landscape" class="section level2">
+<h2><span class="header-section-number">1.2</span> The R package landscape</h2>
+<p>The core of the R language was started in 1997 and provided the basic functionality of a programming language, with some functions targeting statistics. The real power driving the popularity of R today is the huge number of contributed packages providing algorithms and data types for a myriad of application realms. Many packages have an Open Source license. This is not a phenomenon exclusive to R, but is rather a positive cultural aspect of bioinformatics software being mostly published under Open Source license terms, regardless of the implementation language. An R interpreter can be embedded in several other languages to execute R code snippets, and R code can also be executed via different workflow systems (e.g. KNIME or Galaxy, see section 2.9), which is beneficial for analysis workflows, interoperability and reuse.</p>
+<p>These packages are typically hosted on platforms that serve as an umbrella project and are a “home” for the developer and user communities. The Comprehensive R Archive Network (CRAN) repository contains over 14,500 packages for many application areas, including some for bioinformatics and metabolomics. The “CRAN Task Views”, which are manually curated resources describing available packages, books etc, help users navigate CRAN and find packages for a particular task. For metabolomics, the most relevant Task View is “<em>Chemometrics and Computational Physics</em>” <span class="citation">[<a href="0400-references.html#ref-mullen_website_2019">16</a>]</span> edited by Katharine Mullen, which includes sections on Spectroscopy, Mass Spectrometry and other tasks relevant for metabolomics applications. The Bioconductor project (BioC for short) was started by a team around Robert Gentleman in 2001 <span class="citation">[<a href="0400-references.html#ref-gentleman_2004">17</a>]</span>, and has become a vibrant community of around 1,000 contributors, working on 1,741 software, 371 data and 948 annotation packages (BioC release 3.9). In addition to a rich development infrastructure (website, developer infrastructure, version control, build farm, etc) there are regular workshops for developers and users. To enable reproducible research, BioC runs bi-annual software releases tied to a particular R release, thus ensuring and guaranteeing interoperability of packages within the same BioC release and allowing to install BioC packages from a certain release to reproduce or repeat old data analyses. On both CRAN and BioC, each package has a landing page pointing to sources, build information, binary packages and documentation. On BioC, packages are sorted (by their respective authors) into “BiocViews”, where most packages are targeting genomics and gene expression analysis, and the most relevant ones for metabolomics are Cheminformatics (containing 11 packages), Lipidomics (11), SystemsBiology (66) and, of course, Metabolomics (56). Bioconductor workflows (organised as separate BioC View <span class="citation">[<a href="0400-references.html#ref-bioconductor_website_nda">18</a>]</span>) provide well documented examples of typical analyses. For community support, BioC maintains mailing lists, a web-based support site, slack communication channels and more. Both CRAN and BioC have a well-defined process for accepting new packages, and the respective developer guidelines (see guidelines for CRAN <span class="citation">[<a href="0400-references.html#ref-thecomprehensiverarchivenetwork_website_nd">19</a>]</span> and for BioC <span class="citation">[<a href="0400-references.html#ref-bioconductor_website_nd">20</a>]</span>) cover the package life-cycle from submission, updates and maintenance, to deprecation/orphaning of packages. In the case of BioC, new submissions undergo a peer review process, which also provides feedback on technical aspects and integration with the BioC landscape.</p>
+<p>A smaller number of packages are also hosted on sites like <a href="https://rforge.net/">rforge.net</a>, <a href="http://r-forge.wu-wien.ac.at/">r-forge.wu-wien.ac.at</a> <span class="citation">[<a href="0400-references.html#ref-theul_2009">21</a>]</span>, or <a href="https://sourceforge.net/">sourceforge.net</a> (SF). The non-profit initiative rOpenSci <span class="citation">[<a href="0400-references.html#ref-boettiger_2015">22</a>]</span> maintains an ecosystem around reproducible research, including staff and community-contributed R packages with additional peer review. Currently, there are no specific metabolomics related packages.</p>
+<p>The GitHub (and also GitLab, Bitbucket) hosting services are not specific to R development, but have gained a lot of popularity due to their excellent support for participation and contribution to software projects. The maintenance of BioC packages on one of the git-based sites has become easier since the BioC team migrated to git as its version control system. A downside of these generic repository hosting sites is that there is no central point of entry, and finding packages for specific tasks is difficult compared with dedicated platforms and relies on search engines and publications. Also, while these hosting services make it easier to provide packages that do not meet BioC and CRAN requirements (e.g. rinchi due to limitations in the InChI algorithm itself), it also allows users to postpone (or circumvent entirely) the review process that helps ensure the quality of BioC contributions. In addition to generic search engines like <a href="http://google.com">Google</a><a href="http://google.com">.com</a> or <a href="http://bing.com">Bing</a><a href="http://bing.com">.com</a>, the <a href="https://rdrr.io/">rdrr.io</a> is a comprehensive index of R packages and documentation from CRAN, Bioconductor, GitHub and R-Forge. Initially, its main purpose was to find R packages by name, perform full-text search in package documentation, functions and R source code. Recently, it also serves as hub to actually run R code without local installation, see Section 2.9.</p>
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="0101-introduction-Metabolomics_data_processing_and_analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="0103-introduction-Dependences_and_connectivity_of_metabolomics_packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rformassspectrometry/metaRbolomics-book/edit/master/rmd/01-introduction/0102-introduction-The_R_package_landscape.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["The_MetaRbolomics_book.pdf", "The_MetaRbolomics_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
