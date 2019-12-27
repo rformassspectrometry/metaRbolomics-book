@@ -1,5 +1,3 @@
 #!/bin/bash
-mkdir public
-chmod -R 777 $PWD/public
-docker run -v $PWD/public:/tmp/public -e OUTPUT_DIR='"/tmp/public"' -e RENDER_BOOK_TARGET sneumann/metarbolomics-book-base /buildbook.sh
- 
+chmod -R 777 $PWD
+docker run -v $PWD/:/tmp/metaRbolomics-book -e RENDER_BOOK_TARGET sneumann/metarbolomics-book-base /tmp/metaRbolomics-book/buildbook.sh
