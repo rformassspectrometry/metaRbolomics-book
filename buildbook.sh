@@ -6,4 +6,5 @@ fi
 
 cd /tmp/metaRbolomics-book
 
+echo Rscript -e 'bookdown::render_book("index.Rmd",'$RENDER_BOOK_TARGET')' >/dev/stderr
 Rscript -e 'bookdown::render_book("index.Rmd",'$RENDER_BOOK_TARGET')'
