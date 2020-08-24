@@ -15,5 +15,5 @@ jobs:
       - run: |-
           Rscript -e 'webshot::install_phantomjs()' && Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
         env:
-          CHROMOTE_CHROME: /usr/bin/chromium
+          CHROMOTE_CHROME: /usr/bin/chromium-browser
     container: rocker/verse:latest
