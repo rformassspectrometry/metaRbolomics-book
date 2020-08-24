@@ -436,7 +436,8 @@ Downloads KEGG compounds orthology data and wraps the KEGGREST package to extrac
 \rowcolor{gray!6}  Paired mass distance analysis to find independent peaks inm/z-retention time profiles based on retention time hierarchical cluster analysis and frequency analysis of paired mass distances within retention time groups. Structure directed analysis to find potential relationship among those independent peaks. Shiny GUI included. & \href{https://cran.r-project.org/package=pmd}{pmd} & CRAN\\
 A Bayesian annotation method for LC/MS data integrating biochemical relations, isotope patterns and adduct formation. & \href{https://github.com/francescodc87/IPA}{IPA} & GitHub\\
 \rowcolor{gray!6}  Preprocessing (xcms), replicate merging, noise, blank and missingness filtering, feature grouping, annotation of known compounds, isotopic labeling analysis, annotation from KEGG or HMDB, common biotransformations and probabilistic putative metabolite annotation using MetAssign. & \href{https://github.com/andzajan/mzmatch.R}{mzMatch} & GitHub\\
-Putative annotation of unknowns in MS1 data. & \href{https://sourceforge.net/projects/xmsannotator/}{xMSAnnotator} & SF\\*
+Putative annotation of unknowns in MS1 data. & \href{https://sourceforge.net/projects/xmsannotator/}{xMSAnnotator} & SF\\
+\rowcolor{gray!6}  Feature grouping and annotation workflow based on MS-DIAL peak character estimation alghoritm and MS-Finder hydrogen rearengment rules & \href{https://github.com/eMetaboHUB/MS-CleanR}{MS-CleanR} & GitHub\\*
 \end{longtable}
 
 \newpage
@@ -726,9 +727,9 @@ Several packages that can deal with cheminformatics tasks, property calculations
 
 A well-established package is rcdk which provide a comprehensive subset of functions from the Chemistry Development Kit {[}\protect\hyperlink{ref-willighagen_2017}{99}{]}. rcdk provides a computer readable representation of molecular structures and provide a wealth of functions to import structures from different molecule structure description formats, manipulate structures, visualize structures and calculate properties and molecular fingerprints. The package fingerprint can then be used to compare fingerprints. rinchi provides reading and writing of InChI and InChIKeys {[}\protect\hyperlink{ref-heller_2015}{100}{]}. ChemmineR is an alternative to rcdk, providing many similar functions, with more tools for fingerprints, clustering and others through querying the ChemMine Tools web service {[}\protect\hyperlink{ref-backman_2011}{101}{]}. ChemmineR also has significantly faster parsing of SDF files, which can be an advantage when reading large databases. A large number of additional descriptors are available in the package camb which focuses on quantitative predictive models. ChemmineOB provides conversion between a large number of chemical structure formats using OpenBabel {[}\protect\hyperlink{ref-oboyle_2011}{102}{]}. A notable exception is InChI/InChIKey, which is not directly supported by ChemmineOB or ChemmineR and one would thus have to go through rinchi and rcdk for offline import from InChI to ChemmineR or ChemmineOB. RChemMass is a package that combines the functionality of the rcdk with that of RMassBank, and enviPat. The package RRDKit makes (part of) the functionality of the RDKit {[}\protect\hyperlink{ref-landrum_2016}{103}{]} toolkit available from within R.
 
-A number of existing compound databases are useful for metabolomics. These can supply metadata such as common names and synonyms, database identifiers and experimental or predicted properties. The Rpubchem package provides lookup of information available in PubChem {[}\protect\hyperlink{ref-kim_2016}{104},\protect\hyperlink{ref-wang_2009}{105}{]}, while the webchem package provide query of a large number of databases including PubChem, ChemSpider {[}\protect\hyperlink{ref-pence_2010}{106}{]}, Wikidata {[}\protect\hyperlink{ref-erxleben_2014}{107}{]}, Chemical Translation Service {[}\protect\hyperlink{ref-wohlgemuth_2010}{108}{]}, PHYSPROP {[}\protect\hyperlink{ref-srcinc_website_nd}{109}{]}, Chemical Identifier Resolver {[}\protect\hyperlink{ref-ncicaddgroup_website_nd}{110}{]} and others. BridgeDbR can be used to map identifiers (metabolites, but also genes and proteins, and interactions) between databases, e.g.~PubChem to ChemSpider identifiers; RMassBank and RChemMass also provide some useful web-retrieval functions.
+A number of existing compound databases are useful for metabolomics. These can supply metadata such as common names and synonyms, database identifiers and experimental or predicted properties. The Rpubchem package provides lookup of information available in PubChem {[}\protect\hyperlink{ref-kim_2016}{104},\protect\hyperlink{ref-wang_2009}{105}{]}, while the webchem package provide query of a large number of databases including PubChem, ChemSpider {[}\protect\hyperlink{ref-pence_2010}{106}{]}, Wikidata {[}\protect\hyperlink{ref-erxleben_2014}{107}{]}, Chemical Translation Service {[}\protect\hyperlink{ref-wohlgemuth_2010}{108}{]}, PHYSPROP {[}\protect\hyperlink{ref-srcinc_website_nd}{109}{]}, Chemical Identifier Resolver {[}\protect\hyperlink{ref-ncicaddgroup_website_nd}{110}{]} and others. BridgeDbR can be used to map identifiers (metabolites, but also genes and proteins, and interactions) between databases, e.g.~PubChem to ChemSpider identifiers; RMassBank and RChemMass also provide some useful web-retrieval functions. rgoslin {[}\protect\hyperlink{ref-kopczynski_2020}{111}{]} normalizes lipid shorthand nomenclature names from different dialects and allows mapping of those names to different levels of the structural hierarchy, e.g.~from subspecies to species level.
 
-The analysis of identified compounds on the level of substance classes can give biochemical insights which are not obvious from the individual structures, or in case the structures are not fully elucidated. The web tool ClassyFire is able to annotate a given structure with compound classes from their ChemOnt taxonomy as well as different substituents {[}\protect\hyperlink{ref-djoumboufeunang_2016}{111}{]}. The classyfireR package supports the retrieval of substance classes using the RESTful API of the ClassyFire tool based on InChIKeys.
+The analysis of identified compounds on the level of substance classes can give biochemical insights which are not obvious from the individual structures, or in case the structures are not fully elucidated. The web tool ClassyFire is able to annotate a given structure with compound classes from their ChemOnt taxonomy as well as different substituents {[}\protect\hyperlink{ref-djoumboufeunang_2016}{112}{]}. The classyfireR package supports the retrieval of substance classes using the RESTful API of the ClassyFire tool based on InChIKeys.
 
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab7}R Packages for molecule structures and chemical structure databases.}\\
@@ -766,7 +767,8 @@ Allows mapping of identifiers from one database to another, for metabolites, gen
 \rowcolor{gray!6}  Define utilities for exploration of human metabolome database, including functions to retrieve specific metabolite entries and data snapshots with pairwise associations. & \href{https://doi.org/doi:10.18129/B9.bioc.hmdbQuery}{hmdbQuery} & BioC\\
 Parsers for many compound databases including HMDB, MetaCyc, ChEBI, FooDB, Wikidata, WikiPathways, RIKEN respect, MaConDa, T3DB, KEGG, Drugbank, LipidMaps, MetaboLights, Phenol-Explorer, MassBank. & \href{https://github.com/UMCUGenetics/MetaDBparse}{MetaDBparse} & GitHub\\
 \rowcolor{gray!6}  Functionality to create and use compound databases generated from (mostly publicly) available resources such as HMDB, ChEBI and PubChem. & \href{https://github.com/EuracBiomedicalResearch/CompoundDb}{CompoundDb} & GitHub\\
-Standardized and extensible framework to query chemical and biological databases. & \href{https://github.com/pkrog/biodb}{biodb} & GitHub\\*
+Standardized and extensible framework to query chemical and biological databases. & \href{https://github.com/pkrog/biodb}{biodb} & GitHub\\
+\rowcolor{gray!6}  Normalization of shorthand lipid nomenclature names, structural features representation and mapping of name to other lipid structure levels, e.g. from subspecies to species. & \href{https://github.com/lifs-tools/rgoslin}{rgoslin} & GitHub\\*
 \end{longtable}
 
 \newpage
@@ -779,14 +781,14 @@ The R environment offers packages to analyse networks of metabolomics data and m
 \hypertarget{network-infrastructure-and-analysis}{%
 \subsubsection{Network infrastructure and analysis}\label{network-infrastructure-and-analysis}}
 
-The R environment offers general infrastructure for network analysis. Functionality is implemented in a plethora of software packages, amongst others igraph, tidygraph or the statnet suite. These packages offer functions to generate networks from respective data input (e.g.~adjacency matrices), to analyse networks, calculate network properties and to visualize networks. Generally, any kind of metabolomics data that can be converted to an interpretable format for one of these packages can be analyzed by generic network analysis tools. For example, MSnbase offers functionality to calculate similarity scores between MS/MS spectral data that can be readily interpreted as a spectral similarity network (see {[}\protect\hyperlink{ref-watrous_2012}{112}{]} for the pioneering work of mass spectral molecular networking for biological systems). Such networks can be analysed by the functions provided by the above-mentioned packages or by packages tailored more towards the analysis of biological data (e.g.~RedeR). Specifically interesting for metabolomics applications is DiffCorr, an R package to compare correlation networks from two different experimental conditions, that builds on an association measure such as Pearson's correlation coefficient to identify distinctive properties. DiffCorr enables testing of differential correlation of high-dimensional data sets by identifying the first principal component-based `eigen-molecules' in the correlation networks. DiffCorr then tests these differential correlation values based on Fisher's z-transformation to identify discriminating metabolite pairs that show different response to conditions. Another R package, more tailored towards the analysis of metabolomics data, is BioNetStat, which creates correlation-based networks from metabolite concentration data and analyses the networks based on graph spectra (group of eigenvalues in an adjacency matrix), spectral entropy, degree distribution and node centralities. BioNetStat also allows for KEGG pathway visualization of metabolite data.
+The R environment offers general infrastructure for network analysis. Functionality is implemented in a plethora of software packages, amongst others igraph, tidygraph or the statnet suite. These packages offer functions to generate networks from respective data input (e.g.~adjacency matrices), to analyse networks, calculate network properties and to visualize networks. Generally, any kind of metabolomics data that can be converted to an interpretable format for one of these packages can be analyzed by generic network analysis tools. For example, MSnbase offers functionality to calculate similarity scores between MS/MS spectral data that can be readily interpreted as a spectral similarity network (see {[}\protect\hyperlink{ref-watrous_2012}{113}{]} for the pioneering work of mass spectral molecular networking for biological systems). Such networks can be analysed by the functions provided by the above-mentioned packages or by packages tailored more towards the analysis of biological data (e.g.~RedeR). Specifically interesting for metabolomics applications is DiffCorr, an R package to compare correlation networks from two different experimental conditions, that builds on an association measure such as Pearson's correlation coefficient to identify distinctive properties. DiffCorr enables testing of differential correlation of high-dimensional data sets by identifying the first principal component-based `eigen-molecules' in the correlation networks. DiffCorr then tests these differential correlation values based on Fisher's z-transformation to identify discriminating metabolite pairs that show different response to conditions. Another R package, more tailored towards the analysis of metabolomics data, is BioNetStat, which creates correlation-based networks from metabolite concentration data and analyses the networks based on graph spectra (group of eigenvalues in an adjacency matrix), spectral entropy, degree distribution and node centralities. BioNetStat also allows for KEGG pathway visualization of metabolite data.
 
 \hypertarget{metabolite-annotation}{%
 \subsubsection{Metabolite annotation}\label{metabolite-annotation}}
 
-As mentioned above in section 2.2, a major challenge in metabolomics is metabolite annotation, spanning the annotation of known compounds (dereplication) or annotation of unknown metabolites and proposing hypotheses of their structures. Network and pathway analysis can be employed to putatively annotate metabolites in metabolomics data sets. The Bioconductor package MetNet aims at facilitating detection and putative annotation of unknown MS1 features in untargeted metabolomic studies. MetNet infers networks by using an ensemble of statistical associations between intensity values across samples and structural information (mass difference matching between features to a list of enzymatic transformation, retention time adjustment) to infer metabolic networks and guide the annotation of especially specialized metabolites of plant, fungi or bacteria samples. Another package to improve annotation is the package xMSAnnotator that incorporates a multi-criteria scoring algorithm to annotate mass features into different confidence levels. xMSAnnotator uses coelution, pathway level correlations, correlation and KEGG {[}\protect\hyperlink{ref-kanehisa_2017}{113}--\protect\hyperlink{ref-kanehisa_2000}{115}{]}, HMDB, Toxin and Toxin Target Database (T3DB) {[}\protect\hyperlink{ref-lim_2010}{116},\protect\hyperlink{ref-wishart_2015}{117}{]}, LipidMaps {[}\protect\hyperlink{ref-fahy_2007}{118}{]} and ChemSpider {[}\protect\hyperlink{ref-pence_2010}{106}{]} for annotation and incorporates several filter steps, e.g.~by defining modules of co-expressing \emph{m/z} features using WGCNA and a topological overlap-based dissimilarity matrix and thereby categorizing related metabolites into the same network modules.
+As mentioned above in section 2.2, a major challenge in metabolomics is metabolite annotation, spanning the annotation of known compounds (dereplication) or annotation of unknown metabolites and proposing hypotheses of their structures. Network and pathway analysis can be employed to putatively annotate metabolites in metabolomics data sets. The Bioconductor package MetNet aims at facilitating detection and putative annotation of unknown MS1 features in untargeted metabolomic studies. MetNet infers networks by using an ensemble of statistical associations between intensity values across samples and structural information (mass difference matching between features to a list of enzymatic transformation, retention time adjustment) to infer metabolic networks and guide the annotation of especially specialized metabolites of plant, fungi or bacteria samples. Another package to improve annotation is the package xMSAnnotator that incorporates a multi-criteria scoring algorithm to annotate mass features into different confidence levels. xMSAnnotator uses coelution, pathway level correlations, correlation and KEGG {[}\protect\hyperlink{ref-kanehisa_2017}{114}--\protect\hyperlink{ref-kanehisa_2000}{116}{]}, HMDB, Toxin and Toxin Target Database (T3DB) {[}\protect\hyperlink{ref-lim_2010}{117},\protect\hyperlink{ref-wishart_2015}{118}{]}, LipidMaps {[}\protect\hyperlink{ref-fahy_2007}{119}{]} and ChemSpider {[}\protect\hyperlink{ref-pence_2010}{106}{]} for annotation and incorporates several filter steps, e.g.~by defining modules of co-expressing \emph{m/z} features using WGCNA and a topological overlap-based dissimilarity matrix and thereby categorizing related metabolites into the same network modules.
 
-Molecular networking starting from MS/MS data can enhance the annotation of metabolites. MetDNA, implemented in R, JavaScript and Python (available via a web interface on \url{http://metdna.zhulab.cn}), combines MS1 and MS/MS data to putatively annotate features in metabolomics data sets {[}\protect\hyperlink{ref-shen_2019}{119}{]}. MetDNA uses a metabolic reaction network based recursive algorithm for metabolite annotation employing spectral matching of MS/MS spectra in an automatic fashion. The iterated application of similarity matching between reaction pairs, a substrate metabolite with its product metabolite displaying similar chemical structures, allows the expansion of annotation using seed metabolites or previously annotated metabolites.
+Molecular networking starting from MS/MS data can enhance the annotation of metabolites. MetDNA, implemented in R, JavaScript and Python (available via a web interface on \url{http://metdna.zhulab.cn}), combines MS1 and MS/MS data to putatively annotate features in metabolomics data sets {[}\protect\hyperlink{ref-shen_2019}{120}{]}. MetDNA uses a metabolic reaction network based recursive algorithm for metabolite annotation employing spectral matching of MS/MS spectra in an automatic fashion. The iterated application of similarity matching between reaction pairs, a substrate metabolite with its product metabolite displaying similar chemical structures, allows the expansion of annotation using seed metabolites or previously annotated metabolites.
 
 MetCirc, designed for the annotation of MS/MS features in untargeted metabolomics data, visualizes the spectral similarity matrix (e.g.~the normalized dot product) between MS/MS spectra in a Circos-like interactive shiny application. Within the shiny application, similarity scores can be thresholded, MS/MS spectra can be interactively explored and annotated based on expert knowledge given the similarity score and displayed spectral features. MetCirc relies on the MSnbase framework to store MS/MS spectral data and to calculate similarities between spectra. Similarly, CluMSID employs spectral similarity matching to guide annotation of MS/MS spectra, incorporates functionality to calculate a correlation networks and for hierarchical and density-based clustering. compMS2Miner is another R package for MS/MS feature annotation and offers functionality for noise filtering, MS/MS substructure annotation, calculation of correlation- and spectral similarity-based networks and interactive visualization.
 
@@ -800,7 +802,7 @@ Several R packages implement the functionality to generate metabolic networks. T
 
 Several R packages enable pathway analysis that uses quantitative data of metabolites and maps these to biological pathways. The Bioconductor package pwOmics analyses proteomics, transcriptomics and other -omics data in combination to highlight molecular mechanisms for single-point and time-series experiments. In downstream analyses, pwOmics allows for pathway, transcription factor and target gene identification.
 
-Another important aspect commonly executed is enrichment analysis to identify pathways that are up- or downregulated given an experimental condition. The R environment offers a whole range of enrichment analysis packages (e.g.~tmod for metabolite data). Targeted more towards pathway analysis, FELLA is a Bioconductor package for enrichment analysis. FELLA detects discriminative metabolic features, maps these to known biological pathways of the KEGG database and detects enriched terms by a diffusion algorithm. CePa offers enrichment analysis tools extending conventional gene set enrichment methods by incorporating pathway topologies. CePa takes nodes rather than terms for analysis and uses network centralities as weight of nodes incorporating pathways from the Pathway Interaction Database (PID, {[}\protect\hyperlink{ref-schaefer_2009}{120}{]}), including NCI/Nature Pathway Interaction , BioCarta {[}\protect\hyperlink{ref-nishimura_2001}{121}{]}, Reactome {[}\protect\hyperlink{ref-fabregat_2018}{122}{]} and KEGG {[}\protect\hyperlink{ref-kanehisa_2017}{113}--\protect\hyperlink{ref-kanehisa_2000}{115}{]}.
+Another important aspect commonly executed is enrichment analysis to identify pathways that are up- or downregulated given an experimental condition. The R environment offers a whole range of enrichment analysis packages (e.g.~tmod for metabolite data). Targeted more towards pathway analysis, FELLA is a Bioconductor package for enrichment analysis. FELLA detects discriminative metabolic features, maps these to known biological pathways of the KEGG database and detects enriched terms by a diffusion algorithm. CePa offers enrichment analysis tools extending conventional gene set enrichment methods by incorporating pathway topologies. CePa takes nodes rather than terms for analysis and uses network centralities as weight of nodes incorporating pathways from the Pathway Interaction Database (PID, {[}\protect\hyperlink{ref-schaefer_2009}{121}{]}), including NCI/Nature Pathway Interaction , BioCarta {[}\protect\hyperlink{ref-nishimura_2001}{122}{]}, Reactome {[}\protect\hyperlink{ref-fabregat_2018}{123}{]} and KEGG {[}\protect\hyperlink{ref-kanehisa_2017}{114}--\protect\hyperlink{ref-kanehisa_2000}{116}{]}.
 
 MetaboDiff offers functionality to pinpoint to metabolome-wide differences using PCA and t-distributed stochastic neighbor embedding (tSNE) building on the MultiAssayExperiment S4 class. Using t-test or ANOVA, MetaboDiff identified metabolites that differ in their abundance between groups and identifies modules/sub-pathways by using WGCNA that indicate changes in biological pathways. SDAMS (Semi-parametric differential abundance analysis method for proteomics and metabolomics data from mass spectrometry) building upon the SummarizedExperiment S4 class, performs differential abundance analysis on metabolomics data by linking (non-normally distributed) metabolite levels to phenotypic data, containing zero and possibly non-normally distributed non-zero intensity values.
 
@@ -815,9 +817,9 @@ The package MetaboLouise simulates longitudinal metabolomics data. The simulatio
 \hypertarget{pathway-resources-and-interfaces}{%
 \subsubsection{Pathway resources and interfaces}\label{pathway-resources-and-interfaces}}
 
-A plethora of pathway resources exist, aptly aggregated by Pathguide.org. A number of these resources can be accessed by R packages, which were partly reviewed in {[}\protect\hyperlink{ref-kramer_2014}{123}{]}: rBiopaxParser, graphite, NCIgraph, pathview, KEGGgraph, SBMLR, rsbml, gaggle, and PSICQUIC. Of these, graphite stores pathway information for proteins and metabolites of currently fourteen species (version 1.28.0). Available databases are KEGG, Biocarta, Reactome, NCI/Nature Pathway Interaction Database, HumanCyc, Panther, SMPDB and PharmGKB. graphite offers in addition topological and statistical pathway analysis tools for metabolomics data by interfaces with the Bioconductor packages SPIA and clipper and supports functionality to build own pathways. Furthermore, RPathVisio enables creating and editing biological pathways. RPathVisio enables to visualise data on pathways, to perform statistics on pathway data, and provides an interface to WikiPathways. KEGGREST allows to access the KEGG REST API via a client interface. The package provides utility to search keywords, convert identifiers and link across databases. The package also allows to return amino acid sequences as AAStringSet or nucleotide sequences as DNAStringSet objects (from the Biostrings {[}\protect\hyperlink{ref-tenenbaum_website_2019}{124}{]} package).
+A plethora of pathway resources exist, aptly aggregated by Pathguide.org. A number of these resources can be accessed by R packages, which were partly reviewed in {[}\protect\hyperlink{ref-kramer_2014}{124}{]}: rBiopaxParser, graphite, NCIgraph, pathview, KEGGgraph, SBMLR, rsbml, gaggle, and PSICQUIC. Of these, graphite stores pathway information for proteins and metabolites of currently fourteen species (version 1.28.0). Available databases are KEGG, Biocarta, Reactome, NCI/Nature Pathway Interaction Database, HumanCyc, Panther, SMPDB and PharmGKB. graphite offers in addition topological and statistical pathway analysis tools for metabolomics data by interfaces with the Bioconductor packages SPIA and clipper and supports functionality to build own pathways. Furthermore, RPathVisio enables creating and editing biological pathways. RPathVisio enables to visualise data on pathways, to perform statistics on pathway data, and provides an interface to WikiPathways. KEGGREST allows to access the KEGG REST API via a client interface. The package provides utility to search keywords, convert identifiers and link across databases. The package also allows to return amino acid sequences as AAStringSet or nucleotide sequences as DNAStringSet objects (from the Biostrings {[}\protect\hyperlink{ref-tenenbaum_website_2019}{125}{]} package).
 Another package, paxtoolsr, provides literature-curated pathway using the Biological Pathway Exchange (BioPAX) format by providing an interface to the Pathway Commons database (including data from the NCI Pathway Interaction Database (PID), PantherDB, HumanCyc, Reactome, PhosphoSitePlus and HPRD). rWikiPathways is an interface between R and WikiPathways.org. Pathways can be queried, interrogated and downloaded to the R session. Furthermore, rWikiPathways associates metabolite information to pathways when providing the system code of a chemical database (e.g.~from HMDB, ChEBI, or ChemSpider).
-RaMP provides a relational database of Metabolomics Pathways, integrates pathway, gene, and metabolite annotations from KEGG, HMDB, Reactome, and WikiPathways. The database is downloadable as a standalone MySQL dump, for integration with other software, and is also accessible through an R package, and includes a shiny {[}\protect\hyperlink{ref-chang_website_2012}{125}{]} web interface that supports four basic queries: 1) retrieve analytes (genes of metabolites) given a pathway name; 2) retrieve a pathways for one or more analytes; 3) retrieve analytes involved in the same reaction; 4) retrieve ontologies (cellular location, biofluid locations, etc.) from metabolites. The web interface also supports pathway overrepresentation analysis on genes, metabolites, or genes and metabolites combined (query 3) and includes clustering of significantly enriched pathways according to the percent of overlapping analytes between pathways. Further, the web interface provides network visualization of gene-metabolites relationships (query 4).
+RaMP provides a relational database of Metabolomics Pathways, integrates pathway, gene, and metabolite annotations from KEGG, HMDB, Reactome, and WikiPathways. The database is downloadable as a standalone MySQL dump, for integration with other software, and is also accessible through an R package, and includes a shiny {[}\protect\hyperlink{ref-chang_website_2012}{126}{]} web interface that supports four basic queries: 1) retrieve analytes (genes of metabolites) given a pathway name; 2) retrieve a pathways for one or more analytes; 3) retrieve analytes involved in the same reaction; 4) retrieve ontologies (cellular location, biofluid locations, etc.) from metabolites. The web interface also supports pathway overrepresentation analysis on genes, metabolites, or genes and metabolites combined (query 3) and includes clustering of significantly enriched pathways according to the percent of overlapping analytes between pathways. Further, the web interface provides network visualization of gene-metabolites relationships (query 4).
 
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab8}R packages for network analysis and Biochemical pathways.}\\
@@ -906,7 +908,7 @@ When dealing with non-targeted metabolomics data sets, data processing represent
 
 These multifunctional packages include comprehensive workflows that focus on multiple aspects, such as: data pre-processing, data validation, preliminary statistical analysis and data visualisation of large metabolomics datasets. The considered workflows support both MS based data (LC-MS and GC-MS) and data generated by different analytical platforms. MAIT (Metabolite Automatic Identification Toolkit) offers pre-processing, annotation, statistical analysis and data visualization. It relies on xcms for peak picking and on CAMERA for the preliminary annotation. In addition to CAMERA, the peak annotation process is implemented by including a functionality that allows relating in-source mass losses to specific biotransformations. Human biotransformations are already included, additional biotransformation criteria can be added by the end user. MAIT also provides a number of statistical tools and visual representations (e.g.~PCA, boxplot, PLS) as well as a function to perform identifications using accurate mass search in HMDB. MetMSLine shows some similarities with MAIT in terms of processing stages (xcms-based pre-processing, multivariate statistics, metabolite identifications). Functionalities characterizing MetMSLine include: normalisation, signal drift correction using a smoothing method, noise transformation and outlier removal. SimExTargId is a wrapper of different software and R packages for LC-MS data. It includes tools for data conversion (Proteowizard), peak picking and annotation (xcms and CAMERA), outlier detection and data correction (MetMSLine), and basic statistical analysis. A special feature of SimeExTargId is the real time monitoring of the different workflow stages aimed at metabolomics core facilities; users are notified by email in case of processing errors (e.g.~outlier detection, signal drift). mzMatch is slightly different from the above mentioned workflows and is designed to fit in a broader processing pipeline itself. The project also includes a dedicated file format (peakML) and a Java environment. The different modules can still be used independently. mzMatch supports peak picking and grouping using xcms, reproducibility calculation, data normalization. The peakMonitor app identifies peaks using the local database. The identification is performed on the basis of \emph{m/z} and retention time values with user-defined mass accuracy and retention time deviation values.
 
-MetaDB is built by integrating the metaMS R package into a web application written in Grails. It has also been designed to be integrated with the MetaboLights database. MetaDB supports both LC-MS and GC-MS datasets and offers a wide range of functionalities, including: data storage and metadata management (using the ISA-Tab format and ISACreator tool {[}\protect\hyperlink{ref-roccaserra_2010}{126},\protect\hyperlink{ref-sansone_2012}{127}{]}), peak picking and annotation (via metaMS, an xcms and CAMERA add-on) and QC plots.
+MetaDB is built by integrating the metaMS R package into a web application written in Grails. It has also been designed to be integrated with the MetaboLights database. MetaDB supports both LC-MS and GC-MS datasets and offers a wide range of functionalities, including: data storage and metadata management (using the ISA-Tab format and ISACreator tool {[}\protect\hyperlink{ref-roccaserra_2010}{127},\protect\hyperlink{ref-sansone_2012}{128}{]}), peak picking and annotation (via metaMS, an xcms and CAMERA add-on) and QC plots.
 
 MStractor is designed for non-expert users to carry out non-targeted data processing on LC-MS experiments. It gathers xcms and CAMERA functions in an user-friendly pipeline, requiring minimal input and providing graphical QC outputs throughout the workflow. It also includes a manual peak curation step and the possibility of calculating descriptive statistics for each sample class.
 
@@ -959,7 +961,7 @@ RShiny interface to Metabolomics packages {\&} MetaboAnalyst scripts. & \href{ht
 \hypertarget{user-interfaces-and-workflow-management-systems}{%
 \subsection{User interfaces and workflow management systems}\label{user-interfaces-and-workflow-management-systems}}
 
-Visualisation is an important part of data analysis. Traditionally graphics in R have been focussed on creating static plots, while typical explorative studies generally require interactive visualisation to fully investigate the data. User interactions could range from simply zooming in chromatographic or spectroscopic data through to temporarily excluding data from a complex plot for clarity. Several packages in R are available for making interactive plots, e.g.~the Plotly library {[}\protect\hyperlink{ref-plotlytechnologiesinc_website_2015}{128}{]} to create interactive graphics from the static plots generated by the popular plotting framework ggplot2 {[}\protect\hyperlink{ref-wickham_2016}{129}{]}. The use of interactive plots in R is growing, and is helped by an increasing number of code examples available.
+Visualisation is an important part of data analysis. Traditionally graphics in R have been focussed on creating static plots, while typical explorative studies generally require interactive visualisation to fully investigate the data. User interactions could range from simply zooming in chromatographic or spectroscopic data through to temporarily excluding data from a complex plot for clarity. Several packages in R are available for making interactive plots, e.g.~the Plotly library {[}\protect\hyperlink{ref-plotlytechnologiesinc_website_2015}{129}{]} to create interactive graphics from the static plots generated by the popular plotting framework ggplot2 {[}\protect\hyperlink{ref-wickham_2016}{130}{]}. The use of interactive plots in R is growing, and is helped by an increasing number of code examples available.
 
 Another way interactive plots, and even full GUI tools, are being introduced into R is through the shiny framework, which can create web apps using the full power of R packages as the backend. Many such tools related to metabolomics data analysis are also becoming available, which decreases the learning curve considerably for the typical metabolomics scientist without a computational background. A current gap in the shiny metabolomics landscape are powerful and re-usable widget collections for e.g.~spectra viewers, molecular structures or metabolic networks.
 
@@ -1040,15 +1042,15 @@ shiny app\strut
 \bottomrule
 \end{longtable}
 
-All of these environments can be run locally, or installed on a (local or cloud-based) server. Recently, several initiatives have started to provide publicly available computing resources. Examples are e.g.~the previously mentioned \href{https://rdrr.io/}{rdrr.io}, which offers to paste R code into an online console for execution. The console can also be embedded into individual websites. The same project also hosts \href{https://rnotebook.io/}{rnotebook.io}, which allows to create and run R notebooks. The \href{https://shinyapps.io/}{shinyapps.io} platform operated by RStudio Inc has free and paid options to host shiny apps. The binder project (involving members from large academic institutions and companies (like UC Berkeley, Cal Poly San Luis Obispo, Wild Tree Tech Switzerland, Netflix or Simula Research Lab) is an infrastructure to create and use shareable, interactive and reproducible data analysis (not only) with R {[}\protect\hyperlink{ref-jupyter_2018}{130}{]} by taking any GitHub repository, turning it into a Docker image and launching it on a cloud service. The package holepunch {[}\protect\hyperlink{ref-ram_website_nd}{131}{]} simplifies preparing an R project for launching on binder. A public instance is the \href{https://mybinder.org/}{mybinder.org} service providing (limited) resources to execute R based scripts in a hosted Rstudio, Jupyter notebook or applications written with e.g.~shiny. The binder infrastructure code is available on GitHub, so that the service can be offered by universities and research groups to its users, lifting the resource limitations of the public instance.
+All of these environments can be run locally, or installed on a (local or cloud-based) server. Recently, several initiatives have started to provide publicly available computing resources. Examples are e.g.~the previously mentioned \href{https://rdrr.io/}{rdrr.io}, which offers to paste R code into an online console for execution. The console can also be embedded into individual websites. The same project also hosts \href{https://rnotebook.io/}{rnotebook.io}, which allows to create and run R notebooks. The \href{https://shinyapps.io/}{shinyapps.io} platform operated by RStudio Inc has free and paid options to host shiny apps. The binder project (involving members from large academic institutions and companies (like UC Berkeley, Cal Poly San Luis Obispo, Wild Tree Tech Switzerland, Netflix or Simula Research Lab) is an infrastructure to create and use shareable, interactive and reproducible data analysis (not only) with R {[}\protect\hyperlink{ref-jupyter_2018}{131}{]} by taking any GitHub repository, turning it into a Docker image and launching it on a cloud service. The package holepunch {[}\protect\hyperlink{ref-ram_website_nd}{132}{]} simplifies preparing an R project for launching on binder. A public instance is the \href{https://mybinder.org/}{mybinder.org} service providing (limited) resources to execute R based scripts in a hosted Rstudio, Jupyter notebook or applications written with e.g.~shiny. The binder infrastructure code is available on GitHub, so that the service can be offered by universities and research groups to its users, lifting the resource limitations of the public instance.
 
 In some cases an R package can provide bindings to existing tools and libraries written in other languages (see Table 11). This is for example in the case for the packages rcdk or MetFragR using the rJava bindings, or mzR which is a wrapper around the Proteowizard C++ library using the Rcpp package. The fairly new reticulate package provides the corresponding infrastructure to execute Python from R code.
 
-Several workflow systems support workflow nodes and tools that can wrap and execute R code, and in turn build on the huge number of R packages (not only) for metabolomics. In this way, systems like KNIME {[}\protect\hyperlink{ref-liggi_2018}{132},\protect\hyperlink{ref-verhoeven_2018}{133}{]} and Galaxy {[}\protect\hyperlink{ref-davidson_2016}{134},\protect\hyperlink{ref-giacomoni_2015}{135}{]} also provide a graphical user interface and visual programming using the wrapped R functionality, and possibly combine with tools developed in other programming frameworks.
+Several workflow systems support workflow nodes and tools that can wrap and execute R code, and in turn build on the huge number of R packages (not only) for metabolomics. In this way, systems like KNIME {[}\protect\hyperlink{ref-liggi_2018}{133},\protect\hyperlink{ref-verhoeven_2018}{134}{]} and Galaxy {[}\protect\hyperlink{ref-davidson_2016}{135},\protect\hyperlink{ref-giacomoni_2015}{136}{]} also provide a graphical user interface and visual programming using the wrapped R functionality, and possibly combine with tools developed in other programming frameworks.
 
-Galaxy is a web-based environment for omics data analysis {[}\protect\hyperlink{ref-goecks_2010}{136}{]}. The \href{http://workflow4metabolomics.org}{Workflow4metabolomics.org} online Galaxy infrastructure dedicated to metabolomics {[}\protect\hyperlink{ref-giacomoni_2015}{135}{]} includes wrappers of xcms, CAMERA, metaMS, proFIA, ropls, biosigner and is open to new contributions. W4M is supported by two national infrastructures: the French Institute of Bioinformatics (\href{http://www.france-bioinformatique.fr/en}{www.france-bioinformatique.fr}) and the Infrastructure for Metabolomics and Fluxomics (\href{https://www.metabohub.fr/}{www.metabohub.fr}) {[}\protect\hyperlink{ref-metabohub_website_2019}{137}{]}. Wrapping R code into a Galaxy module is quite straightforward: examples can be found on the toolshed central repository (\href{https://toolshed.g2.bx.psu.edu/}{toolshed.g2.bx.psu.edu}) and in the RGalaxy bioconductor package. An additional benefit is that the workflow developers need to ensure seamless data flow through the workflow steps, and often contribute the glue code to bridge the gap between objects and data structures that are not always directly compatible across different packages and softwares, thus also improving interoperability beyond the use in workflow systems.
+Galaxy is a web-based environment for omics data analysis {[}\protect\hyperlink{ref-goecks_2010}{137}{]}. The \href{http://workflow4metabolomics.org}{Workflow4metabolomics.org} online Galaxy infrastructure dedicated to metabolomics {[}\protect\hyperlink{ref-giacomoni_2015}{136}{]} includes wrappers of xcms, CAMERA, metaMS, proFIA, ropls, biosigner and is open to new contributions. W4M is supported by two national infrastructures: the French Institute of Bioinformatics (\href{http://www.france-bioinformatique.fr/en}{www.france-bioinformatique.fr}) and the Infrastructure for Metabolomics and Fluxomics (\href{https://www.metabohub.fr/}{www.metabohub.fr}) {[}\protect\hyperlink{ref-metabohub_website_2019}{138}{]}. Wrapping R code into a Galaxy module is quite straightforward: examples can be found on the toolshed central repository (\href{https://toolshed.g2.bx.psu.edu/}{toolshed.g2.bx.psu.edu}) and in the RGalaxy bioconductor package. An additional benefit is that the workflow developers need to ensure seamless data flow through the workflow steps, and often contribute the glue code to bridge the gap between objects and data structures that are not always directly compatible across different packages and softwares, thus also improving interoperability beyond the use in workflow systems.
 
-Workflows and input/output data can be publicly referenced {[}\protect\hyperlink{ref-guitton_2017}{138},\protect\hyperlink{ref-workflow4metabolomics_website_nd}{139}{]} on the Workflow4metabolomics platform, thus enabling fully reproducible research. By using workflow systems the reuse and reprocessing of data sets is greatly encouraged, as well as the tracking of data provenance {[}\protect\hyperlink{ref-goble_2019}{140}{]}. This way, workflows help to boost the FAIR principles that were shaped for data {[}\protect\hyperlink{ref-wilkinson_2016}{141}{]}.
+Workflows and input/output data can be publicly referenced {[}\protect\hyperlink{ref-guitton_2017}{139},\protect\hyperlink{ref-workflow4metabolomics_website_nd}{140}{]} on the Workflow4metabolomics platform, thus enabling fully reproducible research. By using workflow systems the reuse and reprocessing of data sets is greatly encouraged, as well as the tracking of data provenance {[}\protect\hyperlink{ref-goble_2019}{141}{]}. This way, workflows help to boost the FAIR principles that were shaped for data {[}\protect\hyperlink{ref-wilkinson_2016}{142}{]}.
 
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{30em}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}p{3em}}
 \caption{\label{tab:tab11}Packages to interface R with other languages and workflow environments}\\
@@ -1076,7 +1078,7 @@ Interface to 'Python' modules, classes, and functions and translation between R 
 \hypertarget{metabolomics-data-sets}{%
 \subsection{Metabolomics data sets}\label{metabolomics-data-sets}}
 
-Sharing of data has become increasingly common, and metabolomics data are available from MetaboLights {[}\protect\hyperlink{ref-haug_2013}{142}{]} in the EU, GNPS {[}\protect\hyperlink{ref-wang_2016}{49}{]} and Metabolomics Workbench {[}\protect\hyperlink{ref-sud_2016}{143}{]} in the US. In the context of this review, we focus instead on data in R packages, which is important for development, unit testing, documentation and user training (see Table 12). While there is no difference in R between software and data packages per se, they are handled differently in the Bioconductor infrastructure and separate views exist.
+Sharing of data has become increasingly common, and metabolomics data are available from MetaboLights {[}\protect\hyperlink{ref-haug_2013}{143}{]} in the EU, GNPS {[}\protect\hyperlink{ref-wang_2016}{49}{]} and Metabolomics Workbench {[}\protect\hyperlink{ref-sud_2016}{144}{]} in the US. In the context of this review, we focus instead on data in R packages, which is important for development, unit testing, documentation and user training (see Table 12). While there is no difference in R between software and data packages per se, they are handled differently in the Bioconductor infrastructure and separate views exist.
 
 There are several data sets with raw data from LC-MS and flow injection analysis, which can be used by the data pre-processing packages in the previous sections. Other packages contain pre-processed data from GC-MS, LC-MS or NMR in the form of peak tables, which are then typically used in statistics packages, network analysis and other downstream analyses.
 
@@ -1128,9 +1130,9 @@ ASICSdata: 1D NMR spectra for ASICS. & \href{https://www.bioconductor.org/packag
 
 This review surveyed both the scientific literature and the R landscape for packages relevant to metabolomics research. While it was very easy to find relevant packages in CRAN and even more so in BioC, many packages are scattered across other source code hosting platforms. While GitHub has a concept of topics (see \href{https://github.com/search?q=topic:metabolomics+topic:r}{github.com/search?q=topic:metabolomics+topic:r}), and crawlers like \href{https://rdrr.io/}{rdrr.io} can find R packages across several platforms, the best findability can be achieved through well-integrated umbrella projects like Bioconductor, which provide additional infrastructure and also improve the community interaction through conferences and workshops.
 
-This also shows the need for more detailed metadata of the R packages allowing easier mixing and matching of packages, noting that Bioconductor already does a very good job. R packages already have a long standing history of metadata annotation via their DESCRIPTION and CITATION files. These provide links to other packages (e.g.~dependencies and suggestions) and literature describing the package. Exposing package and vignette metasdata with semantic approaches will support the community in developing further, more advanced multi-functional workflows for metabolomics. Authors have recently adopted Bioschemas {[}\protect\hyperlink{ref-gray_2017}{144}{]} to make metadata easier findable. For example, efforts to start annotation in vignettes allows the ELIXIR Training eSupport System TeSS (\href{https://tess.oerc.ox.ac.uk}{tess.oerc.ox.ac.uk}) to pick up newer versions (see \href{https://github.com/bridgedb/BridgeDbR/commit/40e741aed77765572e77f84f9fea0e0fb511d3f0}{this git commit} {[}@``attempt to add bioschemas.org json-ld to the vignette html · \href{mailto:bridgedb/bridgedbr@40e741a}{\nolinkurl{bridgedb/bridgedbr@40e741a}} · github''\_n.d.{]}), and efforts are underway to expose content from the DESCRIPTION file as Bioschemas annotation on Bioconductor (see \href{https://github.com/Bioconductor/bioconductor.org/pull/25}{this pull request} {[}@``added template for bioschemas tool annotation by egonw · pull request \#25 · bioconductor/bioconductor.org · github''\_n.d.{]}). These actions greatly contribute to community adoption and encourage the reuse of R-based computational workflows in different use cases {[}\protect\hyperlink{ref-goble_2019}{140}{]}.
+This also shows the need for more detailed metadata of the R packages allowing easier mixing and matching of packages, noting that Bioconductor already does a very good job. R packages already have a long standing history of metadata annotation via their DESCRIPTION and CITATION files. These provide links to other packages (e.g.~dependencies and suggestions) and literature describing the package. Exposing package and vignette metasdata with semantic approaches will support the community in developing further, more advanced multi-functional workflows for metabolomics. Authors have recently adopted Bioschemas {[}\protect\hyperlink{ref-gray_2017}{145}{]} to make metadata easier findable. For example, efforts to start annotation in vignettes allows the ELIXIR Training eSupport System TeSS (\href{https://tess.oerc.ox.ac.uk}{tess.oerc.ox.ac.uk}) to pick up newer versions (see \href{https://github.com/bridgedb/BridgeDbR/commit/40e741aed77765572e77f84f9fea0e0fb511d3f0}{this git commit} {[}@``attempt to add bioschemas.org json-ld to the vignette html · \href{mailto:bridgedb/bridgedbr@40e741a}{\nolinkurl{bridgedb/bridgedbr@40e741a}} · github''\_n.d.{]}), and efforts are underway to expose content from the DESCRIPTION file as Bioschemas annotation on Bioconductor (see \href{https://github.com/Bioconductor/bioconductor.org/pull/25}{this pull request} {[}@``added template for bioschemas tool annotation by egonw · pull request \#25 · bioconductor/bioconductor.org · github''\_n.d.{]}). These actions greatly contribute to community adoption and encourage the reuse of R-based computational workflows in different use cases {[}\protect\hyperlink{ref-goble_2019}{141}{]}.
 
-In some cases, software described in the literature was only available ``on request'', which in practice often turns out to be not available anymore. This review also did not assess whether the R packages (and their dependencies) can be installed on a current R installation. A recent survey {[}\protect\hyperlink{ref-collberg_2016}{145}{]} showed how the repeatability of papers using scientific software drops when software is not available or does not install. Issues/bug reports were filed for packages that were found that were not able to be tested on contemporary operating systems. The way out of the (un-)repeatability trap can be expressed in very few, seemingly trivial, rules {[}\protect\hyperlink{ref-taschuk_2017}{146}{]} and hosting the code in the open repositories, if possible with regular builds or even Continuous Integration. As discussed earlier, the metabolomics packages have tighter connections in an established community such as Bioconductor, rather than in other package repositories. In the last few years, Bioconductor packages for metabolomics and proteomics data analysis started converging towards a common mass spectrometry infrastructure, which simplifies interoperability between these packages. Based on experiences from these efforts, the RforMassSpectrometry (\href{https://rformassspectrometry.org}{RforMassSpectrometry.org}) initiative was recently started aiming at providing efficient, thoroughly documented, tested and flexible R software for MS data import, handling and analysis. Significant improvements can thus be expected in the future, simplifying and unifying MS data handling for the benefit of the end users. RforMassSpectrometry also contains the metaRbolomics-book {[}\protect\hyperlink{ref-stanstrup_website_nd}{147}{]}, which will be a continuously developed resource with additional examples beyond this review.
+In some cases, software described in the literature was only available ``on request'', which in practice often turns out to be not available anymore. This review also did not assess whether the R packages (and their dependencies) can be installed on a current R installation. A recent survey {[}\protect\hyperlink{ref-collberg_2016}{146}{]} showed how the repeatability of papers using scientific software drops when software is not available or does not install. Issues/bug reports were filed for packages that were found that were not able to be tested on contemporary operating systems. The way out of the (un-)repeatability trap can be expressed in very few, seemingly trivial, rules {[}\protect\hyperlink{ref-taschuk_2017}{147}{]} and hosting the code in the open repositories, if possible with regular builds or even Continuous Integration. As discussed earlier, the metabolomics packages have tighter connections in an established community such as Bioconductor, rather than in other package repositories. In the last few years, Bioconductor packages for metabolomics and proteomics data analysis started converging towards a common mass spectrometry infrastructure, which simplifies interoperability between these packages. Based on experiences from these efforts, the RforMassSpectrometry (\href{https://rformassspectrometry.org}{RforMassSpectrometry.org}) initiative was recently started aiming at providing efficient, thoroughly documented, tested and flexible R software for MS data import, handling and analysis. Significant improvements can thus be expected in the future, simplifying and unifying MS data handling for the benefit of the end users. RforMassSpectrometry also contains the metaRbolomics-book {[}\protect\hyperlink{ref-stanstrup_website_nd}{148}{]}, which will be a continuously developed resource with additional examples beyond this review.
 
 The authors expect that the metaRbolomics landscape will continue its steady growth rate and keep track of the evolving metabolomics experiments to come.
 
@@ -1142,7 +1144,7 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-emwas_2019}{}%
-1. Emwas, A.-H.; Roy, R.; McKay, R.T.; Tenori, L.; Saccenti, E.; Gowda, G.A.N.; Raftery, D.; Alahmari, F.; Jaremko, L.; Jaremko, M. et al. NMR spectroscopy for metabolomics research. \emph{Metabolites} \textbf{2019}, \emph{9}.
+1. Emwas, A.-H.; Roy, R.; McKay, R.T.; Tenori, L.; Saccenti, E.; Gowda, G.A.N.; Raftery, D.; Alahmari, F.; Jaremko, L.; Jaremko, M. et al. NMR spectroscopy for metabolomics research. \emph{Metabolites} \textbf{2019}, \emph{9}, doi:\href{https://doi.org/10.3390/metabo9070123}{10.3390/metabo9070123}.
 
 \leavevmode\hypertarget{ref-lammerhofer_2013}{}%
 2. \emph{Metabolomics in practice: Successful strategies to generate and analyze metabolic data}; Lämmerhofer, M., Weckwerth, W., Eds.; Wiley-VCH Verlag GmbH \& Co. KGaA: Weinheim, Germany, 2013; ISBN \href{https://worldcat.org/isbn/9783527330898}{9783527330898}.
@@ -1166,31 +1168,31 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 8. Spicer, R. GitHub - RASpicer/MetabolomicsTools 2018.
 
 \leavevmode\hypertarget{ref-spicer_2017}{}%
-9. Spicer, R.; Salek, R.M.; Moreno, P.; Cañueto, D.; Steinbeck, C. Navigating freely-available software tools for metabolomics analysis. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2017}, \emph{13}, 106.
+9. Spicer, R.; Salek, R.M.; Moreno, P.; Cañueto, D.; Steinbeck, C. Navigating freely-available software tools for metabolomics analysis. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2017}, \emph{13}, 106, doi:\href{https://doi.org/10.1007/s11306-017-1242-7}{10.1007/s11306-017-1242-7}.
 
 \leavevmode\hypertarget{ref-misra_2016}{}%
-10. Misra, B.B.; Hooft, J.J.J. van der Updates in metabolomics tools and resources: 2014-2015. \emph{Electrophoresis} \textbf{2016}, \emph{37}, 86--110.
+10. Misra, B.B.; Hooft, J.J.J. van der Updates in metabolomics tools and resources: 2014-2015. \emph{Electrophoresis} \textbf{2016}, \emph{37}, 86--110, doi:\href{https://doi.org/10.1002/elps.201500417}{10.1002/elps.201500417}.
 
 \leavevmode\hypertarget{ref-misra_2017}{}%
-11. Misra, B.B.; Fahrmann, J.F.; Grapov, D. Review of emerging metabolomic tools and resources: 2015-2016. \emph{Electrophoresis} \textbf{2017}, \emph{38}, 2257--2274.
+11. Misra, B.B.; Fahrmann, J.F.; Grapov, D. Review of emerging metabolomic tools and resources: 2015-2016. \emph{Electrophoresis} \textbf{2017}, \emph{38}, 2257--2274, doi:\href{https://doi.org/10.1002/elps.201700110}{10.1002/elps.201700110}.
 
 \leavevmode\hypertarget{ref-misra_2018}{}%
-12. Misra, B.B. New tools and resources in metabolomics: 2016-2017. \emph{Electrophoresis} \textbf{2018}, \emph{39}, 909--923.
+12. Misra, B.B. New tools and resources in metabolomics: 2016-2017. \emph{Electrophoresis} \textbf{2018}, \emph{39}, 909--923, doi:\href{https://doi.org/10.1002/elps.201700441}{10.1002/elps.201700441}.
 
 \leavevmode\hypertarget{ref-misra_website_2017}{}%
 13. Misra, B. GitHub - biswapriyamisra/metabolomics: Tools databases resources in metabolomics \& integrated omics in 2015-2016 2017.
 
 \leavevmode\hypertarget{ref-kannan_2016}{}%
-14. Kannan, L.; Ramos, M.; Re, A.; El-Hachem, N.; Safikhani, Z.; Gendoo, D.M.A.; Davis, S.; Gomez-Cabrero, D.; Castelo, R.; Hansen, K.D. et al. Public data and open source tools for multi-assay genomic investigation of disease. \emph{Briefings in Bioinformatics} \textbf{2016}, \emph{17}, 603--615.
+14. Kannan, L.; Ramos, M.; Re, A.; El-Hachem, N.; Safikhani, Z.; Gendoo, D.M.A.; Davis, S.; Gomez-Cabrero, D.; Castelo, R.; Hansen, K.D. et al. Public data and open source tools for multi-assay genomic investigation of disease. \emph{Briefings in Bioinformatics} \textbf{2016}, \emph{17}, 603--615, doi:\href{https://doi.org/10.1093/bib/bbv080}{10.1093/bib/bbv080}.
 
 \leavevmode\hypertarget{ref-blaenovi_2018}{}%
-15. Blaženović, I.; Kind, T.; Ji, J.; Fiehn, O. Software tools and approaches for compound identification of LC-MS/MS data in metabolomics. \emph{Metabolites} \textbf{2018}, \emph{8}.
+15. Blaženović, I.; Kind, T.; Ji, J.; Fiehn, O. Software tools and approaches for compound identification of LC-MS/MS data in metabolomics. \emph{Metabolites} \textbf{2018}, \emph{8}, doi:\href{https://doi.org/10.3390/metabo8020031}{10.3390/metabo8020031}.
 
 \leavevmode\hypertarget{ref-mullen_website_2019}{}%
 16. Mullen, K. CRAN task view: Chemometrics and computational physics 2019.
 
 \leavevmode\hypertarget{ref-gentleman_2004}{}%
-17. Gentleman, R.C.; Carey, V.J.; Bates, D.M.; Bolstad, B.; Dettling, M.; Dudoit, S.; Ellis, B.; Gautier, L.; Ge, Y.; Gentry, J. et al. Bioconductor: Open software development for computational biology and bioinformatics. \emph{Genome Biology} \textbf{2004}, \emph{5}, R80.
+17. Gentleman, R.C.; Carey, V.J.; Bates, D.M.; Bolstad, B.; Dettling, M.; Dudoit, S.; Ellis, B.; Gautier, L.; Ge, Y.; Gentry, J. et al. Bioconductor: Open software development for computational biology and bioinformatics. \emph{Genome Biology} \textbf{2004}, \emph{5}, R80, doi:\href{https://doi.org/10.1186/gb-2004-5-10-r80}{10.1186/gb-2004-5-10-r80}.
 
 \leavevmode\hypertarget{ref-bioconductor_website_nda}{}%
 18. Bioconductor Bioconductor - BiocViews.
@@ -1202,10 +1204,10 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 20. Bioconductor Bioconductor - developers.
 
 \leavevmode\hypertarget{ref-theul_2009}{}%
-21. Theußl, S.; Zeileis, A. Collaborative software development using r-forge. \emph{The R journal} \textbf{2009}, \emph{1}, 9.
+21. Theußl, S.; Zeileis, A. Collaborative software development using r-forge. \emph{The R journal} \textbf{2009}, \emph{1}, 9, doi:\href{https://doi.org/10.32614/\%7BRJ\%7D-2009-007}{10.32614/\{RJ\}-2009-007}.
 
 \leavevmode\hypertarget{ref-boettiger_2015}{}%
-22. Boettiger, C.; Chamberlain, S.; Hart, E.; Ram, K. Building software, building community: Lessons from the rOpenSci project. \emph{Journal of open research software} \textbf{2015}, \emph{3}.
+22. Boettiger, C.; Chamberlain, S.; Hart, E.; Ram, K. Building software, building community: Lessons from the rOpenSci project. \emph{Journal of open research software} \textbf{2015}, \emph{3}, doi:\href{https://doi.org/10.5334/jors.bu}{10.5334/jors.bu}.
 
 \leavevmode\hypertarget{ref-devries_website_2015b}{}%
 23. Vries, A. de; Rickert, J. The network structure of r packages on CRAN \& BioConductor 2015.
@@ -1220,115 +1222,115 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 26. Neumann, S. GitHub - sneumann/metaRbolomics: Metabolomics in r and bioconductor 2019.
 
 \leavevmode\hypertarget{ref-chambers_2012}{}%
-27. Chambers, M.C.; Maclean, B.; Burke, R.; Amodei, D.; Ruderman, D.L.; Neumann, S.; Gatto, L.; Fischer, B.; Pratt, B.; Egertson, J. et al. A cross-platform toolkit for mass spectrometry and proteomics. \emph{Nature Biotechnology} \textbf{2012}, \emph{30}, 918--920.
+27. Chambers, M.C.; Maclean, B.; Burke, R.; Amodei, D.; Ruderman, D.L.; Neumann, S.; Gatto, L.; Fischer, B.; Pratt, B.; Egertson, J. et al. A cross-platform toolkit for mass spectrometry and proteomics. \emph{Nature Biotechnology} \textbf{2012}, \emph{30}, 918--920, doi:\href{https://doi.org/10.1038/nbt.2377}{10.1038/nbt.2377}.
 
 \leavevmode\hypertarget{ref-kessner_2008}{}%
-28. Kessner, D.; Chambers, M.; Burke, R.; Agus, D.; Mallick, P. ProteoWizard: Open source software for rapid proteomics tools development. \emph{Bioinformatics} \textbf{2008}, \emph{24}, 2534--2536.
+28. Kessner, D.; Chambers, M.; Burke, R.; Agus, D.; Mallick, P. ProteoWizard: Open source software for rapid proteomics tools development. \emph{Bioinformatics} \textbf{2008}, \emph{24}, 2534--2536, doi:\href{https://doi.org/10.1093/bioinformatics/btn323}{10.1093/bioinformatics/btn323}.
 
 \leavevmode\hypertarget{ref-fuhrer_2011}{}%
-29. Fuhrer, T.; Heer, D.; Begemann, B.; Zamboni, N. High-throughput, accurate mass metabolome profiling of cellular extracts by flow injection-time-of-flight mass spectrometry. \emph{Analytical Chemistry} \textbf{2011}, \emph{83}, 7074--7080.
+29. Fuhrer, T.; Heer, D.; Begemann, B.; Zamboni, N. High-throughput, accurate mass metabolome profiling of cellular extracts by flow injection-time-of-flight mass spectrometry. \emph{Analytical Chemistry} \textbf{2011}, \emph{83}, 7074--7080, doi:\href{https://doi.org/10.1021/ac201267k}{10.1021/ac201267k}.
 
 \leavevmode\hypertarget{ref-mahieu_2016a}{}%
-30. Mahieu, N.G.; Genenbacher, J.L.; Patti, G.J. A roadmap for the XCMS family of software solutions in metabolomics. \emph{Current Opinion in Chemical Biology} \textbf{2016}, \emph{30}, 87--93.
+30. Mahieu, N.G.; Genenbacher, J.L.; Patti, G.J. A roadmap for the XCMS family of software solutions in metabolomics. \emph{Current Opinion in Chemical Biology} \textbf{2016}, \emph{30}, 87--93, doi:\href{https://doi.org/10.1016/j.cbpa.2015.11.009}{10.1016/j.cbpa.2015.11.009}.
 
 \leavevmode\hypertarget{ref-smith_2006}{}%
-31. Smith, C.A.; Want, E.J.; O'Maille, G.; Abagyan, R.; Siuzdak, G. XCMS: Processing mass spectrometry data for metabolite profiling using nonlinear peak alignment, matching, and identification. \emph{Analytical Chemistry} \textbf{2006}, \emph{78}, 779--787.
+31. Smith, C.A.; Want, E.J.; O'Maille, G.; Abagyan, R.; Siuzdak, G. XCMS: Processing mass spectrometry data for metabolite profiling using nonlinear peak alignment, matching, and identification. \emph{Analytical Chemistry} \textbf{2006}, \emph{78}, 779--787, doi:\href{https://doi.org/10.1021/ac051437y}{10.1021/ac051437y}.
 
 \leavevmode\hypertarget{ref-tautenhahn_2008}{}%
-32. Tautenhahn, R.; Böttcher, C.; Neumann, S. Highly sensitive feature detection for high resolution LC/MS. \emph{BMC Bioinformatics} \textbf{2008}, \emph{9}, 504.
+32. Tautenhahn, R.; Böttcher, C.; Neumann, S. Highly sensitive feature detection for high resolution LC/MS. \emph{BMC Bioinformatics} \textbf{2008}, \emph{9}, 504, doi:\href{https://doi.org/10.1186/1471-2105-9-504}{10.1186/1471-2105-9-504}.
 
 \leavevmode\hypertarget{ref-conley_2014}{}%
-33. Conley, C.J.; Smith, R.; Torgrip, R.J.O.; Taylor, R.M.; Tautenhahn, R.; Prince, J.T. Massifquant: Open-source kalman filter-based XC-MS isotope trace feature detection. \emph{Bioinformatics} \textbf{2014}, \emph{30}, 2636--2643.
+33. Conley, C.J.; Smith, R.; Torgrip, R.J.O.; Taylor, R.M.; Tautenhahn, R.; Prince, J.T. Massifquant: Open-source kalman filter-based XC-MS isotope trace feature detection. \emph{Bioinformatics} \textbf{2014}, \emph{30}, 2636--2643, doi:\href{https://doi.org/10.1093/bioinformatics/btu359}{10.1093/bioinformatics/btu359}.
 
 \leavevmode\hypertarget{ref-huber_2015}{}%
-34. Huber, W.; Carey, V.J.; Gentleman, R.; Anders, S.; Carlson, M.; Carvalho, B.S.; Bravo, H.C.; Davis, S.; Gatto, L.; Girke, T. et al. Orchestrating high-throughput genomic analysis with bioconductor. \emph{Nature Methods} \textbf{2015}, \emph{12}, 115--121.
+34. Huber, W.; Carey, V.J.; Gentleman, R.; Anders, S.; Carlson, M.; Carvalho, B.S.; Bravo, H.C.; Davis, S.; Gatto, L.; Girke, T. et al. Orchestrating high-throughput genomic analysis with bioconductor. \emph{Nature Methods} \textbf{2015}, \emph{12}, 115--121, doi:\href{https://doi.org/10.1038/nmeth.3252}{10.1038/nmeth.3252}.
 
 \leavevmode\hypertarget{ref-martinmorgan_2017}{}%
-35. Martin Morgan, V.O. SummarizedExperiment. \emph{Bioconductor} \textbf{2017}.
+35. Martin Morgan, V.O. SummarizedExperiment. \emph{Bioconductor} \textbf{2017}, doi:\href{https://doi.org/10.18129/b9.bioc.summarizedexperiment}{10.18129/b9.bioc.summarizedexperiment}.
 
 \leavevmode\hypertarget{ref-zhu_website_2019}{}%
 36. Zhu, C. Zhuchcn/metabase: A r package to store, manipulate, analyze, and visualize metabolomics data 2019.
 
 \leavevmode\hypertarget{ref-hoffmann_2019}{}%
-37. Hoffmann, N.; Rein, J.; Sachsenberg, T.; Hartler, J.; Haug, K.; Mayer, G.; Alka, O.; Dayalan, S.; Pearce, J.T.M.; Rocca-Serra, P. et al. mzTab-m: A data standard for sharing quantitative results in mass spectrometry metabolomics. \emph{Analytical Chemistry} \textbf{2019}, \emph{91}, 3302--3310.
+37. Hoffmann, N.; Rein, J.; Sachsenberg, T.; Hartler, J.; Haug, K.; Mayer, G.; Alka, O.; Dayalan, S.; Pearce, J.T.M.; Rocca-Serra, P. et al. mzTab-m: A data standard for sharing quantitative results in mass spectrometry metabolomics. \emph{Analytical Chemistry} \textbf{2019}, \emph{91}, 3302--3310, doi:\href{https://doi.org/10.1021/acs.analchem.8b04310}{10.1021/acs.analchem.8b04310}.
 
 \leavevmode\hypertarget{ref-scheltema_2011}{}%
-38. Scheltema, R.A.; Jankevics, A.; Jansen, R.C.; Swertz, M.A.; Breitling, R. PeakML/mzMatch: A file format, java library, r library, and tool-chain for mass spectrometry data analysis. \emph{Analytical Chemistry} \textbf{2011}, \emph{83}, 2786--2793.
+38. Scheltema, R.A.; Jankevics, A.; Jansen, R.C.; Swertz, M.A.; Breitling, R. PeakML/mzMatch: A file format, java library, r library, and tool-chain for mass spectrometry data analysis. \emph{Analytical Chemistry} \textbf{2011}, \emph{83}, 2786--2793, doi:\href{https://doi.org/10.1021/ac2000994}{10.1021/ac2000994}.
 
 \leavevmode\hypertarget{ref-shahaf_2016}{}%
-39. Shahaf, N.; Rogachev, I.; Heinig, U.; Meir, S.; Malitsky, S.; Battat, M.; Wyner, H.; Zheng, S.; Wehrens, R.; Aharoni, A. The WEIZMA spectral library for high-confidence metabolite identification. \emph{Nature Communications} \textbf{2016}, \emph{7}, 12423.
+39. Shahaf, N.; Rogachev, I.; Heinig, U.; Meir, S.; Malitsky, S.; Battat, M.; Wyner, H.; Zheng, S.; Wehrens, R.; Aharoni, A. The WEIZMA spectral library for high-confidence metabolite identification. \emph{Nature Communications} \textbf{2016}, \emph{7}, 12423, doi:\href{https://doi.org/10.1038/ncomms12423}{10.1038/ncomms12423}.
 
 \leavevmode\hypertarget{ref-witting_website_nd}{}%
 40. Witting, M. GitHub - michaelwitting/ms2dbworkflow.
 
 \leavevmode\hypertarget{ref-horai_2010}{}%
-41. Horai, H.; Arita, M.; Kanaya, S.; Nihei, Y.; Ikeda, T.; Suwa, K.; Ojima, Y.; Tanaka, K.; Tanaka, S.; Aoshima, K. et al. MassBank: A public repository for sharing mass spectral data for life sciences. \emph{Journal of Mass Spectrometry} \textbf{2010}, \emph{45}, 703--714.
+41. Horai, H.; Arita, M.; Kanaya, S.; Nihei, Y.; Ikeda, T.; Suwa, K.; Ojima, Y.; Tanaka, K.; Tanaka, S.; Aoshima, K. et al. MassBank: A public repository for sharing mass spectral data for life sciences. \emph{Journal of Mass Spectrometry} \textbf{2010}, \emph{45}, 703--714, doi:\href{https://doi.org/10.1002/jms.1777}{10.1002/jms.1777}.
 
 \leavevmode\hypertarget{ref-mylonas_2009}{}%
-42. Mylonas, R.; Mauron, Y.; Masselot, A.; Binz, P.-A.; Budin, N.; Fathi, M.; Viette, V.; Hochstrasser, D.F.; Lisacek, F. X-rank: A robust algorithm for small molecule identification using tandem mass spectrometry. \emph{Analytical Chemistry} \textbf{2009}, \emph{81}, 7604--7610.
+42. Mylonas, R.; Mauron, Y.; Masselot, A.; Binz, P.-A.; Budin, N.; Fathi, M.; Viette, V.; Hochstrasser, D.F.; Lisacek, F. X-rank: A robust algorithm for small molecule identification using tandem mass spectrometry. \emph{Analytical Chemistry} \textbf{2009}, \emph{81}, 7604--7610, doi:\href{https://doi.org/10.1021/ac900954d}{10.1021/ac900954d}.
 
 \leavevmode\hypertarget{ref-collins_2016}{}%
-43. Collins, J.R.; Edwards, B.R.; Fredricks, H.F.; Van Mooy, B.A.S. LOBSTAHS: An adduct-based lipidomics strategy for discovery and identification of oxidative stress biomarkers. \emph{Analytical Chemistry} \textbf{2016}, \emph{88}, 7154--7162.
+43. Collins, J.R.; Edwards, B.R.; Fredricks, H.F.; Van Mooy, B.A.S. LOBSTAHS: An adduct-based lipidomics strategy for discovery and identification of oxidative stress biomarkers. \emph{Analytical Chemistry} \textbf{2016}, \emph{88}, 7154--7162, doi:\href{https://doi.org/10.1021/acs.analchem.6b01260}{10.1021/acs.analchem.6b01260}.
 
 \leavevmode\hypertarget{ref-koelmel_2017}{}%
-44. Koelmel, J.P.; Kroeger, N.M.; Ulmer, C.Z.; Bowden, J.A.; Patterson, R.E.; Cochran, J.A.; Beecher, C.W.W.; Garrett, T.J.; Yost, R.A. LipidMatch: An automated workflow for rule-based lipid identification using untargeted high-resolution tandem mass spectrometry data. \emph{BMC Bioinformatics} \textbf{2017}, \emph{18}, 331.
+44. Koelmel, J.P.; Kroeger, N.M.; Ulmer, C.Z.; Bowden, J.A.; Patterson, R.E.; Cochran, J.A.; Beecher, C.W.W.; Garrett, T.J.; Yost, R.A. LipidMatch: An automated workflow for rule-based lipid identification using untargeted high-resolution tandem mass spectrometry data. \emph{BMC Bioinformatics} \textbf{2017}, \emph{18}, 331, doi:\href{https://doi.org/10.1186/s12859-017-1744-3}{10.1186/s12859-017-1744-3}.
 
 \leavevmode\hypertarget{ref-alcorizabalaguer_2018}{}%
-45. Alcoriza-Balaguer, M.I.; García-Cañaveras, J.C.; Lopez, A.; Conde, I.; Juan, O.; Carretero, J.; Lahoz, A. LipidMS: An r package for lipid annotation in untargeted liquid chromatography-data independent acquisition-mass spectrometry lipidomics. \emph{Analytical Chemistry} \textbf{2018}, \emph{91}, 836--845.
+45. Alcoriza-Balaguer, M.I.; García-Cañaveras, J.C.; Lopez, A.; Conde, I.; Juan, O.; Carretero, J.; Lahoz, A. LipidMS: An r package for lipid annotation in untargeted liquid chromatography-data independent acquisition-mass spectrometry lipidomics. \emph{Analytical Chemistry} \textbf{2018}, \emph{91}, 836--845, doi:\href{https://doi.org/10.1021/acs.analchem.8b03409}{10.1021/acs.analchem.8b03409}.
 
 \leavevmode\hypertarget{ref-thenationalinstituteofstandardsandtechnology_website_2012}{}%
 46. Standards, T.N.I. of; Technology Library conversion tool 2012.
 
 \leavevmode\hypertarget{ref-tsugawa_2015}{}%
-47. Tsugawa, H.; Cajka, T.; Kind, T.; Ma, Y.; Higgins, B.; Ikeda, K.; Kanazawa, M.; VanderGheynst, J.; Fiehn, O.; Arita, M. MS-DIAL: Data-independent MS/MS deconvolution for comprehensive metabolome analysis. \emph{Nature Methods} \textbf{2015}, \emph{12}, 523--526.
+47. Tsugawa, H.; Cajka, T.; Kind, T.; Ma, Y.; Higgins, B.; Ikeda, K.; Kanazawa, M.; VanderGheynst, J.; Fiehn, O.; Arita, M. MS-DIAL: Data-independent MS/MS deconvolution for comprehensive metabolome analysis. \emph{Nature Methods} \textbf{2015}, \emph{12}, 523--526, doi:\href{https://doi.org/10.1038/nmeth.3393}{10.1038/nmeth.3393}.
 
 \leavevmode\hypertarget{ref-massbankofnorthamerica_website_nd}{}%
 48. MassBank of North America MoNA downloads.
 
 \leavevmode\hypertarget{ref-wang_2016}{}%
-49. Wang, M.; Carver, J.J.; Phelan, V.V.; Sanchez, L.M.; Garg, N.; Peng, Y.; Nguyen, D.D.; Watrous, J.; Kapono, C.A.; Luzzatto-Knaan, T. et al. Sharing and community curation of mass spectrometry data with global natural products social molecular networking. \emph{Nature Biotechnology} \textbf{2016}, \emph{34}, 828--837.
+49. Wang, M.; Carver, J.J.; Phelan, V.V.; Sanchez, L.M.; Garg, N.; Peng, Y.; Nguyen, D.D.; Watrous, J.; Kapono, C.A.; Luzzatto-Knaan, T. et al. Sharing and community curation of mass spectrometry data with global natural products social molecular networking. \emph{Nature Biotechnology} \textbf{2016}, \emph{34}, 828--837, doi:\href{https://doi.org/10.1038/nbt.3597}{10.1038/nbt.3597}.
 
 \leavevmode\hypertarget{ref-jacob_2017}{}%
-50. Jacob, D.; Deborde, C.; Lefebvre, M.; Maucourt, M.; Moing, A. NMRProcFlow: A graphical and interactive tool dedicated to 1D spectra processing for NMR-based metabolomics. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2017}, \emph{13}, 36.
+50. Jacob, D.; Deborde, C.; Lefebvre, M.; Maucourt, M.; Moing, A. NMRProcFlow: A graphical and interactive tool dedicated to 1D spectra processing for NMR-based metabolomics. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2017}, \emph{13}, 36, doi:\href{https://doi.org/10.1007/s11306-017-1178-y}{10.1007/s11306-017-1178-y}.
 
 \leavevmode\hypertarget{ref-dieterle_2006}{}%
-51. Dieterle, F.; Ross, A.; Schlotterbeck, G.; Senn, H. Probabilistic quotient normalization as robust method to account for dilution of complex biological mixtures. Application in 1H NMR metabonomics. \emph{Analytical Chemistry} \textbf{2006}, \emph{78}, 4281--4290.
+51. Dieterle, F.; Ross, A.; Schlotterbeck, G.; Senn, H. Probabilistic quotient normalization as robust method to account for dilution of complex biological mixtures. Application in 1H NMR metabonomics. \emph{Analytical Chemistry} \textbf{2006}, \emph{78}, 4281--4290, doi:\href{https://doi.org/10.1021/ac051632c}{10.1021/ac051632c}.
 
 \leavevmode\hypertarget{ref-wishart_2009}{}%
-52. Wishart, D.S.; Knox, C.; Guo, A.C.; Eisner, R.; Young, N.; Gautam, B.; Hau, D.D.; Psychogios, N.; Dong, E.; Bouatra, S. et al. HMDB: A knowledgebase for the human metabolome. \emph{Nucleic Acids Research} \textbf{2009}, \emph{37}, D603--10.
+52. Wishart, D.S.; Knox, C.; Guo, A.C.; Eisner, R.; Young, N.; Gautam, B.; Hau, D.D.; Psychogios, N.; Dong, E.; Bouatra, S. et al. HMDB: A knowledgebase for the human metabolome. \emph{Nucleic Acids Research} \textbf{2009}, \emph{37}, D603--10, doi:\href{https://doi.org/10.1093/nar/gkn810}{10.1093/nar/gkn810}.
 
 \leavevmode\hypertarget{ref-wishart_2013}{}%
-53. Wishart, D.S.; Jewison, T.; Guo, A.C.; Wilson, M.; Knox, C.; Liu, Y.; Djoumbou, Y.; Mandal, R.; Aziat, F.; Dong, E. et al. HMDB 3.0--the human metabolome database in 2013. \emph{Nucleic Acids Research} \textbf{2013}, \emph{41}, D801--7.
+53. Wishart, D.S.; Jewison, T.; Guo, A.C.; Wilson, M.; Knox, C.; Liu, Y.; Djoumbou, Y.; Mandal, R.; Aziat, F.; Dong, E. et al. HMDB 3.0--the human metabolome database in 2013. \emph{Nucleic Acids Research} \textbf{2013}, \emph{41}, D801--7, doi:\href{https://doi.org/10.1093/nar/gks1065}{10.1093/nar/gks1065}.
 
 \leavevmode\hypertarget{ref-wishart_2007}{}%
-54. Wishart, D.S.; Tzur, D.; Knox, C.; Eisner, R.; Guo, A.C.; Young, N.; Cheng, D.; Jewell, K.; Arndt, D.; Sawhney, S. et al. HMDB: The human metabolome database. \emph{Nucleic Acids Research} \textbf{2007}, \emph{35}, D521--6.
+54. Wishart, D.S.; Tzur, D.; Knox, C.; Eisner, R.; Guo, A.C.; Young, N.; Cheng, D.; Jewell, K.; Arndt, D.; Sawhney, S. et al. HMDB: The human metabolome database. \emph{Nucleic Acids Research} \textbf{2007}, \emph{35}, D521--6, doi:\href{https://doi.org/10.1093/nar/gkl923}{10.1093/nar/gkl923}.
 
 \leavevmode\hypertarget{ref-wishart_2018}{}%
-55. Wishart, D.S.; Feunang, Y.D.; Marcu, A.; Guo, A.C.; Liang, K.; Vázquez-Fresno, R.; Sajed, T.; Johnson, D.; Li, C.; Karu, N. et al. HMDB 4.0: The human metabolome database for 2018. \emph{Nucleic Acids Research} \textbf{2018}, \emph{46}, D608--D617.
+55. Wishart, D.S.; Feunang, Y.D.; Marcu, A.; Guo, A.C.; Liang, K.; Vázquez-Fresno, R.; Sajed, T.; Johnson, D.; Li, C.; Karu, N. et al. HMDB 4.0: The human metabolome database for 2018. \emph{Nucleic Acids Research} \textbf{2018}, \emph{46}, D608--D617, doi:\href{https://doi.org/10.1093/nar/gkx1089}{10.1093/nar/gkx1089}.
 
 \leavevmode\hypertarget{ref-beckonert_2007}{}%
-56. Beckonert, O.; Keun, H.C.; Ebbels, T.M.D.; Bundy, J.; Holmes, E.; Lindon, J.C.; Nicholson, J.K. Metabolic profiling, metabolomic and metabonomic procedures for NMR spectroscopy of urine, plasma, serum and tissue extracts. \emph{Nature Protocols} \textbf{2007}, \emph{2}, 2692--2703.
+56. Beckonert, O.; Keun, H.C.; Ebbels, T.M.D.; Bundy, J.; Holmes, E.; Lindon, J.C.; Nicholson, J.K. Metabolic profiling, metabolomic and metabonomic procedures for NMR spectroscopy of urine, plasma, serum and tissue extracts. \emph{Nature Protocols} \textbf{2007}, \emph{2}, 2692--2703, doi:\href{https://doi.org/10.1038/nprot.2007.376}{10.1038/nprot.2007.376}.
 
 \leavevmode\hypertarget{ref-pudakalakatti_2014}{}%
-57. Pudakalakatti, S.M.; Dubey, A.; Jaipuria, G.; Shubhashree, U.; Adiga, S.K.; Moskau, D.; Atreya, H.S. A fast NMR method for resonance assignments: Application to metabolomics. \emph{Journal of Biomolecular NMR} \textbf{2014}, \emph{58}, 165--173.
+57. Pudakalakatti, S.M.; Dubey, A.; Jaipuria, G.; Shubhashree, U.; Adiga, S.K.; Moskau, D.; Atreya, H.S. A fast NMR method for resonance assignments: Application to metabolomics. \emph{Journal of Biomolecular NMR} \textbf{2014}, \emph{58}, 165--173, doi:\href{https://doi.org/10.1007/s10858-014-9814-6}{10.1007/s10858-014-9814-6}.
 
 \leavevmode\hypertarget{ref-ludwig_2010}{}%
-58. Ludwig, C.; Viant, M.R. Two-dimensional j-resolved NMR spectroscopy: Review of a key methodology in the metabolomics toolbox. \emph{Phytochemical Analysis} \textbf{2010}, \emph{21}, 22--32.
+58. Ludwig, C.; Viant, M.R. Two-dimensional j-resolved NMR spectroscopy: Review of a key methodology in the metabolomics toolbox. \emph{Phytochemical Analysis} \textbf{2010}, \emph{21}, 22--32, doi:\href{https://doi.org/10.1002/pca.1186}{10.1002/pca.1186}.
 
 \leavevmode\hypertarget{ref-gmez_2014}{}%
-59. Gómez, J.; Brezmes, J.; Mallol, R.; Rodríguez, M.A.; Vinaixa, M.; Salek, R.M.; Correig, X.; Cañellas, N. Dolphin: A tool for automatic targeted metabolite profiling using 1D and 2D (1)H-NMR data. \emph{Analytical and Bioanalytical Chemistry} \textbf{2014}, \emph{406}, 7967--7976.
+59. Gómez, J.; Brezmes, J.; Mallol, R.; Rodríguez, M.A.; Vinaixa, M.; Salek, R.M.; Correig, X.; Cañellas, N. Dolphin: A tool for automatic targeted metabolite profiling using 1D and 2D (1)H-NMR data. \emph{Analytical and Bioanalytical Chemistry} \textbf{2014}, \emph{406}, 7967--7976, doi:\href{https://doi.org/10.1007/s00216-014-8225-6}{10.1007/s00216-014-8225-6}.
 
 \leavevmode\hypertarget{ref-shinzawa_2012}{}%
-60. Shinzawa, H.; Nishida, M.; Kanematsu, W.; Tanaka, T.; Suzuki, K.; Noda, I. Parallel factor (PARAFAC) kernel analysis of temperature- and composition-dependent NMR spectra of poly(lactic acid) nanocomposites. \emph{The Analyst} \textbf{2012}, \emph{137}, 1913--1921.
+60. Shinzawa, H.; Nishida, M.; Kanematsu, W.; Tanaka, T.; Suzuki, K.; Noda, I. Parallel factor (PARAFAC) kernel analysis of temperature- and composition-dependent NMR spectra of poly(lactic acid) nanocomposites. \emph{The Analyst} \textbf{2012}, \emph{137}, 1913--1921, doi:\href{https://doi.org/10.1039/c2an16019f}{10.1039/c2an16019f}.
 
 \leavevmode\hypertarget{ref-chen_2018}{}%
-61. Chen, K.; Park, J.; Li, F.; Patil, S.M.; Keire, D.A. Chemometric methods to quantify 1D and 2D NMR spectral differences among similar protein therapeutics. \emph{AAPS PharmSciTech} \textbf{2018}, \emph{19}, 1011--1019.
+61. Chen, K.; Park, J.; Li, F.; Patil, S.M.; Keire, D.A. Chemometric methods to quantify 1D and 2D NMR spectral differences among similar protein therapeutics. \emph{AAPS PharmSciTech} \textbf{2018}, \emph{19}, 1011--1019, doi:\href{https://doi.org/10.1208/s12249-017-0911-1}{10.1208/s12249-017-0911-1}.
 
 \leavevmode\hypertarget{ref-pedersen_2006}{}%
 62. Pedersen, H.T.; Dyrby, M.; Engelsen, S.; Bro, R. Application of multi-way analysis to 2D NMR data. In; Annual reports on NMR spectroscopy; Elsevier, 2006; Vol. 59, pp. 207--233 ISBN \href{https://worldcat.org/isbn/9780125054591}{9780125054591}.
 
 \leavevmode\hypertarget{ref-hao_2012}{}%
-63. Hao, J.; Astle, W.; De Iorio, M.; Ebbels, T.M.D. BATMAN--an r package for the automated quantification of metabolites from nuclear magnetic resonance spectra using a bayesian model. \emph{Bioinformatics} \textbf{2012}, \emph{28}, 2088--2090.
+63. Hao, J.; Astle, W.; De Iorio, M.; Ebbels, T.M.D. BATMAN--an r package for the automated quantification of metabolites from nuclear magnetic resonance spectra using a bayesian model. \emph{Bioinformatics} \textbf{2012}, \emph{28}, 2088--2090, doi:\href{https://doi.org/10.1093/bioinformatics/bts308}{10.1093/bioinformatics/bts308}.
 
 \leavevmode\hypertarget{ref-bioconductor_website_ndb}{}%
 64. Bioconductor Bioconductor - BiocViews:~packages found under StatisticalMethod.
@@ -1352,7 +1354,7 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 70. Bishop, C.M. \emph{Pattern recognition and machine learning (information science and statistics)}; Springer: New York, 2006; p. 738; ISBN \href{https://worldcat.org/isbn/978-0387310732}{978-0387310732}.
 
 \leavevmode\hypertarget{ref-brusco_2017}{}%
-71. Brusco, M.J.; Shireman, E.; Steinley, D. A comparison of latent class, k-means, and k-median methods for clustering dichotomous data. \emph{Psychological methods} \textbf{2017}, \emph{22}, 563--580.
+71. Brusco, M.J.; Shireman, E.; Steinley, D. A comparison of latent class, k-means, and k-median methods for clustering dichotomous data. \emph{Psychological methods} \textbf{2017}, \emph{22}, 563--580, doi:\href{https://doi.org/10.1037/met0000095}{10.1037/met0000095}.
 
 \leavevmode\hypertarget{ref-felici_2007}{}%
 72. Felici, G. \emph{Mathematical methods for knowledge discovery and data mining}; Idea Group Reference: Hershey, 2007; p. 371; ISBN \href{https://worldcat.org/isbn/978-1599045283}{978-1599045283}.
@@ -1367,34 +1369,34 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 75. Müllner, D. Modern hierarchical, agglomerative clustering algorithms. \emph{arXiv} \textbf{2011}, \emph{abs/1109.2378}.
 
 \leavevmode\hypertarget{ref-murtagh_2012}{}%
-76. Murtagh, F.; Contreras, P. Algorithms for hierarchical clustering: An overview. \emph{Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery} \textbf{2012}, \emph{2}, 86--97.
+76. Murtagh, F.; Contreras, P. Algorithms for hierarchical clustering: An overview. \emph{Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery} \textbf{2012}, \emph{2}, 86--97, doi:\href{https://doi.org/10.1002/widm.53}{10.1002/widm.53}.
 
 \leavevmode\hypertarget{ref-shaw_2003}{}%
 77. Shaw, P.J.A. \emph{Multivariate statistics for the environmental sciences (mathematics)}; 1st ed.; Hodder Education Publishers: London, 2003; p. 233; ISBN \href{https://worldcat.org/isbn/0-340-80763-6}{0-340-80763-6}.
 
 \leavevmode\hypertarget{ref-zaslavsky_2016}{}%
-78. Zaslavsky, L.; Ciufo, S.; Fedorov, B.; Tatusova, T. Clustering analysis of proteins from microbial genomes at multiple levels of resolution. \emph{BMC Bioinformatics} \textbf{2016}, \emph{17 Suppl 8}, 276.
+78. Zaslavsky, L.; Ciufo, S.; Fedorov, B.; Tatusova, T. Clustering analysis of proteins from microbial genomes at multiple levels of resolution. \emph{BMC Bioinformatics} \textbf{2016}, \emph{17 Suppl 8}, 276, doi:\href{https://doi.org/10.1186/s12859-016-1112-8}{10.1186/s12859-016-1112-8}.
 
 \leavevmode\hypertarget{ref-hall_2011}{}%
 79. Hall; Robert, D. \emph{Annual plant reviews, biology of plant metabolomics}; 1st ed.; Wiley, John \& Sons, Incorporated, 2011; p. 448; ISBN \href{https://worldcat.org/isbn/978-1-4051-9954-4}{978-1-4051-9954-4}.
 
 \leavevmode\hypertarget{ref-cai_2017}{}%
-80. Cai, Q.; Alvarez, J.A.; Kang, J.; Yu, T. Network marker selection for untargeted LC-MS metabolomics data. \emph{Journal of Proteome Research} \textbf{2017}, \emph{16}, 1261--1269.
+80. Cai, Q.; Alvarez, J.A.; Kang, J.; Yu, T. Network marker selection for untargeted LC-MS metabolomics data. \emph{Journal of Proteome Research} \textbf{2017}, \emph{16}, 1261--1269, doi:\href{https://doi.org/10.1021/acs.jproteome.6b00861}{10.1021/acs.jproteome.6b00861}.
 
 \leavevmode\hypertarget{ref-christin_2013}{}%
-81. Christin, C.; Hoefsloot, H.C.J.; Smilde, A.K.; Hoekman, B.; Suits, F.; Bischoff, R.; Horvatovich, P. A critical assessment of feature selection methods for biomarker discovery in clinical proteomics. \emph{Molecular \& Cellular Proteomics} \textbf{2013}, \emph{12}, 263--276.
+81. Christin, C.; Hoefsloot, H.C.J.; Smilde, A.K.; Hoekman, B.; Suits, F.; Bischoff, R.; Horvatovich, P. A critical assessment of feature selection methods for biomarker discovery in clinical proteomics. \emph{Molecular \& Cellular Proteomics} \textbf{2013}, \emph{12}, 263--276, doi:\href{https://doi.org/10.1074/mcp.M112.022566}{10.1074/mcp.M112.022566}.
 
 \leavevmode\hypertarget{ref-rohart_2017}{}%
-82. Rohart, F.; Gautier, B.; Singh, A.; Lê Cao, K.-A. mixOmics: An r package for 'omics feature selection and multiple data integration. \emph{PLoS Computational Biology} \textbf{2017}, \emph{13}, e1005752.
+82. Rohart, F.; Gautier, B.; Singh, A.; Lê Cao, K.-A. mixOmics: An r package for 'omics feature selection and multiple data integration. \emph{PLoS Computational Biology} \textbf{2017}, \emph{13}, e1005752, doi:\href{https://doi.org/10.1371/journal.pcbi.1005752}{10.1371/journal.pcbi.1005752}.
 
 \leavevmode\hypertarget{ref-wen_2017}{}%
-83. Wen, B.; Mei, Z.; Zeng, C.; Liu, S. metaX: A flexible and comprehensive software for processing metabolomics data. \emph{BMC Bioinformatics} \textbf{2017}, \emph{18}, 183.
+83. Wen, B.; Mei, Z.; Zeng, C.; Liu, S. metaX: A flexible and comprehensive software for processing metabolomics data. \emph{BMC Bioinformatics} \textbf{2017}, \emph{18}, 183, doi:\href{https://doi.org/10.1186/s12859-017-1579-y}{10.1186/s12859-017-1579-y}.
 
 \leavevmode\hypertarget{ref-peters_2018}{}%
-84. Peters, K.; Worrich, A.; Weinhold, A.; Alka, O.; Balcke, G.; Birkemeyer, C.; Bruelheide, H.; Calf, O.W.; Dietz, S.; Dührkop, K. et al. Current challenges in plant eco-metabolomics. \emph{International Journal of Molecular Sciences} \textbf{2018}, \emph{19}.
+84. Peters, K.; Worrich, A.; Weinhold, A.; Alka, O.; Balcke, G.; Birkemeyer, C.; Bruelheide, H.; Calf, O.W.; Dietz, S.; Dührkop, K. et al. Current challenges in plant eco-metabolomics. \emph{International Journal of Molecular Sciences} \textbf{2018}, \emph{19}, doi:\href{https://doi.org/10.3390/ijms19051385}{10.3390/ijms19051385}.
 
 \leavevmode\hypertarget{ref-gromski_2014}{}%
-85. Gromski, P.S.; Xu, Y.; Correa, E.; Ellis, D.I.; Turner, M.L.; Goodacre, R. A comparative investigation of modern feature selection and classification approaches for the analysis of mass spectrometry data. \emph{Analytica Chimica Acta} \textbf{2014}, \emph{829}, 1--8.
+85. Gromski, P.S.; Xu, Y.; Correa, E.; Ellis, D.I.; Turner, M.L.; Goodacre, R. A comparative investigation of modern feature selection and classification approaches for the analysis of mass spectrometry data. \emph{Analytica Chimica Acta} \textbf{2014}, \emph{829}, 1--8, doi:\href{https://doi.org/10.1016/j.aca.2014.03.039}{10.1016/j.aca.2014.03.039}.
 
 \leavevmode\hypertarget{ref-legendre_2012}{}%
 86. Legendre, P.; Legendre, L.F.J. \emph{Numerical ecology, volume 24 (developments in environmental modelling)}; 3rd ed.; Elsevier, 2012; p. 1006; ISBN \href{https://worldcat.org/isbn/978-0-444-53868-0}{978-0-444-53868-0}.
@@ -1403,67 +1405,67 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 87. Clarke, B.; Fokoue, E.; Zhang, H.H. \emph{Principles and theory for data mining and machine learning}; Springer series in statistics; Springer New York: New York, NY, 2009; ISBN \href{https://worldcat.org/isbn/978-0-387-98134-5}{978-0-387-98134-5}.
 
 \leavevmode\hypertarget{ref-feng_2018}{}%
-88. Feng, J.; Li, B.; Jiang, X.; Yang, Y.; Wells, G.F.; Zhang, T.; Li, X. Antibiotic resistome in a large-scale healthy human gut microbiota deciphered by metagenomic and network analyses. \emph{Environmental Microbiology} \textbf{2018}, \emph{20}, 355--368.
+88. Feng, J.; Li, B.; Jiang, X.; Yang, Y.; Wells, G.F.; Zhang, T.; Li, X. Antibiotic resistome in a large-scale healthy human gut microbiota deciphered by metagenomic and network analyses. \emph{Environmental Microbiology} \textbf{2018}, \emph{20}, 355--368, doi:\href{https://doi.org/10.1111/1462-2920.14009}{10.1111/1462-2920.14009}.
 
 \leavevmode\hypertarget{ref-fukushima_2009}{}%
-89. Fukushima, A.; Kusano, M.; Redestig, H.; Arita, M.; Saito, K. Integrated omics approaches in plant systems biology. \emph{Current Opinion in Chemical Biology} \textbf{2009}, \emph{13}, 532--538.
+89. Fukushima, A.; Kusano, M.; Redestig, H.; Arita, M.; Saito, K. Integrated omics approaches in plant systems biology. \emph{Current Opinion in Chemical Biology} \textbf{2009}, \emph{13}, 532--538, doi:\href{https://doi.org/10.1016/j.cbpa.2009.09.022}{10.1016/j.cbpa.2009.09.022}.
 
 \leavevmode\hypertarget{ref-vaughan_2012}{}%
-90. Vaughan, A.A.; Dunn, W.B.; Allwood, J.W.; Wedge, D.C.; Blackhall, F.H.; Whetton, A.D.; Dive, C.; Goodacre, R. Liquid chromatography-mass spectrometry calibration transfer and metabolomics data fusion. \emph{Analytical Chemistry} \textbf{2012}, \emph{84}, 9848--9857.
+90. Vaughan, A.A.; Dunn, W.B.; Allwood, J.W.; Wedge, D.C.; Blackhall, F.H.; Whetton, A.D.; Dive, C.; Goodacre, R. Liquid chromatography-mass spectrometry calibration transfer and metabolomics data fusion. \emph{Analytical Chemistry} \textbf{2012}, \emph{84}, 9848--9857, doi:\href{https://doi.org/10.1021/ac302227c}{10.1021/ac302227c}.
 
 \leavevmode\hypertarget{ref-wei_2018}{}%
-91. Wei, R.; Wang, J.; Su, M.; Jia, E.; Chen, S.; Chen, T.; Ni, Y. Missing value imputation approach for mass spectrometry-based metabolomics data. \emph{Scientific reports} \textbf{2018}, \emph{8}, 663.
+91. Wei, R.; Wang, J.; Su, M.; Jia, E.; Chen, S.; Chen, T.; Ni, Y. Missing value imputation approach for mass spectrometry-based metabolomics data. \emph{Scientific reports} \textbf{2018}, \emph{8}, 663, doi:\href{https://doi.org/10.1038/s41598-017-19120-0}{10.1038/s41598-017-19120-0}.
 
 \leavevmode\hypertarget{ref-degenhardt_2019}{}%
-92. Degenhardt, F.; Seifert, S.; Szymczak, S. Evaluation of variable selection methods for random forests and omics data sets. \emph{Briefings in Bioinformatics} \textbf{2019}, \emph{20}, 492--503.
+92. Degenhardt, F.; Seifert, S.; Szymczak, S. Evaluation of variable selection methods for random forests and omics data sets. \emph{Briefings in Bioinformatics} \textbf{2019}, \emph{20}, 492--503, doi:\href{https://doi.org/10.1093/bib/bbx124}{10.1093/bib/bbx124}.
 
 \leavevmode\hypertarget{ref-saeys_2007}{}%
-93. Saeys, Y.; Inza, I.; Larrañaga, P. A review of feature selection techniques in bioinformatics. \emph{Bioinformatics} \textbf{2007}, \emph{23}, 2507--2517.
+93. Saeys, Y.; Inza, I.; Larrañaga, P. A review of feature selection techniques in bioinformatics. \emph{Bioinformatics} \textbf{2007}, \emph{23}, 2507--2517, doi:\href{https://doi.org/10.1093/bioinformatics/btm344}{10.1093/bioinformatics/btm344}.
 
 \leavevmode\hypertarget{ref-determanjr_2014}{}%
-94. Determan Jr, C.E. Optimal algorithm for metabolomics classification and feature selection varies by dataset. \emph{International journal of biology} \textbf{2014}, \emph{7}.
+94. Determan Jr, C.E. Optimal algorithm for metabolomics classification and feature selection varies by dataset. \emph{International journal of biology} \textbf{2014}, \emph{7}, doi:\href{https://doi.org/10.5539/ijb.v7n1p100}{10.5539/ijb.v7n1p100}.
 
 \leavevmode\hypertarget{ref-rinaudo_2016}{}%
-95. Rinaudo, P.; Boudah, S.; Junot, C.; Thévenot, E.A. Biosigner: A new method for the discovery of significant molecular signatures from omics data. \emph{Frontiers in molecular biosciences} \textbf{2016}, \emph{3}, 26.
+95. Rinaudo, P.; Boudah, S.; Junot, C.; Thévenot, E.A. Biosigner: A new method for the discovery of significant molecular signatures from omics data. \emph{Frontiers in molecular biosciences} \textbf{2016}, \emph{3}, 26, doi:\href{https://doi.org/10.3389/fmolb.2016.00026}{10.3389/fmolb.2016.00026}.
 
 \leavevmode\hypertarget{ref-shi_2019}{}%
-96. Shi, L.; Westerhuis, J.A.; Rosén, J.; Landberg, R.; Brunius, C. Variable selection and validation in multivariate modelling. \emph{Bioinformatics} \textbf{2019}, \emph{35}, 972--980.
+96. Shi, L.; Westerhuis, J.A.; Rosén, J.; Landberg, R.; Brunius, C. Variable selection and validation in multivariate modelling. \emph{Bioinformatics} \textbf{2019}, \emph{35}, 972--980, doi:\href{https://doi.org/10.1093/bioinformatics/bty710}{10.1093/bioinformatics/bty710}.
 
 \leavevmode\hypertarget{ref-wehrens_2012}{}%
-97. Wehrens, R.; Franceschi, P. Meta-statistics for variable selection: TheR PackageBioMark. \emph{Journal of statistical software} \textbf{2012}, \emph{51}.
+97. Wehrens, R.; Franceschi, P. Meta-statistics for variable selection: TheR PackageBioMark. \emph{Journal of statistical software} \textbf{2012}, \emph{51}, doi:\href{https://doi.org/10.18637/jss.v051.i10}{10.18637/jss.v051.i10}.
 
 \leavevmode\hypertarget{ref-li_2013}{}%
-98. Li, S.; Park, Y.; Duraisingham, S.; Strobel, F.H.; Khan, N.; Soltow, Q.A.; Jones, D.P.; Pulendran, B. Predicting network activity from high throughput metabolomics. \emph{PLoS Computational Biology} \textbf{2013}, \emph{9}, e1003123.
+98. Li, S.; Park, Y.; Duraisingham, S.; Strobel, F.H.; Khan, N.; Soltow, Q.A.; Jones, D.P.; Pulendran, B. Predicting network activity from high throughput metabolomics. \emph{PLoS Computational Biology} \textbf{2013}, \emph{9}, e1003123, doi:\href{https://doi.org/10.1371/journal.pcbi.1003123}{10.1371/journal.pcbi.1003123}.
 
 \leavevmode\hypertarget{ref-willighagen_2017}{}%
-99. Willighagen, E.L.; Mayfield, J.W.; Alvarsson, J.; Berg, A.; Carlsson, L.; Jeliazkova, N.; Kuhn, S.; Pluskal, T.; Rojas-Chertó, M.; Spjuth, O. et al. The chemistry development kit (CDK) v2.0: Atom typing, depiction, molecular formulas, and substructure searching. \emph{Journal of cheminformatics} \textbf{2017}, \emph{9}, 33.
+99. Willighagen, E.L.; Mayfield, J.W.; Alvarsson, J.; Berg, A.; Carlsson, L.; Jeliazkova, N.; Kuhn, S.; Pluskal, T.; Rojas-Chertó, M.; Spjuth, O. et al. The chemistry development kit (CDK) v2.0: Atom typing, depiction, molecular formulas, and substructure searching. \emph{Journal of cheminformatics} \textbf{2017}, \emph{9}, 33, doi:\href{https://doi.org/10.1186/s13321-017-0220-4}{10.1186/s13321-017-0220-4}.
 
 \leavevmode\hypertarget{ref-heller_2015}{}%
-100. Heller, S.R.; McNaught, A.; Pletnev, I.; Stein, S.; Tchekhovskoi, D. Inchi, the IUPAC international chemical identifier. \emph{Journal of cheminformatics} \textbf{2015}, \emph{7}, 23.
+100. Heller, S.R.; McNaught, A.; Pletnev, I.; Stein, S.; Tchekhovskoi, D. Inchi, the IUPAC international chemical identifier. \emph{Journal of cheminformatics} \textbf{2015}, \emph{7}, 23, doi:\href{https://doi.org/10.1186/s13321-015-0068-4}{10.1186/s13321-015-0068-4}.
 
 \leavevmode\hypertarget{ref-backman_2011}{}%
-101. Backman, T.W.H.; Cao, Y.; Girke, T. ChemMine tools: An online service for analyzing and clustering small molecules. \emph{Nucleic Acids Research} \textbf{2011}, \emph{39}, W486--91.
+101. Backman, T.W.H.; Cao, Y.; Girke, T. ChemMine tools: An online service for analyzing and clustering small molecules. \emph{Nucleic Acids Research} \textbf{2011}, \emph{39}, W486--91, doi:\href{https://doi.org/10.1093/nar/gkr320}{10.1093/nar/gkr320}.
 
 \leavevmode\hypertarget{ref-oboyle_2011}{}%
-102. O'Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.; Vandermeersch, T.; Hutchison, G.R. Open babel: An open chemical toolbox. \emph{Journal of cheminformatics} \textbf{2011}, \emph{3}, 33.
+102. O'Boyle, N.M.; Banck, M.; James, C.A.; Morley, C.; Vandermeersch, T.; Hutchison, G.R. Open babel: An open chemical toolbox. \emph{Journal of cheminformatics} \textbf{2011}, \emph{3}, 33, doi:\href{https://doi.org/10.1186/1758-2946-3-33}{10.1186/1758-2946-3-33}.
 
 \leavevmode\hypertarget{ref-landrum_2016}{}%
 103. Landrum, G. RDKit: Open-source cheminformatics software. \textbf{2016}.
 
 \leavevmode\hypertarget{ref-kim_2016}{}%
-104. Kim, S.; Thiessen, P.A.; Bolton, E.E.; Chen, J.; Fu, G.; Gindulyte, A.; Han, L.; He, J.; He, S.; Shoemaker, B.A. et al. PubChem substance and compound databases. \emph{Nucleic Acids Research} \textbf{2016}, \emph{44}, D1202--13.
+104. Kim, S.; Thiessen, P.A.; Bolton, E.E.; Chen, J.; Fu, G.; Gindulyte, A.; Han, L.; He, J.; He, S.; Shoemaker, B.A. et al. PubChem substance and compound databases. \emph{Nucleic Acids Research} \textbf{2016}, \emph{44}, D1202--13, doi:\href{https://doi.org/10.1093/nar/gkv951}{10.1093/nar/gkv951}.
 
 \leavevmode\hypertarget{ref-wang_2009}{}%
-105. Wang, Y.; Xiao, J.; Suzek, T.O.; Zhang, J.; Wang, J.; Bryant, S.H. PubChem: A public information system for analyzing bioactivities of small molecules. \emph{Nucleic Acids Research} \textbf{2009}, \emph{37}, W623--33.
+105. Wang, Y.; Xiao, J.; Suzek, T.O.; Zhang, J.; Wang, J.; Bryant, S.H. PubChem: A public information system for analyzing bioactivities of small molecules. \emph{Nucleic Acids Research} \textbf{2009}, \emph{37}, W623--33, doi:\href{https://doi.org/10.1093/nar/gkp456}{10.1093/nar/gkp456}.
 
 \leavevmode\hypertarget{ref-pence_2010}{}%
-106. Pence, H.E.; Williams, A. Chemspider: An online chemical information resource. \emph{Journal of chemical education} \textbf{2010}, \emph{87}, 1123--1124.
+106. Pence, H.E.; Williams, A. Chemspider: An online chemical information resource. \emph{Journal of chemical education} \textbf{2010}, \emph{87}, 1123--1124, doi:\href{https://doi.org/10.1021/ed100697w}{10.1021/ed100697w}.
 
 \leavevmode\hypertarget{ref-erxleben_2014}{}%
 107. Erxleben, F.; Günther, M.; Krötzsch, M.; Mendez, J.; Vrandečić, D. Introducing wikidata to the linked data web. In \emph{The semantic web -- ISWC 2014}; Mika, P., Tudorache, T., Bernstein, A., Welty, C., Knoblock, C., Vrandečić, D., Groth, P., Noy, N., Janowicz, K., Goble, C., Eds.; Lecture notes in computer science; Springer International Publishing: Cham, 2014; Vol. 8796, pp. 50--65 ISBN \href{https://worldcat.org/isbn/978-3-319-11963-2}{978-3-319-11963-2}.
 
 \leavevmode\hypertarget{ref-wohlgemuth_2010}{}%
-108. Wohlgemuth, G.; Haldiya, P.K.; Willighagen, E.; Kind, T.; Fiehn, O. The chemical translation service--a web-based tool to improve standardization of metabolomic reports. \emph{Bioinformatics} \textbf{2010}, \emph{26}, 2647--2648.
+108. Wohlgemuth, G.; Haldiya, P.K.; Willighagen, E.; Kind, T.; Fiehn, O. The chemical translation service--a web-based tool to improve standardization of metabolomic reports. \emph{Bioinformatics} \textbf{2010}, \emph{26}, 2647--2648, doi:\href{https://doi.org/10.1093/bioinformatics/btq476}{10.1093/bioinformatics/btq476}.
 
 \leavevmode\hypertarget{ref-srcinc_website_nd}{}%
 109. SRC, Inc. Scientific databases.
@@ -1471,116 +1473,119 @@ The authors expect that the metaRbolomics landscape will continue its steady gro
 \leavevmode\hypertarget{ref-ncicaddgroup_website_nd}{}%
 110. Group NCI/CADD chemical identifier resolver.
 
+\leavevmode\hypertarget{ref-kopczynski_2020}{}%
+111. Kopczynski, D.; Hoffmann, N.; Peng, B.; Ahrends, R. Goslin: A Grammar of Succinct Lipid Nomenclature. \emph{Analytical Chemistry} \textbf{2020}, \emph{92}, 10957--10960, doi:\href{https://doi.org/10.1021/acs.analchem.0c01690}{10.1021/acs.analchem.0c01690}.
+
 \leavevmode\hypertarget{ref-djoumboufeunang_2016}{}%
-111. Djoumbou Feunang, Y.; Eisner, R.; Knox, C.; Chepelev, L.; Hastings, J.; Owen, G.; Fahy, E.; Steinbeck, C.; Subramanian, S.; Bolton, E. et al. ClassyFire: Automated chemical classification with a comprehensive, computable taxonomy. \emph{Journal of cheminformatics} \textbf{2016}, \emph{8}, 61.
+112. Djoumbou Feunang, Y.; Eisner, R.; Knox, C.; Chepelev, L.; Hastings, J.; Owen, G.; Fahy, E.; Steinbeck, C.; Subramanian, S.; Bolton, E. et al. ClassyFire: Automated chemical classification with a comprehensive, computable taxonomy. \emph{Journal of cheminformatics} \textbf{2016}, \emph{8}, 61, doi:\href{https://doi.org/10.1186/s13321-016-0174-y}{10.1186/s13321-016-0174-y}.
 
 \leavevmode\hypertarget{ref-watrous_2012}{}%
-112. Watrous, J.; Roach, P.; Alexandrov, T.; Heath, B.S.; Yang, J.Y.; Kersten, R.D.; Voort, M. van der; Pogliano, K.; Gross, H.; Raaijmakers, J.M. et al. Mass spectral molecular networking of living microbial colonies. \emph{Proceedings of the National Academy of Sciences of the United States of America} \textbf{2012}, \emph{109}, E1743--52.
+113. Watrous, J.; Roach, P.; Alexandrov, T.; Heath, B.S.; Yang, J.Y.; Kersten, R.D.; Voort, M. van der; Pogliano, K.; Gross, H.; Raaijmakers, J.M. et al. Mass spectral molecular networking of living microbial colonies. \emph{Proceedings of the National Academy of Sciences of the United States of America} \textbf{2012}, \emph{109}, E1743--52, doi:\href{https://doi.org/10.1073/pnas.1203689109}{10.1073/pnas.1203689109}.
 
 \leavevmode\hypertarget{ref-kanehisa_2017}{}%
-113. Kanehisa, M.; Furumichi, M.; Tanabe, M.; Sato, Y.; Morishima, K. KEGG: New perspectives on genomes, pathways, diseases and drugs. \emph{Nucleic Acids Research} \textbf{2017}, \emph{45}, D353--D361.
+114. Kanehisa, M.; Furumichi, M.; Tanabe, M.; Sato, Y.; Morishima, K. KEGG: New perspectives on genomes, pathways, diseases and drugs. \emph{Nucleic Acids Research} \textbf{2017}, \emph{45}, D353--D361, doi:\href{https://doi.org/10.1093/nar/gkw1092}{10.1093/nar/gkw1092}.
 
 \leavevmode\hypertarget{ref-kanehisa_2019}{}%
-114. Kanehisa, M.; Sato, Y.; Furumichi, M.; Morishima, K.; Tanabe, M. New approach for understanding genome variations in KEGG. \emph{Nucleic Acids Research} \textbf{2019}, \emph{47}, D590--D595.
+115. Kanehisa, M.; Sato, Y.; Furumichi, M.; Morishima, K.; Tanabe, M. New approach for understanding genome variations in KEGG. \emph{Nucleic Acids Research} \textbf{2019}, \emph{47}, D590--D595, doi:\href{https://doi.org/10.1093/nar/gky962}{10.1093/nar/gky962}.
 
 \leavevmode\hypertarget{ref-kanehisa_2000}{}%
-115. Kanehisa, M.; Goto, S. KEGG: Kyoto encyclopedia of genes and genomes. \emph{Nucleic Acids Research} \textbf{2000}, \emph{28}, 27--30.
+116. Kanehisa, M.; Goto, S. KEGG: Kyoto encyclopedia of genes and genomes. \emph{Nucleic Acids Research} \textbf{2000}, \emph{28}, 27--30, doi:\href{https://doi.org/10.1093/nar/28.1.27}{10.1093/nar/28.1.27}.
 
 \leavevmode\hypertarget{ref-lim_2010}{}%
-116. Lim, E.; Pon, A.; Djoumbou, Y.; Knox, C.; Shrivastava, S.; Guo, A.C.; Neveu, V.; Wishart, D.S. T3DB: A comprehensively annotated database of common toxins and their targets. \emph{Nucleic Acids Research} \textbf{2010}, \emph{38}, D781--6.
+117. Lim, E.; Pon, A.; Djoumbou, Y.; Knox, C.; Shrivastava, S.; Guo, A.C.; Neveu, V.; Wishart, D.S. T3DB: A comprehensively annotated database of common toxins and their targets. \emph{Nucleic Acids Research} \textbf{2010}, \emph{38}, D781--6, doi:\href{https://doi.org/10.1093/nar/gkp934}{10.1093/nar/gkp934}.
 
 \leavevmode\hypertarget{ref-wishart_2015}{}%
-117. Wishart, D.; Arndt, D.; Pon, A.; Sajed, T.; Guo, A.C.; Djoumbou, Y.; Knox, C.; Wilson, M.; Liang, Y.; Grant, J. et al. T3DB: The toxic exposome database. \emph{Nucleic Acids Research} \textbf{2015}, \emph{43}, D928--34.
+118. Wishart, D.; Arndt, D.; Pon, A.; Sajed, T.; Guo, A.C.; Djoumbou, Y.; Knox, C.; Wilson, M.; Liang, Y.; Grant, J. et al. T3DB: The toxic exposome database. \emph{Nucleic Acids Research} \textbf{2015}, \emph{43}, D928--34, doi:\href{https://doi.org/10.1093/nar/gku1004}{10.1093/nar/gku1004}.
 
 \leavevmode\hypertarget{ref-fahy_2007}{}%
-118. Fahy, E.; Sud, M.; Cotter, D.; Subramaniam, S. LIPID MAPS online tools for lipid research. \emph{Nucleic Acids Research} \textbf{2007}, \emph{35}, W606--12.
+119. Fahy, E.; Sud, M.; Cotter, D.; Subramaniam, S. LIPID MAPS online tools for lipid research. \emph{Nucleic Acids Research} \textbf{2007}, \emph{35}, W606--12, doi:\href{https://doi.org/10.1093/nar/gkm324}{10.1093/nar/gkm324}.
 
 \leavevmode\hypertarget{ref-shen_2019}{}%
-119. Shen, X.; Wang, R.; Xiong, X.; Yin, Y.; Cai, Y.; Ma, Z.; Liu, N.; Zhu, Z.-J. Metabolic reaction network-based recursive metabolite annotation for untargeted metabolomics. \emph{Nature Communications} \textbf{2019}, \emph{10}, 1516.
+120. Shen, X.; Wang, R.; Xiong, X.; Yin, Y.; Cai, Y.; Ma, Z.; Liu, N.; Zhu, Z.-J. Metabolic reaction network-based recursive metabolite annotation for untargeted metabolomics. \emph{Nature Communications} \textbf{2019}, \emph{10}, 1516, doi:\href{https://doi.org/10.1038/s41467-019-09550-x}{10.1038/s41467-019-09550-x}.
 
 \leavevmode\hypertarget{ref-schaefer_2009}{}%
-120. Schaefer, C.F.; Anthony, K.; Krupa, S.; Buchoff, J.; Day, M.; Hannay, T.; Buetow, K.H. PID: The pathway interaction database. \emph{Nucleic Acids Research} \textbf{2009}, \emph{37}, D674--9.
+121. Schaefer, C.F.; Anthony, K.; Krupa, S.; Buchoff, J.; Day, M.; Hannay, T.; Buetow, K.H. PID: The pathway interaction database. \emph{Nucleic Acids Research} \textbf{2009}, \emph{37}, D674--9, doi:\href{https://doi.org/10.1093/nar/gkn653}{10.1093/nar/gkn653}.
 
 \leavevmode\hypertarget{ref-nishimura_2001}{}%
-121. Nishimura, D. BioCarta. \emph{Biotech Software \& Internet Report} \textbf{2001}, \emph{2}, 117--120.
+122. Nishimura, D. BioCarta. \emph{Biotech Software \& Internet Report} \textbf{2001}, \emph{2}, 117--120, doi:\href{https://doi.org/10.1089/152791601750294344}{10.1089/152791601750294344}.
 
 \leavevmode\hypertarget{ref-fabregat_2018}{}%
-122. Fabregat, A.; Jupe, S.; Matthews, L.; Sidiropoulos, K.; Gillespie, M.; Garapati, P.; Haw, R.; Jassal, B.; Korninger, F.; May, B. et al. The reactome pathway knowledgebase. \emph{Nucleic Acids Research} \textbf{2018}, \emph{46}, D649--D655.
+123. Fabregat, A.; Jupe, S.; Matthews, L.; Sidiropoulos, K.; Gillespie, M.; Garapati, P.; Haw, R.; Jassal, B.; Korninger, F.; May, B. et al. The reactome pathway knowledgebase. \emph{Nucleic Acids Research} \textbf{2018}, \emph{46}, D649--D655, doi:\href{https://doi.org/10.1093/nar/gkx1132}{10.1093/nar/gkx1132}.
 
 \leavevmode\hypertarget{ref-kramer_2014}{}%
-123. Kramer, F.; Bayerlová, M.; Beißbarth, T. R-based software for the integration of pathway data into bioinformatic algorithms. \emph{Biology} \textbf{2014}, \emph{3}, 85--100.
+124. Kramer, F.; Bayerlová, M.; Beißbarth, T. R-based software for the integration of pathway data into bioinformatic algorithms. \emph{Biology} \textbf{2014}, \emph{3}, 85--100, doi:\href{https://doi.org/10.3390/biology3010085}{10.3390/biology3010085}.
 
 \leavevmode\hypertarget{ref-tenenbaum_website_2019}{}%
-124. Tenenbaum, D. Bioconductor - KEGGREST 2019.
+125. Tenenbaum, D. Bioconductor - KEGGREST 2019.
 
 \leavevmode\hypertarget{ref-chang_website_2012}{}%
-125. Chang, W.; Cheng, J.; Allaire, J.; Xie, Y.; McPherson, J. Shiny: Web application framework for r 2012.
+126. Chang, W.; Cheng, J.; Allaire, J.; Xie, Y.; McPherson, J. Shiny: Web application framework for r 2012.
 
 \leavevmode\hypertarget{ref-roccaserra_2010}{}%
-126. Rocca-Serra, P.; Brandizi, M.; Maguire, E.; Sklyar, N.; Taylor, C.; Begley, K.; Field, D.; Harris, S.; Hide, W.; Hofmann, O. et al. ISA software suite: Supporting standards-compliant experimental annotation and enabling curation at the community level. \emph{Bioinformatics} \textbf{2010}, \emph{26}, 2354--2356.
+127. Rocca-Serra, P.; Brandizi, M.; Maguire, E.; Sklyar, N.; Taylor, C.; Begley, K.; Field, D.; Harris, S.; Hide, W.; Hofmann, O. et al. ISA software suite: Supporting standards-compliant experimental annotation and enabling curation at the community level. \emph{Bioinformatics} \textbf{2010}, \emph{26}, 2354--2356, doi:\href{https://doi.org/10.1093/bioinformatics/btq415}{10.1093/bioinformatics/btq415}.
 
 \leavevmode\hypertarget{ref-sansone_2012}{}%
-127. Sansone, S.-A.; Rocca-Serra, P.; Field, D.; Maguire, E.; Taylor, C.; Hofmann, O.; Fang, H.; Neumann, S.; Tong, W.; Amaral-Zettler, L. et al. Toward interoperable bioscience data. \emph{Nature Genetics} \textbf{2012}, \emph{44}, 121--126.
+128. Sansone, S.-A.; Rocca-Serra, P.; Field, D.; Maguire, E.; Taylor, C.; Hofmann, O.; Fang, H.; Neumann, S.; Tong, W.; Amaral-Zettler, L. et al. Toward interoperable bioscience data. \emph{Nature Genetics} \textbf{2012}, \emph{44}, 121--126, doi:\href{https://doi.org/10.1038/ng.1054}{10.1038/ng.1054}.
 
 \leavevmode\hypertarget{ref-plotlytechnologiesinc_website_2015}{}%
-128. Plotly Technologies Inc Collaborative data science 2015.
+129. Plotly Technologies Inc Collaborative data science 2015.
 
 \leavevmode\hypertarget{ref-wickham_2016}{}%
-129. Wickham, H. \emph{Ggplot2: Elegant graphics for data analysis}; Springer International Publishing : 2016; ISBN \href{https://worldcat.org/isbn/978-3-319-24277-4}{978-3-319-24277-4}.
+130. Wickham, H. \emph{Ggplot2: Elegant graphics for data analysis}; Springer International Publishing : 2016; ISBN \href{https://worldcat.org/isbn/978-3-319-24277-4}{978-3-319-24277-4}.
 
 \leavevmode\hypertarget{ref-jupyter_2018}{}%
-130. Jupyter, P.; Bussonnier, M.; Forde, J.; Freeman, J.; Granger, B.; Head, T.; Holdgraf, C.; Kelley, K.; Nalvarte, G.; Osheroff, A. et al. Binder 2.0 - reproducible, interactive, sharable environments for science at scale. In Proceedings of the Proceedings of the 17th python in science conference; SciPy, 2018; pp. 113--120.
+131. Jupyter, P.; Bussonnier, M.; Forde, J.; Freeman, J.; Granger, B.; Head, T.; Holdgraf, C.; Kelley, K.; Nalvarte, G.; Osheroff, A. et al. Binder 2.0 - reproducible, interactive, sharable environments for science at scale. In Proceedings of the Proceedings of the 17th python in science conference; SciPy, 2018; pp. 113--120.
 
 \leavevmode\hypertarget{ref-ram_website_nd}{}%
-131. Ram, K. Configure your r project for binderhub • hole punch.
+132. Ram, K. Configure your r project for binderhub • hole punch.
 
 \leavevmode\hypertarget{ref-liggi_2018}{}%
-132. Liggi, S.; Hinz, C.; Hall, Z.; Santoru, M.L.; Poddighe, S.; Fjeldsted, J.; Atzori, L.; Griffin, J.L. KniMet: A pipeline for the processing of chromatography-mass spectrometry metabolomics data. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2018}, \emph{14}, 52.
+133. Liggi, S.; Hinz, C.; Hall, Z.; Santoru, M.L.; Poddighe, S.; Fjeldsted, J.; Atzori, L.; Griffin, J.L. KniMet: A pipeline for the processing of chromatography-mass spectrometry metabolomics data. \emph{Metabolomics : Official journal of the Metabolomic Society} \textbf{2018}, \emph{14}, 52, doi:\href{https://doi.org/10.1007/s11306-018-1349-5}{10.1007/s11306-018-1349-5}.
 
 \leavevmode\hypertarget{ref-verhoeven_2018}{}%
-133. Verhoeven, A.; Giera, M.; Mayboroda, O.A. KIMBLE: A versatile visual NMR metabolomics workbench in KNIME. \emph{Analytica Chimica Acta} \textbf{2018}, \emph{1044}, 66--76.
+134. Verhoeven, A.; Giera, M.; Mayboroda, O.A. KIMBLE: A versatile visual NMR metabolomics workbench in KNIME. \emph{Analytica Chimica Acta} \textbf{2018}, \emph{1044}, 66--76, doi:\href{https://doi.org/10.1016/j.aca.2018.07.070}{10.1016/j.aca.2018.07.070}.
 
 \leavevmode\hypertarget{ref-davidson_2016}{}%
-134. Davidson, R.L.; Weber, R.J.M.; Liu, H.; Sharma-Oates, A.; Viant, M.R. Galaxy-m: A galaxy workflow for processing and analyzing direct infusion and liquid chromatography mass spectrometry-based metabolomics data. \emph{GigaScience} \textbf{2016}, \emph{5}, 10.
+135. Davidson, R.L.; Weber, R.J.M.; Liu, H.; Sharma-Oates, A.; Viant, M.R. Galaxy-m: A galaxy workflow for processing and analyzing direct infusion and liquid chromatography mass spectrometry-based metabolomics data. \emph{GigaScience} \textbf{2016}, \emph{5}, 10, doi:\href{https://doi.org/10.1186/s13742-016-0115-8}{10.1186/s13742-016-0115-8}.
 
 \leavevmode\hypertarget{ref-giacomoni_2015}{}%
-135. Giacomoni, F.; Le Corguillé, G.; Monsoor, M.; Landi, M.; Pericard, P.; Pétéra, M.; Duperier, C.; Tremblay-Franco, M.; Martin, J.-F.; Jacob, D. et al. Workflow4Metabolomics: A collaborative research infrastructure for computational metabolomics. \emph{Bioinformatics} \textbf{2015}, \emph{31}, 1493--1495.
+136. Giacomoni, F.; Le Corguillé, G.; Monsoor, M.; Landi, M.; Pericard, P.; Pétéra, M.; Duperier, C.; Tremblay-Franco, M.; Martin, J.-F.; Jacob, D. et al. Workflow4Metabolomics: A collaborative research infrastructure for computational metabolomics. \emph{Bioinformatics} \textbf{2015}, \emph{31}, 1493--1495, doi:\href{https://doi.org/10.1093/bioinformatics/btu813}{10.1093/bioinformatics/btu813}.
 
 \leavevmode\hypertarget{ref-goecks_2010}{}%
-136. Goecks, J.; Nekrutenko, A.; Taylor, J.; Team, G. Galaxy: A comprehensive approach for supporting accessible, reproducible, and transparent computational research in the life sciences. \emph{Genome Biology} \textbf{2010}, \emph{11}, R86.
+137. Goecks, J.; Nekrutenko, A.; Taylor, J.; Team, G. Galaxy: A comprehensive approach for supporting accessible, reproducible, and transparent computational research in the life sciences. \emph{Genome Biology} \textbf{2010}, \emph{11}, R86, doi:\href{https://doi.org/10.1186/gb-2010-11-8-r86}{10.1186/gb-2010-11-8-r86}.
 
 \leavevmode\hypertarget{ref-metabohub_website_2019}{}%
-137. Metabohub National infrastructure in metabolomics and fluxomics 2019.
+138. Metabohub National infrastructure in metabolomics and fluxomics 2019.
 
 \leavevmode\hypertarget{ref-guitton_2017}{}%
-138. Guitton, Y.; Tremblay-Franco, M.; Le Corguillé, G.; Martin, J.-F.; Pétéra, M.; Roger-Mele, P.; Delabrière, A.; Goulitquer, S.; Monsoor, M.; Duperier, C. et al. Create, run, share, publish, and reference your LC-MS, FIA-MS, GC-MS, and NMR data analysis workflows with the Workflow4Metabolomics 3.0 galaxy online infrastructure for metabolomics. \emph{The International Journal of Biochemistry \& Cell Biology} \textbf{2017}, \emph{93}, 89--101.
+139. Guitton, Y.; Tremblay-Franco, M.; Le Corguillé, G.; Martin, J.-F.; Pétéra, M.; Roger-Mele, P.; Delabrière, A.; Goulitquer, S.; Monsoor, M.; Duperier, C. et al. Create, run, share, publish, and reference your LC-MS, FIA-MS, GC-MS, and NMR data analysis workflows with the Workflow4Metabolomics 3.0 galaxy online infrastructure for metabolomics. \emph{The International Journal of Biochemistry \& Cell Biology} \textbf{2017}, \emph{93}, 89--101, doi:\href{https://doi.org/10.1016/j.biocel.2017.07.002}{10.1016/j.biocel.2017.07.002}.
 
 \leavevmode\hypertarget{ref-workflow4metabolomics_website_nd}{}%
-139. Workflow4metabolomics Referenced W4M histories workflow4metabolomics.org.
+140. Workflow4metabolomics Referenced W4M histories workflow4metabolomics.org.
 
 \leavevmode\hypertarget{ref-goble_2019}{}%
-140. Goble, C.; Cohen-Boulakia, S.; Soiland-Reyes, S.; Garijo, D.; Gil, Y.; Crusoe, M.R.; Peters, K.; Schober, D. FAIR computational workflows. \emph{Data Intelligence} \textbf{2020}, \emph{2}, 108--121.
+141. Goble, C.; Cohen-Boulakia, S.; Soiland-Reyes, S.; Garijo, D.; Gil, Y.; Crusoe, M.R.; Peters, K.; Schober, D. FAIR computational workflows. \emph{Data Intelligence} \textbf{2020}, \emph{2}, 108--121, doi:\href{https://doi.org/10.1162/dint_a_00033}{10.1162/dint\_a\_00033}.
 
 \leavevmode\hypertarget{ref-wilkinson_2016}{}%
-141. Wilkinson, M.D.; Dumontier, M.; Aalbersberg, I.J.J.; Appleton, G.; Axton, M.; Baak, A.; Blomberg, N.; Boiten, J.-W.; Silva Santos, L.B. da; Bourne, P.E. et al. The FAIR guiding principles for scientific data management and stewardship. \emph{Scientific data} \textbf{2016}, \emph{3}, 160018.
+142. Wilkinson, M.D.; Dumontier, M.; Aalbersberg, I.J.J.; Appleton, G.; Axton, M.; Baak, A.; Blomberg, N.; Boiten, J.-W.; Silva Santos, L.B. da; Bourne, P.E. et al. The FAIR guiding principles for scientific data management and stewardship. \emph{Scientific data} \textbf{2016}, \emph{3}, 160018, doi:\href{https://doi.org/10.1038/sdata.2016.18}{10.1038/sdata.2016.18}.
 
 \leavevmode\hypertarget{ref-haug_2013}{}%
-142. Haug, K.; Salek, R.M.; Conesa, P.; Hastings, J.; Matos, P. de; Rijnbeek, M.; Mahendraker, T.; Williams, M.; Neumann, S.; Rocca-Serra, P. et al. MetaboLights--an open-access general-purpose repository for metabolomics studies and associated meta-data. \emph{Nucleic Acids Research} \textbf{2013}, \emph{41}, D781--6.
+143. Haug, K.; Salek, R.M.; Conesa, P.; Hastings, J.; Matos, P. de; Rijnbeek, M.; Mahendraker, T.; Williams, M.; Neumann, S.; Rocca-Serra, P. et al. MetaboLights--an open-access general-purpose repository for metabolomics studies and associated meta-data. \emph{Nucleic Acids Research} \textbf{2013}, \emph{41}, D781--6, doi:\href{https://doi.org/10.1093/nar/gks1004}{10.1093/nar/gks1004}.
 
 \leavevmode\hypertarget{ref-sud_2016}{}%
-143. Sud, M.; Fahy, E.; Cotter, D.; Azam, K.; Vadivelu, I.; Burant, C.; Edison, A.; Fiehn, O.; Higashi, R.; Nair, K.S. et al. Metabolomics workbench: An international repository for metabolomics data and metadata, metabolite standards, protocols, tutorials and training, and analysis tools. \emph{Nucleic Acids Research} \textbf{2016}, \emph{44}, D463--70.
+144. Sud, M.; Fahy, E.; Cotter, D.; Azam, K.; Vadivelu, I.; Burant, C.; Edison, A.; Fiehn, O.; Higashi, R.; Nair, K.S. et al. Metabolomics workbench: An international repository for metabolomics data and metadata, metabolite standards, protocols, tutorials and training, and analysis tools. \emph{Nucleic Acids Research} \textbf{2016}, \emph{44}, D463--70, doi:\href{https://doi.org/10.1093/nar/gkv1042}{10.1093/nar/gkv1042}.
 
 \leavevmode\hypertarget{ref-gray_2017}{}%
-144. Gray, A.J.G.; Goble, C.A.; Jimenez, R. Bioschemas: From potato salad to protein annotation. In Proceedings of the Proceedings of the ISWC 2017 posters \& demonstrations and industry tracks co-located with 16th international semantic web conference (ISWC 2017), vienna, austria, october 23rd - to - 25th, 2017.; Nikitina, N., Song, D., Fokoue, A., Haase, P., Eds.; CEUR-WS.org, 2017; Vol. 1963.
+145. Gray, A.J.G.; Goble, C.A.; Jimenez, R. Bioschemas: From potato salad to protein annotation. In Proceedings of the Proceedings of the ISWC 2017 posters \& demonstrations and industry tracks co-located with 16th international semantic web conference (ISWC 2017), vienna, austria, october 23rd - to - 25th, 2017.; Nikitina, N., Song, D., Fokoue, A., Haase, P., Eds.; CEUR-WS.org, 2017; Vol. 1963.
 
 \leavevmode\hypertarget{ref-collberg_2016}{}%
-145. Collberg, C.; Proebsting, T.A. Repeatability in computer systems research. \emph{Communications of the ACM} \textbf{2016}, \emph{59}, 62--69.
+146. Collberg, C.; Proebsting, T.A. Repeatability in computer systems research. \emph{Communications of the ACM} \textbf{2016}, \emph{59}, 62--69, doi:\href{https://doi.org/10.1145/2812803}{10.1145/2812803}.
 
 \leavevmode\hypertarget{ref-taschuk_2017}{}%
-146. Taschuk, M.; Wilson, G. Ten simple rules for making research software more robust. \emph{PLoS Computational Biology} \textbf{2017}, \emph{13}, e1005412.
+147. Taschuk, M.; Wilson, G. Ten simple rules for making research software more robust. \emph{PLoS Computational Biology} \textbf{2017}, \emph{13}, e1005412, doi:\href{https://doi.org/10.1371/journal.pcbi.1005412}{10.1371/journal.pcbi.1005412}.
 
 \leavevmode\hypertarget{ref-stanstrup_website_nd}{}%
-147. Stanstrup, J.; Broeckling, C.D.; Helmus, R.; Hoffmann, N.; Mathé, E.; Naake, T.; Nicolotti, L.; Peters, K.; Rainer, J.; Salek, R. et al. The MetaRbolomics book.
+148. Stanstrup, J.; Broeckling, C.D.; Helmus, R.; Hoffmann, N.; Mathé, E.; Naake, T.; Nicolotti, L.; Peters, K.; Rainer, J.; Salek, R. et al. The MetaRbolomics book.
 
 \newpage
 
@@ -1874,13 +1879,13 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 \end{Shaded}
 
 \begin{verbatim}
-## Warning in readLines(file): incomplete final line found on '/tmp/Rtmp0HyfIm/
-## file65d57b268'
+## Warning in readLines(file): incomplete final line found on '/tmp/Rtmpf3Sfji/
+## file65e3deac8'
 \end{verbatim}
 
 \begin{verbatim}
-## Warning in readLines(file): incomplete final line found on '/tmp/Rtmp0HyfIm/
-## file61c90f3f2'
+## Warning in readLines(file): incomplete final line found on '/tmp/Rtmpf3Sfji/
+## file641db3a08'
 \end{verbatim}
 
 \begin{Shaded}
@@ -1893,11 +1898,11 @@ Since we cannot get reverse dependencies directly for GitHub/GitLab packages, th
 \subsubsection*{Building dependency network}\label{building-dependency-network}}
 \addcontentsline{toc}{subsubsection}{Building dependency network}
 
-In total, we were analysing 297 packages.
+In total, we were analysing 299 packages.
 For each package, this returns the set of packages in CRAN or BioC that depend on, import from or link to the package (i.e., its direct reverse dependencies) using the \texttt{devtools::revdep()} function. A few packages with the highest number of reverse dependencies have been excluded, as they would dominate the visualisation.
 It was not possible to detect reverse dependencies from other hosting places such as GitHub or GitLab.
 
-From the total, 70 packages had at least one
+From the total, 69 packages had at least one
 such reverse dependency.
 
 \begin{Shaded}
@@ -1936,7 +1941,7 @@ such reverse dependency.
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 \end{verbatim}
 
-\hypertarget{htmlwidget-395324bb74e92368dfba}{}
+\hypertarget{htmlwidget-040d912a3f5d8b2171d6}{}
 
 Figure S1: Dependency network of R packages. Shown in blue are packages mentioned in the review. Edges connect to packages that depend on another package, as long as that is in CRAN or BioC. Green nodes correspond to packages in CRAN or BioC not covered in the review. Not shown are 1) infrastructure packages e.g.~rJava, Rcpp 2) packages from the review without reverse dependencies and 3) data packages. Some packages from the review are not in current versions of CRAN or BioC. An interactive version of this figure is available from \href{appendix-2-metarbolomics-dependencies-network.html}{https://stanstrup.gitlab.io/metaRbolomics-book/appendix-2-metarbolomics-dependencies-network.html}.
 
