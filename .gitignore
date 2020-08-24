@@ -6,6 +6,7 @@
 _publish.R
 _book
 _bookdown_files
+build
 rsconnect
 public
 bookdown-demo.log
