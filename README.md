@@ -24,3 +24,16 @@ https://cran.r-project.org/web/packages/miniCRAN/vignettes/miniCRAN-dependency-g
 https://cran.r-project.org/web/packages/pkgnet/vignettes/pkgnet-intro.html
 pkgnet can analyze any R package locally installed. (Run installed.packages() to see the full list of packages installed on your system.)
 
+## Building the book
+
+The `travisScript.sh` uses the Docker image and builds the book in the `build` directory.
+
+Simply run 
+
+```
+./travisScript.sh
+```
+
+to build the book. 
+Output will be saved in the `build/public` directory.
+
