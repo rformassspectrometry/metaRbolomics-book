@@ -42,9 +42,10 @@ MS/MS spectra can be further processed for example by selecting a representative
 MS/MS spectrum among all spectra associated with a chromatographic peak or by
 fusing them into a *consensus* spectrum. Subsequently, spectra can be used in
 downstream analyses such as spectral matching or clustering. Due to the re-use
-of infrastructure from the MSnbase package, xcms has recently gained native
-support for MS/MS data handling and hence allows to extract all MS/MS spectra
-associated with a feature or chromatographic peak for further processing.
+of infrastructure from the MSnbase [@gattoMSnbaseEfficientElegant2020a] package,
+xcms has recently gained native support for MS/MS data handling and hence allows
+to extract all MS/MS spectra associated with a feature or chromatographic peak
+for further processing.
 
 While DDA and DIA are convenient methods, users might miss the accuracy and full
 control on what is fragmented in the targeted approach. The packages rcdk,
@@ -138,5 +139,10 @@ flavour) and Agilent (.cef).
 As denoted in the previous section, the Spectra Bioconductor package supports,
 *via* dedicated *backend* classes which are provided in separate R packages,
 import and export of MS data from a variety of sources and different
-formats. This includes import of files in HMDB's custom xml file format,
-MassBank files (and database) and mgf files [@spectratutorial_2020].
+formats. This includes import of files from HMDB's custom xml file format (*via*
+the MsBackendHmdb package), mgf files (*via* the MsBackendMgf package) and
+MassBank files (and database *via* the MsBackendMassBank package). The latter
+allows integration of spectra from MassBank directly into an R-based
+annotation/identification workflow [@spectratutorial_2020]. A backend to support
+NIST msp files is in its making.
+
