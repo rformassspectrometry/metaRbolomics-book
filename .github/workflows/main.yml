@@ -9,9 +9,9 @@ jobs:
       - name: Install apt dependencies
         run: |-
           sudo echo "Set disable_coredump false" >> /etc/sudo.conf
-          sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends bzip2 libgit2-dev chromium-driver snapd
-          sudo systemctl restart snapd.service
-          sudo snap install chromium
+          sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends bzip2 libgit2-dev chromium-driver wget
+          sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
       - name: Install Package Dependencies
         run: |-
           Rscript -e 'install.packages(c("tidyverse", "bookdown", "knitr", "DT", "kableExtra", "tikzDevice", "webshot", "fastmap", "miniCRAN", "igraph", "magrittr", "networkD3", "visNetwork", "fastmap", "devtools", "remotes", "googlesheets"))'
@@ -19,5 +19,5 @@ jobs:
       - run: |-
           Rscript -e 'webshot::install_phantomjs()' && Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
         env:
-          CHROMOTE_CHROME: /usr/bin/chromium-browser
+          CHROMOTE_CHROME: /usr/bin/google-chrome
     container: rocker/verse:latest
