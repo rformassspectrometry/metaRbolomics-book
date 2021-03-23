@@ -6,7 +6,25 @@ For all mass spectrometers, the fundamental data generated is a mass spectrum, i
 
 ### Profile mode and centroided data
 
-The mass spectra can be recorded in profile (also called continuum) mode, but are often ‘centroided’. Centroiding is, in effect, a process of peak detection for a profile mode mass spectrum (hence in the *m/z* dimension, not in a chromatographic dimension) - a gaussian region of a continuum spectrum with a sufficiently high signal to noise ratio is integrated to give a centroided mass (a “stick” in the mass spectrum as opposed to a continuous signal) and integrated area under the curve. This results in data of reduced size - what was many *m/z*-intensity pairs has been reduced to a single *m/z*-intensity pair. Practically, this reduces the file size considerably and many data processing tools (e.g. *centWave* in xcms) require MS data that has been centroided. The centroiding can be done either during acquisition on the fly by the instrument software, or as an initial processing step. Post-acquisition centroiding can be performed during conversion of the vendor data format to open formats; typically using msconvert from ProteoWizard [@chambers_2012; @kessner_2008] which in some cases provides access to vendor centroiding algorithms or can alternatively use its own built-in centroinding method. Dedicated vendor tools can also be used, and the R packages MSnbase also provides centroiding capabilities.
+The mass spectra can be recorded in profile (also called continuum) mode, but
+are often ‘centroided’. Centroiding is, in effect, a process of peak detection
+for a profile mode mass spectrum (hence in the *m/z* dimension, not in a
+chromatographic dimension) - a gaussian region of a continuum spectrum with a
+sufficiently high signal to noise ratio is integrated to give a centroided mass
+(a “stick” in the mass spectrum as opposed to a continuous signal) and
+integrated area under the curve. This results in data of reduced size - what was
+many *m/z*-intensity pairs has been reduced to a single *m/z*-intensity
+pair. Practically, this reduces the file size considerably and many data
+processing tools (e.g. *centWave* in xcms) require MS data that has been
+centroided. The centroiding can be done either during acquisition on the fly by
+the instrument software, or as an initial processing step. Post-acquisition
+centroiding can be performed during conversion of the vendor data format to open
+formats; typically using msconvert from ProteoWizard [@chambers_2012;
+@kessner_2008] which in some cases provides access to vendor centroiding
+algorithms or can alternatively use its own built-in centroinding
+method. Dedicated vendor tools can also be used, and the Bioconductor packages
+MSnbase [@gattoMSnbaseEfficientElegant2020a] and Spectra also provide
+centroiding capabilities.
 
 ### Direct infusion mass spectrometry data
 

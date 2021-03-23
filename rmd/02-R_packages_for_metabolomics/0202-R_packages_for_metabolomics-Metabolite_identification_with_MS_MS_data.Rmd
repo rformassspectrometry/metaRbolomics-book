@@ -2,25 +2,99 @@
 
 ## Metabolite identification with MS/MS data
 
-The annotation of features from MS^1^ experiments alone has limited specificity. Additional structural information for metabolite identification is available from tandem MS and higher-order MS^n^ experiments. There are different approaches, ranging from targeted MS/MS experiments and DDA to DIA (e.g. MS^E^, all-ion, broad-band CID, SWATH and other vendor terms). Table 3 provides a summarized overview of R packages for these types of experiments.
+The annotation of features from MS^1^ experiments alone has limited
+specificity. Additional structural information for metabolite identification is
+available from tandem MS and higher-order MS^n^ experiments. There are different
+approaches, ranging from targeted MS/MS experiments and DDA to DIA (e.g. MS^E^,
+all-ion, broad-band CID, SWATH and other vendor terms). Table 3 provides a
+summarized overview of R packages for these types of experiments.
 
 ### MS/MS data handling, spectral matching and clustering
 
-Generation of high-quality MS/MS spectral libraries and MS/MS data can be a tedious task. It involves wet lab steps of preparing solutions of reference standards as well as creating MS machine-specific acquisition methods. Several steps can be automated using different R packages presented here.
+Generation of high-quality MS/MS spectral libraries and MS/MS data can be a
+tedious task. It involves wet lab steps of preparing solutions of reference
+standards as well as creating MS machine-specific acquisition methods. Several
+steps can be automated using different R packages presented here.
 
-In case of targeted MS/MS, the instrument isolates specific (specified via method files) masses and fragments them is one possibility. Manually writing targeted MS/MS methods from metabolomics data can be tedious if several tens to hundreds of ions need to be fragmented. The MetShot package supports creating targeted method files for some Bruker and Waters instruments. For all other vendors optimized lists of non-overlapping peaks (RT-*m/z* pairs) can be generated to optimize acquisition in the lowest possible number of methods. 
+In case of targeted MS/MS, the instrument isolates specific (specified via
+method files) masses and fragments them is one possibility. Manually writing
+targeted MS/MS methods from metabolomics data can be tedious if several tens to
+hundreds of ions need to be fragmented. The MetShot package supports creating
+targeted method files for some Bruker and Waters instruments. For all other
+vendors optimized lists of non-overlapping peaks (RT-*m/z* pairs) can be
+generated to optimize acquisition in the lowest possible number of methods.
 
-In Data dependent acquisition (DDA) the instrument is configured to apply a set of rules which determine which precursor ions are fragmented and MS/MS spectra acquired. DDA approaches also produce a lot of spectra for background peaks or contaminants, which are often of limited use for the purpose of metabolomics studies. Using the RMassBank package, MS1 and MS/MS data can be recalibrated and spectra cleaned of artifacts generated. After database lookup of corresponding identifiers, MassBank records are generated.
+In Data dependent acquisition (DDA) the instrument is configured to apply a set
+of rules which determine which precursor ions are fragmented and MS/MS spectra
+acquired. DDA approaches also produce a lot of spectra for background peaks or
+contaminants, which are often of limited use for the purpose of metabolomics
+studies. Using the RMassBank package, MS1 and MS/MS data can be recalibrated and
+spectra cleaned of artifacts generated. After database lookup of corresponding
+identifiers, MassBank records are generated.
 
-In data independent acquisition mode (DIA), the isolation windows are broader, or in some cases, all ions are fragmented, e.g. the Weizmass library [@shahaf_2016] is based on MSE. The computational challenge for DIA data is to deconvolute the MS/MS data and assign the correct precursor ion. DIA data analysis support is currently being implemented in several R packages. 
+In data independent acquisition mode (DIA), the isolation windows are broader,
+or in some cases, all ions are fragmented, e.g. the Weizmass library
+[@shahaf_2016] is based on MSE. The computational challenge for DIA data is to
+deconvolute the MS/MS data and assign the correct precursor ion. DIA data
+analysis support is currently being implemented in several R packages.
 
-MS/MS spectra can be further processed for example by selecting a representative MS/MS spectrum among all spectra associated with a chromatographic peak or by fusing them into a *consensus* spectrum. Subsequently, spectra can be used in downstream analyses such as spectral matching or clustering. Due to the re-use of infrastructure from the MSnbase package, xcms has recently gained native support for MS/MS data handling and hence allows to extract all MS/MS spectra associated with a feature or chromatographic peak for further processing. 
+MS/MS spectra can be further processed for example by selecting a representative
+MS/MS spectrum among all spectra associated with a chromatographic peak or by
+fusing them into a *consensus* spectrum. Subsequently, spectra can be used in
+downstream analyses such as spectral matching or clustering. Due to the re-use
+of infrastructure from the MSnbase [@gattoMSnbaseEfficientElegant2020a] package,
+xcms has recently gained native support for MS/MS data handling and hence allows
+to extract all MS/MS spectra associated with a feature or chromatographic peak
+for further processing.
 
-While DDA and DIA are convenient methods, users might miss the accuracy and full control on what is fragmented in the targeted approach. The packages rcdk, MetShot and RMassBank can be combined into a workflow (see [@witting_website_nd]) for the generation of records to be uploaded to MS/MS spectral databases (e.g. MassBank [@horai_2010]) or to be used off-line. MetShot allows the user to specify an arbitrary number RT-*m/z* pairs and first sorts them into non-overlapping subsets for which in a second step MS/MS methods (Bruker) or target lists (Agilent, Waters) are generated. It is possible to allow multiple collision energies in a single or separate experiment methods. rcdk was used for calculation of exact masses of adducts. MS/MS data were then acquired on a Bruker maXis plus UHR-Q-ToF-MS. After data collection each run was manually checked for data quality and processed with RMassBank. 
+While DDA and DIA are convenient methods, users might miss the accuracy and full
+control on what is fragmented in the targeted approach. The packages rcdk,
+MetShot and RMassBank can be combined into a workflow (see
+[@witting_website_nd]) for the generation of records to be uploaded to MS/MS
+spectral databases (e.g. MassBank [@horai_2010]) or to be used off-line. MetShot
+allows the user to specify an arbitrary number RT-*m/z* pairs and first sorts
+them into non-overlapping subsets for which in a second step MS/MS methods
+(Bruker) or target lists (Agilent, Waters) are generated. It is possible to
+allow multiple collision energies in a single or separate experiment
+methods. rcdk was used for calculation of exact masses of adducts. MS/MS data
+were then acquired on a Bruker maXis plus UHR-Q-ToF-MS. After data collection
+each run was manually checked for data quality and processed with RMassBank.
 
-Spectral matching of measured MS/MS data with spectral libraries is an important step in metabolite identification. Different possibilities for matching of two spectra exist, ranging from simple cosine similarity and the normalized dot product to X-Rank and proprietary algorithms. In MSnbase, different spectra can be compared. Functions for comparison include the number of common peaks, their correlation, their dot product or alternatively a custom comparison function can be supplied. In addition, it will be possible to import spectra from different file formats such as NIST msp, mgf, and Bruker library to MSnbase objects using the MSnio package. MSnbase therefore seems to be the most flexible R package for the computation of spectral similarities. Spectra are binned before comparison. The OrgMassSpecR package contains a simple cosine spectral matching between two spectra. The two spectra are aligned with each other within a defined *m/z* error window using one spectrum as the reference. The feature-rich compMS2Miner can import msp files and uses the dot product to calculate the spectral similarity, the msPurity package can perform spectral matching using different similarity functions, and MatchWeiz implements the probabilistic X-Rank algorithm [@mylonas_2009].
+Spectral matching of measured MS/MS data with spectral libraries is an important
+step in metabolite identification. Different possibilities for matching of two
+spectra exist, ranging from simple cosine similarity and the normalized dot
+product to X-Rank and proprietary algorithms. In MSnbase, different spectra can
+be compared. Functions for comparison include the number of common peaks, their
+correlation, their dot product or alternatively a custom comparison function can
+be supplied. In addition, it will be possible to import spectra from different
+file formats such as NIST msp, mgf, and Bruker library to MSnbase objects using
+the MSnio package. MSnbase therefore seems to be the most flexible R package for
+the computation of spectral similarities. Spectra are binned before
+comparison. The OrgMassSpecR package contains a simple cosine spectral matching
+between two spectra. The two spectra are aligned with each other within a
+defined *m/z* error window using one spectrum as the reference. The feature-rich
+compMS2Miner can import msp files and uses the dot product to calculate the
+spectral similarity, the msPurity package can perform spectral matching using
+different similarity functions, and MatchWeiz implements the probabilistic
+X-Rank algorithm [@mylonas_2009]. Recently, the Spectra package was implemented
+providing a flexible infrastructure for mass spectrometry data analysis which
+allows also to perform spectra comparisons, consensus spectra generation and
+various other tasks. Most imporantly, it supports import and representation of
+*reference* MS libraries from a variety of formats, including MassBank and
+HMDB. This allows a seamless integration of (public) spectra libraries into MS
+workflows [@spectratutorial_2020].
 
-A growing number of packages, e.g. LOBSTAHS [@collins_2016], LipidMatch [@koelmel_2017] and LipidMS [@alcorizabalaguer_2018], support the annotation of lipids, see Table 2. They use a combination of lipid database lookup, spectral or selected fragment mass matching and *in silico* spectra prediction. To improve disambiguation between lipids of the same species that may only differ in their fatty acid chain composition, they usually rely on identifying specific MS/MS feature masses that are indicative of substructure fragments, such as the lipid headgroup, the headgroup with a certain fatty acid attached, or losses of fatty acid(s), and other modifications, such as oxidation. Additionally, they require certain intensity ratios between characteristic fragments of a lipid in order to identify the lipid species or subspecies.
+A growing number of packages, e.g. LOBSTAHS [@collins_2016], LipidMatch
+[@koelmel_2017] and LipidMS [@alcorizabalaguer_2018], support the annotation of
+lipids, see Table 2. They use a combination of lipid database lookup, spectral
+or selected fragment mass matching and *in silico* spectra prediction. To
+improve disambiguation between lipids of the same species that may only differ
+in their fatty acid chain composition, they usually rely on identifying specific
+MS/MS feature masses that are indicative of substructure fragments, such as the
+lipid headgroup, the headgroup with a certain fatty acid attached, or losses of
+fatty acid(s), and other modifications, such as oxidation. Additionally, they
+require certain intensity ratios between characteristic fragments of a lipid in
+order to identify the lipid species or subspecies.
 
 ```{r tab3, warning=FALSE, echo=FALSE, message=FALSE}
 metaRbolomics_show_table("Table 3:")
@@ -29,9 +103,46 @@ metaRbolomics_show_table("Table 3:")
 
 ### Reading of spectral databases
 
-NIST msp files and derived msp-like dialects are a commonly used plain text format for the representation of mass spectra. The msp format described by NIST as part of their Library Conversion Tool [@thenationalinstituteofstandardsandtechnology_website_2012] documentation, but has many different dialects due to rather loose format definitions. R packages which support the import and export of this file format are able to both use spectral libraries for identification, as well as to create and enrich spectral libraries with new data.
+NIST msp files and derived msp-like dialects are a commonly used plain text
+format for the representation of mass spectra. The msp format described by NIST
+as part of their Library Conversion Tool
+[@thenationalinstituteofstandardsandtechnology_website_2012] documentation, but
+has many different dialects due to rather loose format definitions. R packages
+which support the import and export of this file format are able to both use
+spectral libraries for identification, as well as to create and enrich spectral
+libraries with new data.
 
-There are various R packages which support the import of NIST msp files (see Table 3), but the support of different dialects varies, e.g., the NIST-like spectral libraries from RIKEN PRIME [@tsugawa_2015] cannot be parsed by some readers. In addition, none of these packages currently supports the import of additional attributes such as ‘InChIKey: ’ or ‘Collision_energy: ’ as used in the export of MoNA libraries [@massbankofnorthamerica_website_nd]. In essence, most of the packages support the format shown in Listing S1 (see Supplementary File 1, ‘basic NIST’ in Table S1). The metaMS package supports NIST msp files as shown in Listing S2 (see Supplementary File 1, termed ‘canonical NIST’) and RIKEN PRIME provides a similar format with different attributes as shown in Listing S3 (see Supplementary File 1). The packages metaMS, OrgMassSpecR, enviGCMS, and TargetSearch support the export of NIST msp files. The remaining packages partially support the export of results to NIST msp files (see Table S1).
+There are various R packages which support the import of NIST msp files (see
+Table 3), but the support of different dialects varies, e.g., the NIST-like
+spectral libraries from RIKEN PRIME [@tsugawa_2015] cannot be parsed by some
+readers. In addition, none of these packages currently supports the import of
+additional attributes such as ‘InChIKey: ’ or ‘Collision_energy: ’ as used in
+the export of MoNA libraries [@massbankofnorthamerica_website_nd]. In essence,
+most of the packages support the format shown in Listing S1 (see Supplementary
+File 1, ‘basic NIST’ in Table S1). The metaMS package supports NIST msp files as
+shown in Listing S2 (see Supplementary File 1, termed ‘canonical NIST’) and
+RIKEN PRIME provides a similar format with different attributes as shown in
+Listing S3 (see Supplementary File 1). The packages metaMS, OrgMassSpecR,
+enviGCMS, and TargetSearch support the export of NIST msp files. The remaining
+packages partially support the export of results to NIST msp files (see Table
+S1).
 
-One of the most flexible packages for the handling of NIST msp files is metaMS. This package imports and exports the most attributes, although it does not entirely support generic attributes, and the export is very slow (we observed 20 min for an 8 MB file). In addition, a good library reader should also support mgf (mascot generic format) as available for download from GNPS [@wang_2016] as well as other common formats such as the MassBank record format and different vendor library formats such as Bruker (.library, another msp flavour) and Agilent (.cef).
+One of the most flexible packages for the handling of NIST msp files is
+metaMS. This package imports and exports the most attributes, although it does
+not entirely support generic attributes, and the export is very slow (we
+observed 20 min for an 8 MB file). In addition, a good library reader should
+also support mgf (mascot generic format) as available for download from GNPS
+[@wang_2016] as well as other common formats such as the MassBank record format
+and different vendor library formats such as Bruker (.library, another msp
+flavour) and Agilent (.cef).
+
+As denoted in the previous section, the Spectra Bioconductor package supports,
+*via* dedicated *backend* classes which are provided in separate R packages,
+import and export of MS data from a variety of sources and different
+formats. This includes import of files from HMDB's custom xml file format (*via*
+the MsBackendHmdb package), mgf files (*via* the MsBackendMgf package) and
+MassBank files (and database *via* the MsBackendMassBank package). The latter
+allows integration of spectra from MassBank directly into an R-based
+annotation/identification workflow [@spectratutorial_2020]. A backend to support
+NIST msp files is in its making.
 
